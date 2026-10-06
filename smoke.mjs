@@ -1,7 +1,7 @@
 // Functional widget smoke test: does clicking Check actually grade correctly?
 import puppeteer from "puppeteer-core";
 import { createRequire } from "node:module";
-const CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const CHROME=process.env.CHROME_PATH||"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const BASE="http://localhost:4321";
 // Default to every ready lesson in the manifest, so this can't drift out of
 // sync as lessons are flipped live.

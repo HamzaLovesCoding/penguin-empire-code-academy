@@ -13,7 +13,7 @@
 import puppeteer from "puppeteer-core";
 import { createRequire } from "node:module";
 
-const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const CHROME = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const BASE = process.env.BASE || "http://localhost:4321";
 
 /* ---- load the manifest (it assigns to `window`) ------------------------- */
