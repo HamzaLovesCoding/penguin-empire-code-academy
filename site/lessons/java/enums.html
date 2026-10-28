@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -91,7 +93,7 @@ System.out.println(mode);</code></pre>
         </div>
 
         <p>Printing an enum gives its name. Writing <code>RobotMode.TELOP</code> is
-          <code>cannot find symbol</code> at compile time, which is the whole point.</p>
+          <code>cannot find symbol</code> at compile time, so the typo never reaches the robot.</p>
 
         <h2 id="switch"><span class="section-h"><span class="num">3</span> Using one in a switch</span></h2>
         <p>Enums and <code>switch</code> fit together well. Inside a case you write the value name alone,
@@ -280,10 +282,10 @@ for (Level l : Level.<span class="blank" data-answer="values"></span>()) {
           <div class="challenge-body">
             <p class="challenge-prompt">What does an enum give you that a <code>String</code> does not?</p>
             <div class="options">
+              <label class="option" data-explain="Speed is not the reason to reach for an enum. Correctness is."><input type="radio" name="q-why" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It runs faster than comparing Strings</span></label>
               <label class="option" data-correct data-explain="Correct. A misspelled enum value is cannot find symbol at compile time. A misspelled String compiles and fails silently."><input type="radio" name="q-why" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The compiler rejects a value that is not in the list</span></label>
-              <label class="option" data-explain="Speed is not the reason to reach for an enum. Correctness is."><input type="radio" name="q-why" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It runs faster</span></label>
-              <label class="option" data-explain="An enum has a fixed list. Holding any text at all is what a String does."><input type="radio" name="q-why" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It can hold any text</span></label>
-              <label class="option" data-explain="Both work in a switch. Enums are simply safer."><input type="radio" name="q-why" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It can be used in a switch, unlike a String</span></label>
+              <label class="option" data-explain="An enum has a fixed list. Holding any text at all is what a String does."><input type="radio" name="q-why" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It can hold any text you want to store</span></label>
+              <label class="option" data-explain="Both work in a switch. Enums are simply safer."><input type="radio" name="q-why" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It works in a switch statement, which a String cannot</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -391,7 +393,7 @@ Arm to the middle rung</code></pre>
               <div class="cp-prompt"><span class="qn">Q1.</span> What is an enum?</div>
               <div class="options">
                 <label class="option" data-correct data-explain="Correct. The list of allowed values is written down and the compiler enforces it."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A type whose value must be one of a fixed list</span></label>
-                <label class="option" data-explain="An enum can hold data, but it is a type in its own right, not a number."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Another name for an <code>int</code> constant</span></label>
+                <label class="option" data-explain="An enum can hold data, but it is a type in its own right, not a number."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Another name for a group of <code>int</code> constants</span></label>
                 <label class="option" data-explain="A list that grows is an ArrayList. An enum's values are fixed when you write them."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A list you can add values to while running</span></label>
               </div>
               <div class="feedback"></div>
@@ -400,9 +402,9 @@ Arm to the middle rung</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> What does <code>values()</code> return?</div>
               <div class="options">
+                <label class="option" data-explain="That would be a single value, not the full set."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The value that is currently selected</span></label>
+                <label class="option" data-explain="It returns the enum values themselves, not their positions."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The ordinal number of each value, as ints</span></label>
                 <label class="option" data-correct data-explain="Correct. It gives an array you can loop over with a for-each."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An array of every value in the enum</span></label>
-                <label class="option" data-explain="It returns the enum values themselves, not their positions."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The ordinal numbers</span></label>
-                <label class="option" data-explain="That would be a single value, not the full set."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The currently selected value</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -410,9 +412,9 @@ Arm to the middle rung</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Why avoid depending on <code>ordinal()</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Insert a value in the middle and every number after it shifts, with no warning."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The numbers change if the list is reordered</span></label>
-                <label class="option" data-explain="It works reliably. The problem is that what it returns depends on the order you happened to write."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It does not work</span></label>
-                <label class="option" data-explain="It is a normal method on every enum and is always available."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is not available on most enums</span></label>
+                <label class="option" data-explain="It is a normal method on every enum and is always available."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is not available on most enums you write</span></label>
+                <label class="option" data-explain="It works reliably. The problem is that what it returns depends on the order you happened to write."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It does not work reliably on every computer</span></label>
+                <label class="option" data-correct data-explain="Correct. Insert a value in the middle and every number after it shifts, with no warning."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The numbers change if you reorder the list</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -420,8 +422,8 @@ Arm to the middle rung</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> Inside <code>switch (mode)</code>, how do you write the case for <code>RobotMode.TELEOP</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The enum type is already known from the switch, so the bare value name is used."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>case TELEOP</code></span></label>
                 <label class="option" data-explain="Java rejects the qualified form here. Use the bare name."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>case RobotMode.TELEOP</code></span></label>
+                <label class="option" data-correct data-explain="Correct. The enum type is already known from the switch, so the bare value name is used."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>case TELEOP</code></span></label>
                 <label class="option" data-explain="An enum value is not text, so quotes do not apply."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>case "TELEOP"</code></span></label>
               </div>
               <div class="feedback"></div>

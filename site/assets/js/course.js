@@ -13,7 +13,7 @@ window.COURSE = {
       id: "java",
       tag: "Phase 1",
       label: "Java & Object-Oriented Programming",
-      blurb: "Start from zero. By the end you can read and write real Java — the language FRC robots are programmed in.",
+      blurb: "Start from zero. By the end you can read and write real Java, the language FRC robots are programmed in.",
       icon: "java",
       units: [
         {
@@ -51,7 +51,7 @@ window.COURSE = {
         },
         {
           id: "j4", num: "J4", title: "Data Structures",
-          sub: "Storing many values at once — the backbone of the kitchen project.",
+          sub: "Storing many values at once. The kitchen project is built on these.",
           lessons: [
             { id: "j-arrays", t: "Arrays (1D)", ready: true, href: "/lessons/java/arrays.html", dur: "25 min", diff: "Beginner" },
             { id: "j-2d-arrays", t: "2D Arrays (Grids)", ready: true, href: "/lessons/java/2d-arrays.html", dur: "25 min", diff: "Beginner" },
@@ -61,7 +61,7 @@ window.COURSE = {
         },
         {
           id: "j5", num: "J5", title: "Object-Oriented Programming",
-          sub: "The big one — modeling the world as objects. This is how WPILib is built.",
+          sub: "The big one: modeling the world as objects. This is how WPILib is built.",
           lessons: [
             { id: "j-classes-objects", t: "Classes & Objects", ready: true, href: "/lessons/java/classes-objects.html", dur: "25 min", diff: "Intermediate" },
             { id: "j-fields-constructors", t: "Fields, Constructors & this", ready: true, href: "/lessons/java/fields-constructors.html", dur: "25 min", diff: "Intermediate" },
@@ -190,7 +190,7 @@ window.COURSE = {
         },
         {
           id: "u11", num: "11", title: "Autonomous",
-          sub: "PathPlanner — build it last.",
+          sub: "PathPlanner, built last.",
           lessons: [
             { id: "frc-pathplanner", t: "The PathPlanner Workflow", ready: true, href: "/lessons/frc/pathplanner.html", dur: "25 min", diff: "Advanced" },
             { id: "frc-auto-routines", t: "Building an Auto Routine", ready: true, href: "/lessons/frc/auto-routines.html", dur: "30 min", diff: "Advanced" },
@@ -212,11 +212,11 @@ window.COURSE = {
     { id: "ref-java", t: "Java Syntax Cheat-Sheet", href: "/reference/java", ready: true,
       sub: "Every bit of syntax from Phase 1, on one page." },
     { id: "ref-wpilib", t: "WPILib Cheat-Sheet", href: "/reference/wpilib", ready: true,
-      sub: "Motors, encoders, PID, commands, bindings — the competition quick-reference." },
+      sub: "Motors, encoders, PID, commands, bindings: the competition quick-reference." },
     { id: "ref-glossary", t: "Glossary", href: "/reference/glossary", ready: true,
       sub: "Every term in the course, defined in one sentence." },
     { id: "ref-docs", t: "Official Docs Index", href: "/reference/docs", ready: true,
-      sub: "WPILib, REV, CTRE, Limelight, PathPlanner — and what to re-check each season." },
+      sub: "WPILib, REV, CTRE, Limelight, PathPlanner, and what to re-check each season." },
   ],
 
   /* ---- Phase exams ------------------------------------------------------ */

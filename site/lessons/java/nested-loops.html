@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -207,10 +209,10 @@ public class Main {
             <p class="challenge-prompt">You want each row on its own line. Where does
               <code>System.out.println()</code> belong?</p>
             <div class="options">
-              <label class="option" data-explain="That ends the line after every single item, so each cell lands on its own line."><input type="radio" name="q-nl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Inside the inner loop</span></label>
               <label class="option" data-correct data-explain="Correct. After the inner loop finishes a row, and still inside the outer loop so it happens once per row."><input type="radio" name="q-nl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">After the inner loop, inside the outer loop</span></label>
-              <label class="option" data-explain="That runs once at the very end, so the whole grid prints as a single long line."><input type="radio" name="q-nl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">After both loops</span></label>
-              <label class="option" data-explain="Before the loops there is nothing printed yet, so it only adds a blank line at the top."><input type="radio" name="q-nl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Before both loops</span></label>
+              <label class="option" data-explain="That ends the line after every single item, so each cell lands on its own line."><input type="radio" name="q-nl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Inside the inner loop, after each print</span></label>
+              <label class="option" data-explain="That runs once at the very end, so the whole grid prints as a single long line."><input type="radio" name="q-nl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">After both loops, once everything has printed</span></label>
+              <label class="option" data-explain="Before the loops there is nothing printed yet, so it only adds a blank line at the top."><input type="radio" name="q-nl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Before both loops start</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -244,7 +246,7 @@ public class Main {
             <div class="options">
               <label class="option" data-explain="The outer counter only advances once the inner loop has run all the way through."><input type="radio" name="q-fast" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The outer one</span></label>
               <label class="option" data-correct data-explain="Correct. The inner counter runs through its whole range on every single pass of the outer loop."><input type="radio" name="q-fast" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The inner one</span></label>
-              <label class="option" data-explain="They advance at very different rates. That is the whole point of nesting."><input type="radio" name="q-fast" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">They change at the same rate</span></label>
+              <label class="option" data-explain="They advance at very different rates: the inner one finishes its whole range before the outer one moves once."><input type="radio" name="q-fast" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">They change at the same rate</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -361,8 +363,8 @@ public class Main {
               <div class="cp-prompt"><span class="qn">Q1.</span> An outer loop of 5 contains an inner loop of 7. How many times does the inner body run?</div>
               <div class="options">
                 <label class="option" data-explain="That is the two counts added. Nesting multiplies them instead."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">12</span></label>
-                <label class="option" data-correct data-explain="Correct. 5 times 7 is 35."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">35</span></label>
                 <label class="option" data-explain="The inner loop restarts on every outer pass, so it runs far more than 7 times in total."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">7</span></label>
+                <label class="option" data-correct data-explain="Correct. 5 times 7 is 35."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">35</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -370,8 +372,8 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> Which loop normally represents the row?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The outer loop moves down the rows while the inner loop crosses each one."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The outer loop</span></label>
                 <label class="option" data-explain="The inner loop moves across the columns of a single row."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The inner loop</span></label>
+                <label class="option" data-correct data-explain="Correct. The outer loop moves down the rows while the inner loop crosses each one."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The outer loop</span></label>
                 <label class="option" data-explain="The convention is consistent, and following it makes grid code much easier to read."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It does not matter</span></label>
               </div>
               <div class="feedback"></div>
@@ -380,9 +382,9 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Why use <code>print</code> rather than <code>println</code> inside the inner loop?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. print keeps the cells on the same line so a row can be built up."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So the cells of one row stay on the same line</span></label>
-                <label class="option" data-explain="Both print text. The difference is only whether a line break follows."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>println</code> cannot print text</span></label>
-                <label class="option" data-explain="Speed is not the reason. The reason is where the line breaks land."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>print</code> is faster</span></label>
+                <label class="option" data-correct data-explain="Correct. print keeps the cells on the same line so a row can be built up."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So one row's cells stay on the same line</span></label>
+                <label class="option" data-explain="Both print text. The difference is only whether a line break follows."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>println</code> cannot print text, only numbers</span></label>
+                <label class="option" data-explain="Speed is not the reason. The reason is where the line breaks land."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>print</code> is faster inside a loop</span></label>
               </div>
               <div class="feedback"></div>
             </div>

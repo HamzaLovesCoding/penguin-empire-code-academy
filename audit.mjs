@@ -38,7 +38,7 @@ if (explicit.length) {
     ...(COURSE.exams || []).filter((e) => wantAll || e.ready),
   ];
   targets = [
-    "/", "/syllabus.html",
+    "/", "/dashboard.html", "/syllabus.html",
     ...lessons.map((l) => l.href || `/lessons/${l.id}`),
     ...extras.map((e) => e.href),
   ];

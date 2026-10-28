@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -27,7 +29,7 @@
         <span class="badge badge--ocean">Unit 4</span>
         <h1 class="lesson-title">Moving a Motor with <span class="u-mono" style="font-size:.8em">motor.set()</span></h1>
         <p class="lesson-lede">This is the moment code becomes a robot. You'll create a motor in software and spin it at a
-          speed you choose. It is the single most important method you will use all season.</p>
+          speed you choose. You will use that method all season.</p>
         <div class="lesson-meta">
           <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> 25 min</span>
           <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h2v-4H3zM9 20h2V10H9zM15 20h2V4h-2z"/></svg> Beginner</span>
@@ -228,9 +230,9 @@ intake.set(<span class="blank" data-answer="0.7|.7"></span>);</pre>
           <div class="challenge-body">
             <p class="challenge-prompt">Which call <em>stops</em> the motor?</p>
             <div class="options">
-              <label class="option" data-correct data-explain="Correct. 0 means zero percent output, which is a stop."><input type="radio" name="q-stop" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>motor1.set(0);</code></span></label>
-              <label class="option" data-explain="That is 100% power in one direction, the opposite of stopping."><input type="radio" name="q-stop" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>motor1.set(1.0);</code></span></label>
               <label class="option" data-explain="Minus 1.0 is full power the other way, not a stop."><input type="radio" name="q-stop" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>motor1.set(-1.0);</code></span></label>
+              <label class="option" data-explain="That is 100% power in one direction, the opposite of stopping."><input type="radio" name="q-stop" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>motor1.set(1.0);</code></span></label>
+              <label class="option" data-correct data-explain="Correct. 0 means zero percent output, which is a stop."><input type="radio" name="q-stop" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>motor1.set(0);</code></span></label>
               <label class="option" data-explain="2.0 is outside the valid -1.0 to 1.0 range. It does not give you extra power."><input type="radio" name="q-stop" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>motor1.set(2.0);</code></span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
@@ -336,32 +338,32 @@ public class Intake {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> What does the argument to <code>motor.set()</code> represent?</div>
               <div class="options">
-                <label class="option" data-explain="No. set() knows nothing about RPM. It is a fraction of full power, and reading actual RPM is the encoder's job."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A speed in RPM</span></label>
+                <label class="option" data-explain="No. set() knows nothing about RPM. It is a fraction of full power, and reading actual RPM is the encoder's job."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A speed in RPM, up to the motor's max</span></label>
                 <label class="option" data-correct data-explain="Yes. It is a percent of full power from -1.0 to 1.0, not an RPM."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A percent output from -1.0 to 1.0</span></label>
-                <label class="option" data-explain="That is a position, and it comes from the encoder. set() only controls how hard the motor pushes."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An angle in degrees</span></label>
+                <label class="option" data-explain="That is a position, and it comes from the encoder. set() only controls how hard the motor pushes."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An angle in degrees to turn to</span></label>
               </div>
             </div>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> Two values needed to construct a <code>SparkMax</code> are…</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Right. The CAN ID and the MotorType, which is kBrushless for a Neo."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A CAN ID and a motor type</span></label>
-                <label class="option" data-explain="Speed comes later, through set(). The constructor only says which motor on the CAN bus you are talking to."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A speed and a direction</span></label>
                 <label class="option" data-explain="Motors are identified by CAN ID, the number you assign in the REV Hardware Client, not by a name."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A color and a name</span></label>
+                <label class="option" data-explain="Speed comes later, through set(). The constructor only says which motor on the CAN bus you are talking to."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A speed and a direction</span></label>
+                <label class="option" data-correct data-explain="Right. The CAN ID and the MotorType, which is kBrushless for a Neo."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A CAN ID and a motor type</span></label>
               </div>
             </div>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Roughly what's the team's safe upper limit for percent output?</div>
               <div class="options">
                 <label class="option" data-explain="This is exactly what fried a motor for the team. Around 90% killed it in about five seconds."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">About 1.0 (full power, always)</span></label>
-                <label class="option" data-correct data-explain="Correct. Keep it under about 0.8, or add a motor instead of redlining one."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">About 0.8</span></label>
                 <label class="option" data-explain="Safe but needlessly weak. About 0.8 is the practical ceiling, and below that you are leaving power unused."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">About 0.1</span></label>
+                <label class="option" data-correct data-explain="Correct. Keep it under about 0.8, or add a motor instead of redlining one."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">About 0.8</span></label>
               </div>
             </div>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> The console prints <code>CAN ID 16 timed out</code>. Most likely cause?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Yes. A mismatched ID or a wiring break is the usual culprit, so check the ID and then the CAN chain."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Wrong CAN ID or a broken CAN wire</span></label>
                 <label class="option" data-explain="Temperature is not something CAN reports. A timeout means the roboRIO cannot reach that device at all."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The motor is too cold</span></label>
+                <label class="option" data-correct data-explain="Yes. A mismatched ID or a wiring break is the usual culprit, so check the ID and then the CAN chain."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Wrong CAN ID or a broken CAN wire</span></label>
                 <label class="option" data-explain="Printing has nothing to do with CAN. A timeout is a wiring or ID problem, not an output problem."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You used println instead of print</span></label>
               </div>
             </div>

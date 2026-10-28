@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -343,7 +345,7 @@ Final health: 50</code></pre>
           <li>Classes, constructors, <code>this</code>, private fields and getters.</li>
           <li>Inheritance for the item family and polymorphism so <code>eat</code> accepts a meal.</li>
         </ul>
-        <p>That is the whole of Phase 1 working together. Phase 2 applies the same structure to a robot,
+        <p>That is all of Phase 1 working together. Phase 2 applies the same structure to a robot,
           where <code>Kitchen</code> becomes <code>RobotContainer</code> and <code>Item</code> becomes
           <code>Subsystem</code>.</p>
 
@@ -368,10 +370,10 @@ Final health: 50</code></pre>
             <p class="challenge-prompt"><code>eat</code> takes a <code>Food</code> and was never changed.
               Why does it accept a <code>Meal</code>?</p>
             <div class="options">
-              <label class="option" data-correct data-explain="Correct. Meal extends Food, so a Meal fits anywhere a Food is expected."><input type="radio" name="q-meal" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because <code>Meal</code> extends <code>Food</code></span></label>
+              <label class="option" data-explain="Nothing is converted. The Meal stays a Meal and is simply treated as the Food it also is."><input type="radio" name="q-meal" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because the meal is converted into a food</span></label>
               <label class="option" data-explain="Java is strict about types. It accepts a Meal only because of the inheritance relationship."><input type="radio" name="q-meal" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because Java ignores parameter types</span></label>
               <label class="option" data-explain="There is only one eat method here. No overloading is involved."><input type="radio" name="q-meal" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because <code>eat</code> is overloaded</span></label>
-              <label class="option" data-explain="Nothing is converted. The Meal stays a Meal and is simply treated as the Food it also is."><input type="radio" name="q-meal" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because the meal is converted into a food</span></label>
+              <label class="option" data-correct data-explain="Correct. Meal extends Food, so a Meal fits anywhere a Food is expected."><input type="radio" name="q-meal" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because <code>Meal</code> extends <code>Food</code></span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -410,9 +412,9 @@ Final health: 50</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> Why does <code>Meal</code> extend <code>Food</code> rather than <code>Item</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Extending Food means every method that already accepts a Food accepts a Meal with no change."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So it can be eaten and used in recipes like any other food</span></label>
-                <label class="option" data-explain="Meal could extend Item and compile. It just would not work with eat."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because <code>Item</code> cannot be extended twice</span></label>
-                <label class="option" data-explain="The depth of the chain has no effect on speed."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because it is faster</span></label>
+                <label class="option" data-correct data-explain="Correct. Extending Food means every method that already accepts a Food accepts a Meal with no change."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So it works anywhere a <code>Food</code> is expected</span></label>
+                <label class="option" data-explain="Meal could extend Item and compile. It just would not work with eat."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because <code>Item</code> cannot be extended by two classes</span></label>
+                <label class="option" data-explain="The depth of the chain has no effect on speed."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because a deeper class chain runs faster</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -420,9 +422,9 @@ Final health: 50</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> Why does the <code>Meal</code> constructor call <code>wash()</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. A cooked meal counts as clean, so eat will accept it without an extra step."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So <code>eat</code> does not refuse it as dirty</span></label>
-                <label class="option" data-explain="wash sets a flag. It has nothing to do with the ingredient list."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To empty the ingredient list</span></label>
                 <label class="option" data-explain="Java requires super first, but not wash. That call is a design decision."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because Java requires it</span></label>
+                <label class="option" data-explain="wash sets a flag. It has nothing to do with the ingredient list."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To empty the ingredient list after cooking</span></label>
+                <label class="option" data-correct data-explain="Correct. A cooked meal counts as clean, so eat will accept it without an extra step."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So <code>eat</code> does not refuse it as dirty</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -430,9 +432,9 @@ Final health: 50</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Which structure holds the kitchen floor, and which holds the inventory?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The floor is a fixed size grid and the inventory changes as Alice collects and eats."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A 2D array for the floor, an <code>ArrayList</code> for the inventory</span></label>
-                <label class="option" data-explain="It is the other way round. The floor has a fixed size and the inventory does not."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An <code>ArrayList</code> for the floor, a 2D array for the inventory</span></label>
                 <label class="option" data-explain="Each one uses the structure that fits its behaviour, which is the point of the exercise."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Both use a 2D array</span></label>
+                <label class="option" data-explain="It is the other way round. The floor has a fixed size and the inventory does not."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An <code>ArrayList</code> for the floor, a 2D array for the inventory</span></label>
+                <label class="option" data-correct data-explain="Correct. The floor is a fixed size grid and the inventory changes as Alice collects and eats."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A 2D array for the floor, an <code>ArrayList</code> for the inventory</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -440,9 +442,9 @@ Final health: 50</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> What is the clearest sign that the item family was designed well?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Adding Meal required no change to eat, to the inventory, or to the kitchen."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A whole new kind of item was added without editing existing methods</span></label>
-                <label class="option" data-explain="Line count is not the measure. The measure is how much had to change."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The program is short</span></label>
-                <label class="option" data-explain="Compiling is the minimum bar, not a sign of good design."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It compiles</span></label>
+                <label class="option" data-explain="Line count is not the measure. The measure is how much had to change."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The program is short and easy to scroll through</span></label>
+                <label class="option" data-correct data-explain="Correct. Adding Meal required no change to eat, to the inventory, or to the kitchen."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Adding <code>Meal</code> needed no changes to existing methods</span></label>
+                <label class="option" data-explain="Compiling is the minimum bar, not a sign of good design."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It compiles with no errors or warnings</span></label>
               </div>
               <div class="feedback"></div>
             </div>

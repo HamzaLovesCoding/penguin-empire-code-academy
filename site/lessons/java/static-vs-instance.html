@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -425,8 +427,8 @@ Fleet size: 3 motors</code></pre>
               <div class="cp-prompt"><span class="qn">Q1.</span> How many copies of a static field exist while the program runs?</div>
               <div class="options">
                 <label class="option" data-explain="That describes an instance field. A static field is exactly the opposite of one-per-object."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">One per object</span></label>
-                <label class="option" data-correct data-explain="Correct. A static field belongs to the class, not to any one object, so there is a single shared copy."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">One, shared by every object</span></label>
                 <label class="option" data-explain="A static field exists once the class is used, whether or not any object has been created yet."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Zero, until an object reads it</span></label>
+                <label class="option" data-correct data-explain="Correct. A static field belongs to the class, not to any one object, so there is a single shared copy."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">One, shared by every object</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -434,9 +436,9 @@ Fleet size: 3 motors</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> How is a static field normally read?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. ClassName.field reads the one shared copy."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Through the class name, like <code>Flywheel.flywheelCount</code></span></label>
-                <label class="option" data-explain="This compiles, but it reads the same one shared value the class name would reach. The class name is the clearer style."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Only through an object, like <code>shooter.flywheelCount</code></span></label>
                 <label class="option" data-explain="A field, static or not, is never called with parentheses. Those are for methods."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">With parentheses, like <code>flywheelCount()</code></span></label>
+                <label class="option" data-explain="This compiles, but it reads the same one shared value the class name would reach. The class name is the clearer style."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Only through an object, like <code>shooter.flywheelCount</code></span></label>
+                <label class="option" data-correct data-explain="Correct. ClassName.field reads the one shared copy."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Through the class name, like <code>Flywheel.flywheelCount</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -444,9 +446,9 @@ Fleet size: 3 motors</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Why can a static method not read an instance field directly?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. An instance field only exists as part of a specific object, and a static method has no object to look inside."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A static method has no specific object to read the field from</span></label>
-                <label class="option" data-explain="This has nothing to do with data type. Even a simple int instance field is unreachable from a static method."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Instance fields are always private</span></label>
                 <label class="option" data-explain="Order in the file never decides whether a field is reachable."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The field was declared below the method</span></label>
+                <label class="option" data-explain="private only limits other classes. Even a public instance field is out of reach from a static method, because there is no object to read it from."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Instance fields are always private to their object</span></label>
+                <label class="option" data-correct data-explain="Correct. An instance field only exists as part of a specific object, and a static method has no object to look inside."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A static method has no object to read it from</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -455,8 +457,8 @@ Fleet size: 3 motors</code></pre>
               <div class="cp-prompt"><span class="qn">Q4.</span> A value should be the same shared limit for every object of a class and never change. What should it be declared as?</div>
               <div class="options">
                 <label class="option" data-explain="A plain instance field gives every object its own separate copy, which is wasteful for one shared limit."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A plain instance field</span></label>
-                <label class="option" data-correct data-explain="Correct. static shares one copy across the class, and final locks it once it is set."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>static final</code></span></label>
                 <label class="option" data-explain="void is a return type for a method with no result. It has no meaning on a field."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>void</code></span></label>
+                <label class="option" data-correct data-explain="Correct. static shares one copy across the class, and final locks it once it is set."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>static final</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -464,9 +466,9 @@ Fleet size: 3 motors</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q5.</span> Why is every method on <code>Math</code>, such as <code>Math.max</code>, static?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Math.max just computes an answer from its arguments. There is no object's state involved at all."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">None of them need any object's own state</span></label>
-                <label class="option" data-explain="Static has no effect on how fast a method runs."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Static methods run faster</span></label>
                 <label class="option" data-explain="Plenty of classes mix static and instance methods. Math simply has no need for the instance kind."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java requires every method in every class to be static</span></label>
+                <label class="option" data-explain="Static has no effect on how fast a method runs."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Static methods run faster</span></label>
+                <label class="option" data-correct data-explain="Correct. Math.max just computes an answer from its arguments. There is no object's state involved at all."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">None of them need any object's own state</span></label>
               </div>
               <div class="feedback"></div>
             </div>

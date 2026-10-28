@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -308,8 +310,8 @@ System.out.println(shooter.isAtSpeed());</pre>
             <p class="challenge-prompt">Inside <code>spinUp()</code>, the line
               <code>currentRPM = targetRPM;</code> changes...</p>
             <div class="options">
-              <label class="option" data-explain="Fields belong to objects, not to the class as a whole. Every Flywheel keeps its own separate currentRPM."><input type="radio" name="q-fields" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Every Flywheel object at once</span></label>
               <label class="option" data-correct data-explain="Correct. Whichever object the method was called on is the one whose fields change."><input type="radio" name="q-fields" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Only the object the method was called on</span></label>
+              <label class="option" data-explain="Fields belong to objects, not to the class as a whole. Every Flywheel keeps its own separate currentRPM."><input type="radio" name="q-fields" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Every Flywheel object at once</span></label>
               <label class="option" data-explain="Local variables live inside a method and vanish when it ends. currentRPM is a field, and it survives between calls."><input type="radio" name="q-fields" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A local variable that disappears when the method ends</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
@@ -442,9 +444,9 @@ Intake rollers on: false</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> What makes a method an instance method?</div>
               <div class="options">
-                <label class="option" data-explain="A return type of void just means it hands nothing back. Plenty of static methods are void too."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It returns <code>void</code></span></label>
+                <label class="option" data-explain="A return type of void just means it hands nothing back. Plenty of static methods are void too."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It returns <code>void</code> instead of a value</span></label>
                 <label class="option" data-correct data-explain="Correct. No static means the method belongs to an object rather than to the class."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is declared without <code>static</code></span></label>
-                <label class="option" data-explain="Parameters have nothing to do with static versus instance. Both kinds of method can take parameters."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It takes no parameters</span></label>
+                <label class="option" data-explain="Parameters have nothing to do with static versus instance. Both kinds of method can take parameters."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It takes no parameters at all</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -453,8 +455,8 @@ Intake rollers on: false</code></pre>
               <div class="cp-prompt"><span class="qn">Q2.</span> How do you call an instance method?</div>
               <div class="options">
                 <label class="option" data-explain="That syntax is for static methods, called through the class name."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">By class name, like <code>Flywheel.spinUp()</code></span></label>
-                <label class="option" data-correct data-explain="Correct. shooter.spinUp() runs the method against that specific object."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Through an object, like <code>shooter.spinUp()</code></span></label>
                 <label class="option" data-explain="Calling it with no object at all only works for a static method in the very same class."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">By name alone, like <code>spinUp()</code></span></label>
+                <label class="option" data-correct data-explain="Correct. shooter.spinUp() runs the method against that specific object."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Through an object, like <code>shooter.spinUp()</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -462,9 +464,9 @@ Intake rollers on: false</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Two Flywheel objects, left and right. Calling <code>left.spinUp()</code> does what to <code>right.currentRPM</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. left.spinUp() only ever touches left's own fields."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing</span></label>
-                <label class="option" data-explain="An instance method only ever reaches the fields of the object it was called on."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Sets it to match left's targetRPM too</span></label>
                 <label class="option" data-explain="Calling a method on one object is ordinary, legal Java."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error</span></label>
+                <label class="option" data-explain="An instance method only ever reaches the fields of the object it was called on."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Sets it to match left's targetRPM too</span></label>
+                <label class="option" data-correct data-explain="Correct. left.spinUp() only ever touches left's own fields."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -473,7 +475,7 @@ Intake rollers on: false</code></pre>
               <div class="cp-prompt"><span class="qn">Q4.</span> Inside <code>report()</code>, calling <code>isAtSpeed()</code> with no dot and no object works because...</div>
               <div class="options">
                 <label class="option" data-correct data-explain="Correct. Both methods belong to the same object, so one can call the other directly."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Both methods act on the same object already</span></label>
-                <label class="option" data-explain="isAtSpeed() is an instance method with no static keyword at all."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">isAtSpeed() is secretly static</span></label>
+                <label class="option" data-explain="isAtSpeed() is an instance method with no static keyword at all."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>isAtSpeed()</code> is secretly static, so no object is needed</span></label>
                 <label class="option" data-explain="Order in the file does not decide whether a call needs an object."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">isAtSpeed() is declared above report()</span></label>
               </div>
               <div class="feedback"></div>
@@ -482,9 +484,9 @@ Intake rollers on: false</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q5.</span> What does <code>isAtSpeed()</code> change about the object it is called on?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. It only reads currentRPM and targetRPM to compute an answer. Neither field changes."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing</span></label>
-                <label class="option" data-explain="isAtSpeed only reads currentRPM. Only spinUp and stop change it."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It sets currentRPM to targetRPM</span></label>
                 <label class="option" data-explain="isAtSpeed reads two existing fields. It has no reason to touch targetRPM."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It resets targetRPM to 0</span></label>
+                <label class="option" data-explain="isAtSpeed only reads currentRPM. Only spinUp and stop change it."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It sets currentRPM to targetRPM</span></label>
+                <label class="option" data-correct data-explain="Correct. It only reads currentRPM and targetRPM to compute an answer. Neither field changes."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing</span></label>
               </div>
               <div class="feedback"></div>
             </div>

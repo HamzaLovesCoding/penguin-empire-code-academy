@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -296,9 +298,9 @@ new Intake("Intake").stop();</pre>
           <div class="challenge-body">
             <p class="challenge-prompt">Where must <code>super(...)</code> appear in a child constructor?</p>
             <div class="options">
-              <label class="option" data-correct data-explain="Correct. The parent has to be set up before the child adds anything, so Java requires it first."><input type="radio" name="q-sup" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">On the first line</span></label>
-              <label class="option" data-explain="Java rejects this. The call has to come before any other statement."><input type="radio" name="q-sup" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">On the last line</span></label>
               <label class="option" data-explain="The position is fixed. It must be the first statement in the constructor."><input type="radio" name="q-sup" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Anywhere in the constructor</span></label>
+              <label class="option" data-explain="Java rejects this. The call has to come before any other statement."><input type="radio" name="q-sup" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">On the last line</span></label>
+              <label class="option" data-correct data-explain="Correct. The parent has to be set up before the child adds anything, so Java requires it first."><input type="radio" name="q-sup" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">On the first line</span></label>
               <label class="option" data-explain="It is only optional when the parent has a constructor that takes no arguments."><input type="radio" name="q-sup" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is never needed</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
@@ -313,8 +315,8 @@ new Intake("Intake").stop();</pre>
               directly?</p>
             <div class="options">
               <label class="option" data-explain="private means this class only, and that includes shutting out child classes."><input type="radio" name="q-prot" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Yes, children can always see their parent's fields</span></label>
-              <label class="option" data-correct data-explain="Correct. Use protected if children need direct access, or give the parent a public getter."><input type="radio" name="q-prot" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">No, <code>private</code> hides it from children too</span></label>
               <label class="option" data-explain="The rule is the same regardless of how the child was created."><input type="radio" name="q-prot" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Only inside the constructor</span></label>
+              <label class="option" data-correct data-explain="Correct. Use protected if children need direct access, or give the parent a public getter."><input type="radio" name="q-prot" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">No, <code>private</code> hides it from children too</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -470,8 +472,8 @@ Climber locked in place</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> What does <code>class Arm extends Subsystem</code> give <code>Arm</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The child gets the parent's fields and methods without redeclaring them."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Everything <code>Subsystem</code> has</span></label>
                 <label class="option" data-explain="A child inherits methods as well as fields. That is most of the point."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Only its fields</span></label>
+                <label class="option" data-correct data-explain="Correct. The child gets the parent's fields and methods without redeclaring them."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Everything <code>Subsystem</code> has</span></label>
                 <label class="option" data-explain="Inheritance is not a copy. There is one definition, shared."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A separate copy of the code</span></label>
               </div>
               <div class="feedback"></div>
@@ -480,8 +482,8 @@ Climber locked in place</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> What does <code>super.report()</code> do inside an override?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. It lets the child add to the parent's result instead of repeating it."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Runs the parent's version of the method</span></label>
                 <label class="option" data-explain="That would call itself forever. super specifically means the parent's version."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Runs the child's version again</span></label>
+                <label class="option" data-correct data-explain="Correct. It lets the child add to the parent's result instead of repeating it."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Runs the parent's version of the method</span></label>
                 <label class="option" data-explain="Overriding does not delete anything. The parent version is still reachable through super."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing, the parent version was replaced</span></label>
               </div>
               <div class="feedback"></div>
@@ -490,9 +492,9 @@ Climber locked in place</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Why write <code>@Override</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Without it a misspelled name silently becomes a brand new method that never runs."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So the compiler checks you really are replacing a method</span></label>
-                <label class="option" data-explain="Java allows overriding without it. It is a safety check, not a requirement."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java requires it for every override</span></label>
-                <label class="option" data-explain="It has no effect on speed. It only affects what the compiler checks."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It makes the method faster</span></label>
+                <label class="option" data-explain="It has no effect on speed. It only affects what the compiler checks."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It makes the method run faster when it is called</span></label>
+                <label class="option" data-explain="Java allows overriding without it. It is a safety check, not a requirement."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java requires it on every method you override</span></label>
+                <label class="option" data-correct data-explain="Correct. Without it a misspelled name silently becomes a brand new method that never runs."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So the compiler checks it really replaces a method</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -501,8 +503,8 @@ Climber locked in place</code></pre>
               <div class="cp-prompt"><span class="qn">Q4.</span> Which access level lets a child class use a field directly but keeps it hidden from everything else?</div>
               <div class="options">
                 <label class="option" data-explain="private shuts out child classes as well."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>private</code></span></label>
-                <label class="option" data-correct data-explain="Correct. protected means this class and anything that extends it."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>protected</code></span></label>
                 <label class="option" data-explain="public opens it to every class, which is the opposite of hiding it."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>public</code></span></label>
+                <label class="option" data-correct data-explain="Correct. protected means this class and anything that extends it."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>protected</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>

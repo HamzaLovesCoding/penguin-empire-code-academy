@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -190,7 +192,7 @@ Right Flywheel uses CAN 4</code></pre>
         </div>
 
         <h2 id="run"><span class="section-h"><span class="num">6</span> Run it yourself</span></h2>
-        <p>Press <b style="color:#0a5d70">Run ▶</b>, then add a third <code>Flywheel</code> object and print
+        <p>Press <b style="color:var(--accent-strong)">Run ▶</b>, then add a third <code>Flywheel</code> object and print
           it.</p>
 
         <div class="sandbox" data-compiler data-title="Live Java Sandbox" data-lang="java">
@@ -270,8 +272,8 @@ shooter<span class="blank" data-answer="."></span>canId = 5;</pre>
               field has been assigned yet. What do <code>shooter.canId</code> and <code>shooter.name</code>
               hold?</p>
             <div class="options">
-              <label class="option" data-correct data-explain="Correct. int fields default to 0, and String fields, like any object type, default to null."><input type="radio" name="q-defaults" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>0</code> and <code>null</code></span></label>
               <label class="option" data-explain="Java always gives every field a default value the instant the object is built. Nothing is left unset."><input type="radio" name="q-defaults" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Whatever memory happened to contain before</span></label>
+              <label class="option" data-correct data-explain="Correct. int fields default to 0, and String fields, like any object type, default to null."><input type="radio" name="q-defaults" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>0</code> and <code>null</code></span></label>
               <label class="option" data-explain="This is legal Java. Reading a field before assigning it is not an error, unlike a local variable in a method."><input type="radio" name="q-defaults" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error, since neither was assigned</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
@@ -386,8 +388,8 @@ null on CAN 3</code></pre>
               <div class="cp-prompt"><span class="qn">Q1.</span> What is a field?</div>
               <div class="options">
                 <label class="option" data-explain="A method groups statements. A field is different, it is a variable declared inside a class."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A method that belongs to a class</span></label>
-                <label class="option" data-correct data-explain="Correct. Every object built from the class gets its own copy of that variable."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A variable declared inside a class</span></label>
                 <label class="option" data-explain="A class file can hold several classes, as this lesson's own examples do."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The file a class is written in</span></label>
+                <label class="option" data-correct data-explain="Correct. Every object built from the class gets its own copy of that variable."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A variable declared inside a class</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -395,8 +397,8 @@ null on CAN 3</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> How does an object relate to a class?</div>
               <div class="options">
-                <label class="option" data-explain="A class does not run on its own and produces nothing by itself."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">They are the same thing, written differently</span></label>
-                <label class="option" data-correct data-explain="Correct. The class describes the fields. new builds an actual object with real values in them."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An object is an instance built from the class with new</span></label>
+                <label class="option" data-correct data-explain="Correct. The class describes the fields. new builds an actual object with real values in them."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An object is built from a class using <code>new</code></span></label>
+                <label class="option" data-explain="A class does not run on its own and produces nothing by itself."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">They are the same thing, written two different ways</span></label>
                 <label class="option" data-explain="A single class can produce as many objects as the program needs."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A class can only ever produce one object</span></label>
               </div>
               <div class="feedback"></div>
@@ -405,9 +407,9 @@ null on CAN 3</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> What does the dot in <code>shooter.canId</code> do?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. It reaches into the object shooter holds and refers to its canId field."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It reaches into the object shooter holds</span></label>
-                <label class="option" data-explain="A dot never multiplies. Java has no operator that looks like this one for arithmetic."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It multiplies shooter by canId</span></label>
-                <label class="option" data-explain="Method calls need parentheses. Reaching a field needs none."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It calls a method named canId</span></label>
+                <label class="option" data-explain="Method calls need parentheses. Reaching a field needs none."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It calls a method named <code>canId</code> on <code>shooter</code></span></label>
+                <label class="option" data-explain="A dot never multiplies. Java has no operator that looks like this one for arithmetic."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It multiplies the value of <code>shooter</code> by <code>canId</code></span></label>
+                <label class="option" data-correct data-explain="Correct. It reaches into the object shooter holds and refers to its canId field."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It reaches inside the <code>shooter</code> object</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -416,8 +418,8 @@ null on CAN 3</code></pre>
               <div class="cp-prompt"><span class="qn">Q4.</span> A fresh <code>Flywheel</code> object has never had its <code>canId</code> assigned. What does it hold?</div>
               <div class="options">
                 <label class="option" data-explain="Nothing crashes here. Reading an unassigned field is legal, it just gives you the default."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A crash, since it was never assigned</span></label>
-                <label class="option" data-correct data-explain="Correct. int fields default to 0 the instant the object is built."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>0</code></span></label>
                 <label class="option" data-explain="null is the default for object types such as String, not for int."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>null</code></span></label>
+                <label class="option" data-correct data-explain="Correct. int fields default to 0 the instant the object is built."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>0</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -425,9 +427,9 @@ null on CAN 3</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q5.</span> <code>left</code> and <code>right</code> are two separate <code>Flywheel</code> objects. Setting <code>left.canId = 9;</code> does what to <code>right.canId</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Every object built with new carries its own separate fields."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing, right.canId is unaffected</span></label>
-                <label class="option" data-explain="Two objects from the same class never share fields, even though the class looks identical."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">right.canId also becomes 9</span></label>
                 <label class="option" data-explain="Assigning a field on one object is ordinary, legal Java with no such error."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error, fields cannot be reassigned</span></label>
+                <label class="option" data-explain="Two objects from the same class never share fields, even though the class looks identical."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">right.canId also becomes 9</span></label>
+                <label class="option" data-correct data-explain="Correct. Every object built with new carries its own separate fields."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing, right.canId is unaffected</span></label>
               </div>
               <div class="feedback"></div>
             </div>

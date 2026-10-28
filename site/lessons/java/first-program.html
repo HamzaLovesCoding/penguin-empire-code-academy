@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your First Java Program · Penguin Empire 2551</title>
-  <meta name="description" content="Write, read, and run your very first Java program in the browser. No setup, no experience needed — the start of the Penguin Empire 2551 programming path." />
+  <meta name="description" content="Write, read, and run your very first Java program in the browser. No setup, no experience needed. This is the start of the Penguin Empire 2551 programming path." />
   <link rel="icon" href="/assets/img/logo-2551.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -27,10 +29,10 @@
         <span class="badge badge--ocean">Lesson 1</span>
         <h1 class="lesson-title">Your First Java Program</h1>
         <p class="lesson-lede">You have never written code before. By the end of this page, you'll have
-          written a real Java program, run it, and changed it to do what <em>you</em> want — all in your browser.</p>
+          written a real Java program, run it, and changed it to do what <em>you</em> want, all in your browser.</p>
         <div class="lesson-meta">
           <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> 20 min</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h2v-4H3zM9 20h2V10H9zM15 20h2V4h-2z"/></svg> Beginner — no experience needed</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h2v-4H3zM9 20h2V10H9zM15 20h2V4h-2z"/></svg> Beginner, no experience needed</span>
           <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2zM18 3v16"/></svg> Phase 1 · Foundations</span>
         </div>
       </header>
@@ -63,26 +65,26 @@
 
         <!-- ===================== WHY ===================== -->
         <h2 id="why"><span class="section-h"><span class="num">1</span> Why this matters</span></h2>
-        <p>Programming our robot is, at the bottom, just writing instructions like the ones on this page.
+        <p>Programming our robot mostly comes down to writing instructions like the ones on this page.
           When a driver presses a button and the intake spins, somewhere a programmer wrote a line that said
-          “run this motor.” Everything you'll do for Team 2551 — motors, sensors, autonomous — is built out of
+          “run this motor.” Everything you'll do for Team 2551, from motors and sensors to autonomous, is built out of
           the basics you're about to learn.</p>
 
         <div class="callout callout--why" id="warstory">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
           <div class="c-title">You can learn anywhere</div>
           <div class="c-body">
-            <p>One season, the captain's laptop broke halfway through the year — so he wrote the robot's code
+            <p>One season, the captain's laptop broke halfway through the year, so he wrote the robot's code
               on the <strong>driver-station laptop</strong> for the rest of the season, and the robot still competed.
-              The point: you don't need a powerful computer or a special setup to start. You're going to learn
-              right here, in a browser tab. The show goes on.</p>
+              You don't need a powerful computer or a special setup to start. You're going to learn
+              right here, in a browser tab.</p>
           </div>
         </div>
 
         <!-- ===================== WHAT ===================== -->
         <h2 id="what"><span class="section-h"><span class="num">2</span> What a program actually is</span></h2>
         <p>A <strong>program</strong> is a list of instructions that the computer follows <em>in order, from top to bottom</em>.
-          That's the whole idea. You write the steps; the computer does exactly what you said — no more, no less.</p>
+          You write the steps, and the computer does exactly what you said, no more and no less.</p>
         <p>Computers don't understand English. They understand a very precise, picky language. We'll write in
           <strong>Java</strong>, the language FRC robots are programmed in. Java has strict rules about punctuation and
           spelling. That feels fussy at first, but it's what makes it reliable: the same code does the same thing every time.</p>
@@ -91,12 +93,12 @@
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a7 7 0 0 0-4-12z"/></svg></div>
           <div class="c-title">Mental model</div>
           <div class="c-body"><p>Think of yourself as writing a recipe for a very literal robot chef. It will do every step
-            perfectly — but only the steps you wrote, exactly as you wrote them.</p></div>
+            perfectly, but only the steps you wrote, exactly as you wrote them.</p></div>
         </div>
 
         <!-- ===================== ANATOMY ===================== -->
         <h2 id="anatomy"><span class="section-h"><span class="num">3</span> The anatomy of a program</span></h2>
-        <p>Here is a complete, working Java program. It prints one line of text. Don't worry about memorizing it —
+        <p>Here is a complete, working Java program. It prints one line of text. Don't worry about memorizing it;
           we'll walk through every piece right after.</p>
 
         <div class="code with-lines">
@@ -114,13 +116,13 @@
 }</code></pre>
         </div>
 
-        <p>Let's decode it, line by line:</p>
+        <p>Here's what each line does:</p>
         <div class="vocab">
-          <div class="vocab-term"><dt>public class Main { … }</dt><dd>Every Java program lives inside a <strong>class</strong> — a named container for your code. Here it's called <code>Main</code>. The <code>{ }</code> braces hold everything that belongs to it.</dd></div>
-          <div class="vocab-term"><dt>public static void main(...)</dt><dd>The <strong>main method</strong> is the <em>starting line</em> — when you run the program, the computer looks for <code>main</code> and begins there. For now, treat this exact wording as a magic spell you copy.</dd></div>
+          <div class="vocab-term"><dt>public class Main { … }</dt><dd>Every Java program lives inside a <strong>class</strong>, which is a named container for your code. Here it's called <code>Main</code>. The <code>{ }</code> braces hold everything that belongs to it.</dd></div>
+          <div class="vocab-term"><dt>public static void main(...)</dt><dd>The <strong>main method</strong> is the <em>starting line</em>. When you run the program, the computer looks for <code>main</code> and begins there. For now, treat this exact wording as a magic spell you copy.</dd></div>
           <div class="vocab-term"><dt>// This line prints…</dt><dd>A <strong>comment</strong>. Anything after <code>//</code> is a note for humans; the computer ignores it. Use comments to explain <em>why</em> you did something.</dd></div>
           <div class="vocab-term"><dt>System.out.println("…")</dt><dd>This is the <strong>statement</strong> that does the work: it prints whatever is inside the quotes, then moves to a new line. <code>println</code> = “print line.”</dd></div>
-          <div class="vocab-term"><dt>"Hello, World!"</dt><dd>A <strong>String</strong> — text wrapped in double quotes. The quotes mark where the text starts and ends.</dd></div>
+          <div class="vocab-term"><dt>"Hello, World!"</dt><dd>A <strong>String</strong> is text wrapped in double quotes. The quotes mark where the text starts and ends.</dd></div>
           <div class="vocab-term"><dt>; (semicolon)</dt><dd>Ends a statement, like a period ends a sentence. Almost every line of Java instruction ends with one. Forgetting it is the #1 beginner error.</dd></div>
         </div>
 
@@ -128,7 +130,7 @@
 
         <!-- ===================== RUN ===================== -->
         <h2 id="run"><span class="section-h"><span class="num">4</span> Run it yourself</span></h2>
-        <p>This isn't a picture of code — it's a <strong>real Java compiler</strong>. Press <b style="color:#0a5d70">Run ▶</b> inside the
+        <p>The panel below runs a <strong>real Java compiler</strong>. Press <b style="color:var(--accent-strong)">Run ▶</b> inside the
           panel to run the program. Then try changing the text inside the quotes and run it again. Make it say your name.</p>
 
         <div class="sandbox" data-compiler data-title="Live Java Sandbox" data-lang="java">
@@ -147,21 +149,21 @@ public class Main {
         <div class="callout callout--note">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
           <div class="c-title">First run is slow</div>
-          <div class="c-body"><p>The very first run may take a few seconds while the compiler warms up. That's normal — later
+          <div class="c-body"><p>The very first run may take a few seconds while the compiler warms up. That's normal, and later
             runs are quick. If the panel ever won't load, use <strong>“Open in new tab ↗”</strong> and paste the code there.</p></div>
         </div>
 
         <!-- ===================== CHALLENGES ===================== -->
         <h2 id="challenges"><span class="section-h"><span class="num">5</span> Practice challenges</span></h2>
-        <p>Reading code is easy to fool yourself on. These quick challenges make sure it actually clicked.</p>
+        <p>It's easy to read code and think you understand it. These quick challenges check whether you do.</p>
 
         <!-- Predict output -->
         <div class="challenge" data-kind="text"
-             data-win="Exactly. print() stays on the same line; only println() moves to a new line — so it's all one line."
+             data-win="Exactly. print() stays on the same line; only println() moves to a new line, so it's all one line."
              data-lose="Look closely: print() does NOT add a new line, only println() does. The three pieces sit on one line.">
           <div class="challenge-head"><span class="ch-kind">Predict the output</span><span class="ch-title">What gets printed?</span></div>
           <div class="challenge-body">
-            <p class="challenge-prompt">Read carefully — note which lines use <code>print</code> vs <code>println</code>:</p>
+            <p class="challenge-prompt">Read carefully and note which lines use <code>print</code> vs <code>println</code>:</p>
             <pre class="fib">System.out.print("Penguin ");
 System.out.print("Empire");
 System.out.println("!");</pre>
@@ -181,7 +183,7 @@ System.out.println("!");</pre>
         <!-- Fill in the blank -->
         <div class="challenge" data-kind="fib"
              data-win="That compiles! You named the container and called the print-line method correctly."
-             data-lose="Close — every program lives in a class, and the method that prints a line is println.">
+             data-lose="Close. Every program lives in a class, and the method that prints a line is println.">
           <div class="challenge-head"><span class="ch-kind">Fill in the blanks</span><span class="ch-title">Complete the program</span></div>
           <div class="challenge-body">
             <p class="challenge-prompt">Make this program print <code>I am robot 2551</code>. Click each dashed box and type the missing word.</p>
@@ -204,10 +206,10 @@ System.out.println("!");</pre>
           <div class="challenge-body">
             <p class="challenge-prompt">In Java, almost every instruction (statement) must end with a…</p>
             <div class="options">
-              <label class="option" data-explain="A period separates parts of a name, like System.out.println — it never ends a statement."><input type="radio" name="q-semi" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">period <code>.</code></span></label>
-              <label class="option" data-correct data-explain="Yes — the semicolon ; ends a statement, like a period ends a sentence."><input type="radio" name="q-semi" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">semicolon <code>;</code></span></label>
-              <label class="option" data-explain="Commas separate items in a list or arguments in a call — they don't end a statement."><input type="radio" name="q-semi" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">comma <code>,</code></span></label>
-              <label class="option" data-explain="Java ignores line breaks completely. Without the semicolon it can't tell where your statement ends."><input type="radio" name="q-semi" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">nothing — new lines are enough</span></label>
+              <label class="option" data-explain="A period separates parts of a name, like System.out.println. It never ends a statement."><input type="radio" name="q-semi" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">period <code>.</code></span></label>
+              <label class="option" data-explain="Java ignores line breaks completely. Without the semicolon it can't tell where your statement ends."><input type="radio" name="q-semi" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">nothing, new lines are enough</span></label>
+              <label class="option" data-explain="Commas separate items in a list or arguments in a call. They don't end a statement."><input type="radio" name="q-semi" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">comma <code>,</code></span></label>
+              <label class="option" data-correct data-explain="Yes. The semicolon ; ends a statement, like a period ends a sentence."><input type="radio" name="q-semi" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">semicolon <code>;</code></span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -221,7 +223,7 @@ System.out.println("!");</pre>
           <div class="c-title">Watch out for these</div>
           <div class="c-body">
             <ul>
-              <li><strong>Missing semicolon.</strong> <code>System.out.println("Hi")</code> with no <code>;</code> won't compile. The error usually points at the <em>next</em> line, which is confusing — check the line above it.</li>
+              <li><strong>Missing semicolon.</strong> <code>System.out.println("Hi")</code> with no <code>;</code> won't compile. The error usually points at the <em>next</em> line, which is confusing, so check the line above it too.</li>
               <li><strong>Capitalization matters.</strong> Java is case-sensitive: <code>System</code> ≠ <code>system</code>, and <code>println</code> ≠ <code>Println</code>. Spelling and case must match exactly.</li>
               <li><strong>Unmatched quotes or braces.</strong> Every <code>"</code> needs a closing <code>"</code>, and every <code>{</code> needs a <code>}</code>. Editors help by highlighting the partner.</li>
               <li><strong>print vs println.</strong> Use <code>println</code> when you want each message on its own line.</li>
@@ -240,7 +242,7 @@ System.out.println("!");</pre>
           </div>
           <div class="exercise-body">
             <p>When a real robot powers on, it prints status messages to the Driver Station console so the team
-              knows what's happening. Let's recreate that — using only what you learned this lesson.</p>
+              knows what's happening. You'll recreate that using only what you learned this lesson.</p>
             <p class="challenge-prompt"><strong>Your task:</strong> make the program below print exactly these four lines, in order:</p>
             <div class="code">
               <div class="code-head"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-file">expected output</span><span class="code-spacer"></span></div>
@@ -252,7 +254,7 @@ Robot ready.</code></pre>
             <ol class="task-list">
               <li><b>Print the first line</b> using <code>System.out.println(...)</code>.</li>
               <li><b>Add three more</b> <code>println</code> statements for the remaining lines.</li>
-              <li><b>Run it</b> and compare your output to the target above — it must match exactly.</li>
+              <li><b>Run it</b> and compare your output to the target above. It must match exactly.</li>
               <li><b>Bonus:</b> add a comment above the code explaining what the program does.</li>
             </ol>
             <div class="sandbox" data-compiler data-title="Project Sandbox" data-lang="java">
@@ -299,24 +301,24 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> Where does a Java program start running?</div>
               <div class="options">
-                <label class="option" data-explain="The first line declares the class, but running doesn't start there — Java goes looking for main."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The very first line of the file</span></label>
-                <label class="option" data-correct data-explain="Right — execution begins in the main method, not necessarily the first line."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Inside the <code>main</code> method</span></label>
-                <label class="option" data-explain="Java runs top to bottom, never upward — and it starts inside main, not at the end."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">At the last line and goes up</span></label>
+                <label class="option" data-explain="The first line declares the class, but running doesn't start there. Java goes looking for main."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The very first line of the file</span></label>
+                <label class="option" data-correct data-explain="Right. Execution begins in the main method, which isn't necessarily the first line."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Inside the <code>main</code> method</span></label>
+                <label class="option" data-explain="Java runs top to bottom, never upward, and it starts inside main."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">At the last line and goes up</span></label>
               </div>
             </div>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> What does <code>//</code> do?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct — // starts a comment, ignored by the computer, for humans only."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Starts a comment the computer ignores</span></label>
-                <label class="option" data-explain="That's a single slash. Two slashes in a row mean something completely different: a comment."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Divides two numbers</span></label>
-                <label class="option" data-explain="That's System.out.println. A // makes the computer ignore the rest of the line instead."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Prints text to the screen</span></label>
+                <label class="option" data-explain="That's a single slash. Two slashes in a row mean something completely different: a comment."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Divides the number before it by the one after</span></label>
+                <label class="option" data-correct data-explain="Correct. // starts a comment, which is for humans only. The computer ignores it."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Starts a comment the computer ignores</span></label>
+                <label class="option" data-explain="That's System.out.println. A // makes the computer ignore the rest of the line instead."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Prints the rest of the line to the screen</span></label>
               </div>
             </div>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Which one prints text <em>and then moves to a new line</em>?</div>
               <div class="options">
                 <label class="option" data-explain="print() writes the text but stays put, so whatever prints next continues on the same line."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>System.out.print(...)</code></span></label>
-                <label class="option" data-correct data-explain="Yes — println = print line, so it adds the new line after."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>System.out.println(...)</code></span></label>
+                <label class="option" data-correct data-explain="Yes. println means print line, so it adds the new line after."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>System.out.println(...)</code></span></label>
                 <label class="option" data-explain="They differ by exactly one thing: println adds the new line at the end, print doesn't."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">They are exactly the same</span></label>
               </div>
             </div>
@@ -326,7 +328,7 @@ public class Main {
 
         <!-- ===================== COMPLETE ===================== -->
         <div class="mark-complete">
-          <div class="mc-text"><b>Nice work — you wrote and ran real code.</b><span>Mark this lesson done to track your progress. The next lesson is on the way — check the curriculum for what's coming.</span></div>
+          <div class="mc-text"><b>Nice work. You wrote and ran real code.</b><span>Mark this lesson done to track your progress. The next lesson is on the way; check the curriculum for what's coming.</span></div>
           <button class="complete-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Mark as complete</span></button>
         </div>
 

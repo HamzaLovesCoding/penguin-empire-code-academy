@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · Penguin Empire 2551 Code Academy</title>
+  <meta name="description" content="Your Penguin Empire 2551 Code Academy dashboard: lessons completed, this week's activity, what's up next, and how close you are to each phase exam." />
+  <link rel="icon" href="/assets/img/logo-2551.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
+  <link rel="stylesheet" href="/assets/css/brand.css" />
+  <link rel="stylesheet" href="/assets/css/layout.css" />
+  <link rel="stylesheet" href="/assets/css/dashboard.css" />
+</head>
+<body data-page="dashboard">
+  <main id="main">
+    <!-- dashboard.js renders here from the manifest + saved progress. -->
+    <div class="dash" id="dash-root">
+      <noscript>
+        <div class="dash-head"><div><h1>Dashboard</h1>
+          <p>The dashboard needs JavaScript to read your saved progress. The <a href="/syllabus.html">full curriculum</a> works without it.</p></div></div>
+      </noscript>
+    </div>
+  </main>
+
+  <script src="/assets/js/course.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/dashboard.js"></script>
+</body>
+</html>

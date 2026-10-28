@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -254,7 +256,7 @@ class Light <span class="blank" data-answer="implements"></span> Stoppable {
             <p class="challenge-prompt">How many classes can a class extend, and how many interfaces can it
               implement?</p>
             <div class="options">
-              <label class="option" data-explain="Java does not allow extending more than one class. That is the whole reason interfaces exist."><input type="radio" name="q-count" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Many classes, many interfaces</span></label>
+              <label class="option" data-explain="Java does not allow extending more than one class. Interfaces are how you get around that."><input type="radio" name="q-count" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Many classes, many interfaces</span></label>
               <label class="option" data-correct data-explain="Correct. One parent class, any number of interfaces."><input type="radio" name="q-count" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">One class, many interfaces</span></label>
               <label class="option" data-explain="A class may implement as many interfaces as it needs, separated by commas."><input type="radio" name="q-count" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">One class, one interface</span></label>
               <label class="option" data-explain="Extending several classes is exactly what Java forbids."><input type="radio" name="q-count" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Many classes, one interface</span></label>
@@ -270,7 +272,7 @@ class Light <span class="blank" data-answer="implements"></span> Stoppable {
             <p class="challenge-prompt">A compressor, a status light and a motor are unrelated classes, but
               all three need to be shut down together. What fits?</p>
             <div class="options">
-              <label class="option" data-correct data-explain="Correct. They share a capability, not a family, which is exactly what an interface expresses."><input type="radio" name="q-pick" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An interface they all implement</span></label>
+              <label class="option" data-correct data-explain="Correct. They share a capability, not a family, which is what an interface expresses."><input type="radio" name="q-pick" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An interface they all implement</span></label>
               <label class="option" data-explain="Forcing unrelated classes under one parent gives them fields and behaviour that make no sense for them."><input type="radio" name="q-pick" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An abstract class they all extend</span></label>
               <label class="option" data-explain="That works but has to be edited every time a new device is added, which is the problem polymorphism removes."><input type="radio" name="q-pick" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A long chain of <code>if</code> statements</span></label>
             </div>
@@ -413,9 +415,9 @@ Drive motor at zero</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> When is an abstract class the better choice?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. An abstract class can hold fields, a constructor and shared method bodies. An interface cannot hold data."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">When the classes are related and share fields or code</span></label>
                 <label class="option" data-explain="Unrelated classes are exactly the case an interface handles better."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">When the classes have nothing in common</span></label>
-                <label class="option" data-explain="A class can only extend one parent, so this is the case interfaces solve."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">When a class needs several parents</span></label>
+                <label class="option" data-correct data-explain="Correct. An abstract class can hold fields, a constructor and shared method bodies. An interface cannot hold data."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">When related classes share fields or code</span></label>
+                <label class="option" data-explain="A class can only extend one parent, so this is the case interfaces solve."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">When a class needs to extend several parents at once</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -423,9 +425,9 @@ Drive motor at zero</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> What does <code>default</code> allow inside an interface?</div>
               <div class="options">
+                <label class="option" data-explain="Interfaces have no constructors at all."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A constructor that implementing classes call first</span></label>
+                <label class="option" data-explain="Interfaces hold no data, with or without default."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A field with a starting value that every class shares</span></label>
                 <label class="option" data-correct data-explain="Correct. Implementing classes get it for free and may override it."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A method with a body that classes inherit</span></label>
-                <label class="option" data-explain="Interfaces hold no data, with or without default."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A field with a starting value</span></label>
-                <label class="option" data-explain="Interfaces have no constructors at all."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A constructor</span></label>
               </div>
               <div class="feedback"></div>
             </div>

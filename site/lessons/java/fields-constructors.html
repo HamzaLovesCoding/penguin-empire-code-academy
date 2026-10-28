@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -443,8 +445,8 @@ Unnamed Motor on CAN 9</code></pre>
               <div class="cp-prompt"><span class="qn">Q1.</span> When does a constructor run?</div>
               <div class="options">
                 <label class="option" data-explain="Declaring a class does not run any code. A constructor only runs while an object is being built."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">As soon as the class is declared</span></label>
-                <label class="option" data-correct data-explain="Correct. It runs once, automatically, every time new builds an object of that class."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Every time new builds an object</span></label>
                 <label class="option" data-explain="Constructors are never called with a dot the way ordinary methods are."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Only when you call it with a dot, like any method</span></label>
+                <label class="option" data-correct data-explain="Correct. It runs once, automatically, every time new builds an object of that class."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Every time new builds an object</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -453,8 +455,8 @@ Unnamed Motor on CAN 9</code></pre>
               <div class="cp-prompt"><span class="qn">Q2.</span> What return type does a constructor declare?</div>
               <div class="options">
                 <label class="option" data-explain="void marks an ordinary method that returns nothing. A constructor has no return type at all, not even that one."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>void</code></span></label>
-                <label class="option" data-correct data-explain="Correct. No return type is written at all, not even void."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">None at all</span></label>
                 <label class="option" data-explain="A constructor does not hand back a value the way a method with a return type does."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The same type as the class</span></label>
+                <label class="option" data-correct data-explain="Correct. No return type is written at all, not even void."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">None at all</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -462,8 +464,8 @@ Unnamed Motor on CAN 9</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Inside a constructor, what does a plain <code>canId</code> refer to when the parameter is also named <code>canId</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The parameter is the closer variable, so the plain name refers to it, not the field."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The parameter</span></label>
                 <label class="option" data-explain="Reaching the field when a parameter shares its name needs this.canId, not the plain name."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The field</span></label>
+                <label class="option" data-correct data-explain="Correct. The parameter is the closer variable, so the plain name refers to it, not the field."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The parameter</span></label>
                 <label class="option" data-explain="Java always resolves the name to one variable or the other. It is never ambiguous."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error, since the name is ambiguous</span></label>
               </div>
               <div class="feedback"></div>
@@ -472,8 +474,8 @@ Unnamed Motor on CAN 9</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> What does <code>this</code> refer to inside a constructor?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. this always points at the object the constructor is currently building."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The object currently being built</span></label>
                 <label class="option" data-explain="this refers to a single object, the one under construction, not to the class as a whole."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The class itself</span></label>
+                <label class="option" data-correct data-explain="Correct. this always points at the object the constructor is currently building."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The object currently being built</span></label>
                 <label class="option" data-explain="A constructor parameter is referred to by its own name. this specifically means the object."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The first parameter in the list</span></label>
               </div>
               <div class="feedback"></div>

@@ -302,7 +302,7 @@
 .stat-n {
   font-family: var(--font-accent);
   font-size: clamp(1.6rem, 1.05rem + 1.8vw, 2.6rem);
-  line-height: 1; letter-spacing: -.012em; color: var(--ocean-800);
+  line-height: 1; letter-spacing: -.012em; color: var(--accent-strong);
 }
 .stat-l {
   font-family: var(--font-display); font-size: .67rem;
@@ -446,3 +446,6 @@
   .hero--editorial .hero-snip { display: none; }
   .hero-numeral { font-size: 11rem; bottom: -.3em; right: -.1em; }
 }
+
+/* ============================ DARK MODE ================================== */
+[data-theme="dark"] .stat-l { color: var(--text-soft); }

@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -271,10 +273,10 @@ System.out.println(total);</pre>
             <p class="challenge-prompt">What is the difference between <code>break</code> and
               <code>continue</code>?</p>
             <div class="options">
-              <label class="option" data-correct data-explain="Correct. break ends the loop. continue only abandons the current pass."><input type="radio" name="q-bc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>break</code> leaves the loop, <code>continue</code> jumps to the next pass</span></label>
+              <label class="option" data-explain="break is also used in a switch, but inside a loop it ends the loop."><input type="radio" name="q-bc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>break</code> only works in a switch</span></label>
               <label class="option" data-explain="They are the other way round. continue is the one that moves on to the next pass."><input type="radio" name="q-bc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>continue</code> leaves the loop, <code>break</code> jumps to the next pass</span></label>
               <label class="option" data-explain="They do different things. Swapping one for the other changes the output."><input type="radio" name="q-bc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">They are the same</span></label>
-              <label class="option" data-explain="break is also used in a switch, but inside a loop it ends the loop."><input type="radio" name="q-bc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>break</code> only works in a switch</span></label>
+              <label class="option" data-correct data-explain="Correct. break ends the loop. continue only abandons the current pass."><input type="radio" name="q-bc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>break</code> leaves the loop, <code>continue</code> jumps to the next pass</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -373,8 +375,8 @@ checked = 5</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> How many times does <code>for (int i = 0; i &lt; 3; i++)</code> run?</div>
               <div class="options">
-                <label class="option" data-explain="i takes the values 0, 1 and 2. That is three passes, not two."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">2</span></label>
                 <label class="option" data-correct data-explain="Correct. Values 0, 1 and 2, which is three passes."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">3</span></label>
+                <label class="option" data-explain="i takes the values 0, 1 and 2. That is three passes, not two."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">2</span></label>
                 <label class="option" data-explain="That would be the count if the condition used &lt;= instead of &lt;."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">4</span></label>
               </div>
               <div class="feedback"></div>
@@ -383,9 +385,9 @@ checked = 5</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> What makes a <code>while</code> loop run forever?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Something inside the loop must move the condition toward false."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing inside it changes the value the condition tests</span></label>
-                <label class="option" data-explain="A while loop with a condition that starts false simply never runs. That is the opposite problem."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The condition starts out false</span></label>
-                <label class="option" data-explain="The body length has no effect on whether the loop terminates."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The body has too many lines</span></label>
+                <label class="option" data-explain="The body length has no effect on whether the loop terminates."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The body has too many lines for Java to finish</span></label>
+                <label class="option" data-explain="A while loop with a condition that starts false simply never runs. That is the opposite problem."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The condition starts out false before the first pass</span></label>
+                <label class="option" data-correct data-explain="Correct. Something inside the loop must move the condition toward false."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing inside it changes what the condition tests</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -403,9 +405,9 @@ checked = 5</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> Which loop fits “keep spinning up until the shooter reaches 4000 rpm”?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The number of passes is not known in advance, so a condition loop fits."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>while</code></span></label>
-                <label class="option" data-explain="A for loop is the better fit when you already know the count, such as checking eight CAN IDs."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>for</code></span></label>
                 <label class="option" data-explain="A switch chooses one branch once. It does not repeat anything."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>switch</code></span></label>
+                <label class="option" data-explain="A for loop is the better fit when you already know the count, such as checking eight CAN IDs."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>for</code></span></label>
+                <label class="option" data-correct data-explain="Correct. The number of passes is not known in advance, so a condition loop fits."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>while</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>

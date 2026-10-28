@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -245,8 +247,8 @@ System.out.println(kitchen[0][0]);</pre>
             <p class="challenge-prompt">How do you get the number of columns in
               <code>String[][] grid = new String[4][6];</code>?</p>
             <div class="options">
-              <label class="option" data-explain="That gives 4, the number of rows."><input type="radio" name="q-cols" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>grid.length</code></span></label>
               <label class="option" data-correct data-explain="Correct. Each row is itself an array, so asking a row for its length gives the width."><input type="radio" name="q-cols" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>grid[0].length</code></span></label>
+              <label class="option" data-explain="That gives 4, the number of rows."><input type="radio" name="q-cols" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>grid.length</code></span></label>
               <label class="option" data-explain="There is no width field on an array. The compiler reports cannot find symbol."><input type="radio" name="q-cols" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>grid.width</code></span></label>
               <label class="option" data-explain="length takes no parentheses on an array, and this form does not exist for the column count either."><input type="radio" name="q-cols" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>grid.length(1)</code></span></label>
             </div>
@@ -366,9 +368,9 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> In <code>grid[r][c]</code>, what is <code>r</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The first index selects the row."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The row</span></label>
-                <label class="option" data-explain="The second index is the column."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The column</span></label>
                 <label class="option" data-explain="Order matters. Swapping the two indexes reads a different cell, or crashes if the grid is not square."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Either, the order does not matter</span></label>
+                <label class="option" data-explain="The second index is the column."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The column</span></label>
+                <label class="option" data-correct data-explain="Correct. The first index selects the row."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The row</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -377,8 +379,8 @@ public class Main {
               <div class="cp-prompt"><span class="qn">Q2.</span> <code>new int[4][6]</code> creates how many cells?</div>
               <div class="options">
                 <label class="option" data-explain="That is the two numbers added. A grid holds rows times columns."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">10</span></label>
-                <label class="option" data-correct data-explain="Correct. 4 rows of 6 columns each is 24 cells."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">24</span></label>
                 <label class="option" data-explain="4 is the number of rows, not the total number of cells."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">4</span></label>
+                <label class="option" data-correct data-explain="Correct. 4 rows of 6 columns each is 24 cells."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">24</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -386,8 +388,8 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Why write the loops against <code>length</code> instead of typing the sizes?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The traversal keeps working when the grid is resized, which the capstone project requires."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So resizing the grid does not break the loops</span></label>
                 <label class="option" data-explain="Both run at the same speed. The benefit is that the code survives a change of size."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because it is faster</span></label>
+                <label class="option" data-correct data-explain="Correct. The traversal keeps working when the grid is resized, which the capstone project requires."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So resizing the grid does not break the loops</span></label>
                 <label class="option" data-explain="Java accepts a typed number perfectly well. It is simply fragile."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because Java requires it</span></label>
               </div>
               <div class="feedback"></div>
@@ -396,8 +398,8 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> A <code>String</code> grid prints <code>null</code> in every cell. What went wrong?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The cells exist but nothing was put in them yet."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It was printed before it was filled</span></label>
                 <label class="option" data-explain="The size is fine. The cells simply hold their default value."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The grid was created with the wrong size</span></label>
+                <label class="option" data-correct data-explain="Correct. The cells exist but nothing was put in them yet."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It was printed before it was filled</span></label>
                 <label class="option" data-explain="Java grids can hold text. The default value for an uninitialised String cell is simply null."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Grids cannot hold text</span></label>
               </div>
               <div class="feedback"></div>

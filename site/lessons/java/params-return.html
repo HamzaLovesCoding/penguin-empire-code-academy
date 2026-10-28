@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -242,7 +244,7 @@ System.out.println(ticksToDegrees(90, 20));</pre>
               <label class="option" data-explain="Nothing is stored. Java does not guess a destination for a returned value."><input type="radio" name="q-disc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is stored back into the argument</span></label>
               <label class="option" data-correct data-explain="Correct. The method runs, the value is produced, and with nothing to catch it the value is discarded."><input type="radio" name="q-disc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is discarded</span></label>
               <label class="option" data-explain="A returned value never prints on its own. Only System.out.println prints."><input type="radio" name="q-disc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is printed automatically</span></label>
-              <label class="option" data-explain="This is legal Java and compiles without complaint, which is exactly why it is easy to miss."><input type="radio" name="q-disc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error</span></label>
+              <label class="option" data-explain="This is legal Java and compiles without complaint, which is why it is easy to miss."><input type="radio" name="q-disc" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -256,9 +258,9 @@ System.out.println(ticksToDegrees(90, 20));</pre>
               <code>setSpeeds(double left, double right)</code> and called as
               <code>setSpeeds(right, left)</code>. What happens?</p>
             <div class="options">
-              <label class="option" data-explain="Java matches by position only. It has no way to know the caller meant something else."><input type="radio" name="q-order" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java matches the names and fixes it</span></label>
-              <label class="option" data-correct data-explain="Correct. Both are doubles so it compiles, and the values arrive swapped. This is a logic error with no message."><input type="radio" name="q-order" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It compiles and the two values arrive the wrong way round</span></label>
-              <label class="option" data-explain="The types match, so there is nothing for the compiler to object to."><input type="radio" name="q-order" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error</span></label>
+              <label class="option" data-explain="Java matches by position only. It has no way to know the caller meant something else."><input type="radio" name="q-order" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java matches the names and swaps them back for you</span></label>
+              <label class="option" data-correct data-explain="Correct. Both are doubles so it compiles, and the values arrive swapped. This is a logic error with no message."><input type="radio" name="q-order" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It compiles, and the two values arrive swapped</span></label>
+              <label class="option" data-explain="The types match, so there is nothing for the compiler to object to."><input type="radio" name="q-order" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error about the parameter order</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -369,8 +371,8 @@ battery(11.4)   = 90.5%</code></pre>
               <div class="cp-prompt"><span class="qn">Q1.</span> What does the type before a method name mean?</div>
               <div class="options">
                 <label class="option" data-explain="Parameter types are listed inside the parentheses, not before the name."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The type it accepts</span></label>
-                <label class="option" data-correct data-explain="Correct. It is the return type, and void means nothing comes back."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The type it gives back</span></label>
                 <label class="option" data-explain="Methods do not have a type of their own in that sense. The type describes what is returned."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The type of the method itself</span></label>
+                <label class="option" data-correct data-explain="Correct. It is the return type, and void means nothing comes back."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The type it gives back</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -378,8 +380,8 @@ battery(11.4)   = 90.5%</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> What happens immediately after <code>return</code> runs?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The method ends there and control goes back to whatever called it."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The method ends</span></label>
                 <label class="option" data-explain="Lines after a return in the same path never run."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The rest of the method still runs</span></label>
+                <label class="option" data-correct data-explain="Correct. The method ends there and control goes back to whatever called it."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The method ends</span></label>
                 <label class="option" data-explain="Only the method ends. The program carries on from the calling line."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The whole program stops</span></label>
               </div>
               <div class="feedback"></div>
@@ -388,8 +390,8 @@ battery(11.4)   = 90.5%</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> How are arguments matched to parameters?</div>
               <div class="options">
-                <label class="option" data-explain="Names are irrelevant. The parameter can have a completely different name from the variable passed in."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">By matching names</span></label>
                 <label class="option" data-correct data-explain="Correct. First argument to first parameter, and so on. Swapping two of the same type is a silent bug."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">By position</span></label>
+                <label class="option" data-explain="Names are irrelevant. The parameter can have a completely different name from the variable passed in."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">By matching names</span></label>
                 <label class="option" data-explain="Alphabetical order plays no part in how a call works."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Alphabetically</span></label>
               </div>
               <div class="feedback"></div>

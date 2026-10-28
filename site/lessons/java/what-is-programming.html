@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What Programming Really Is · Penguin Empire 2551</title>
-  <meta name="description" content="The first lesson of the Penguin Empire 2551 programming path. What a program actually is, why computers are literal, and how to write your first ordered list of instructions — no experience needed." />
+  <meta name="description" content="The first lesson of the Penguin Empire 2551 programming path. What a program actually is, why computers are literal, and how to write your first ordered list of instructions. No experience needed." />
   <link rel="icon" href="/assets/img/logo-2551.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -31,7 +33,7 @@
           at saying exactly what you mean.</p>
         <div class="lesson-meta">
           <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> 15 min</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h2v-4H3zM9 20h2V10H9zM15 20h2V4h-2z"/></svg> Beginner — no experience needed</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h2v-4H3zM9 20h2V10H9zM15 20h2V4h-2z"/></svg> Beginner, no experience needed</span>
           <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2zM18 3v16"/></svg> Phase 1 · Foundations</span>
         </div>
       </header>
@@ -75,35 +77,35 @@
             <p>The code said <em>drive forward for two seconds</em>. The drivers expected the robot to stop
               at the line. Instead it drove straight into the wall.</p>
             <p>Nothing was broken. No motor failed. No wire came loose. The robot did <strong>precisely</strong>
-              what the code said — the code just said the wrong thing. Two seconds of driving was farther
+              what the code said. The code just said the wrong thing: two seconds of driving was farther
               than the wall was away.</p>
           </div>
         </div>
 
-        <p>That story is the whole lesson. A computer is not smart and it is not stupid — it is
+        <p>That story is the whole lesson. A computer is not smart and it is not stupid. It is
           <strong>literal</strong>. It has no idea what you meant. It only knows what you wrote.</p>
-        <p>Everything you do for Team 2551 from here on — motors, sensors, autonomous — is you getting
+        <p>Everything you do for Team 2551 from here on, whether it's motors, sensors, or autonomous, is you getting
           better at saying exactly what you mean.</p>
 
         <!-- ===================== WHAT ===================== -->
         <h2 id="what"><span class="section-h"><span class="num">2</span> What a program actually is</span></h2>
-        <p>A <strong>program</strong> is an ordered list of instructions. That's it. The computer starts at
+        <p>A <strong>program</strong> is an ordered list of instructions. The computer starts at
           the top and does one line at a time, all the way down, without skipping and without rearranging.
           That behaviour has a name: <strong>sequential execution</strong>.</p>
-        <p>Think of a recipe. A recipe is useless as a pile of unordered steps — “bake for 20 minutes”
-          before “mix the batter” produces garbage. Order isn't a detail of the recipe. Order
-          <em>is</em> the recipe.</p>
+        <p>Think of a recipe. A recipe is useless as a pile of unordered steps: “bake for 20 minutes”
+          before “mix the batter” produces garbage. The same steps in a different order make a different
+          recipe.</p>
 
         <p>You already do this. Before every match, someone on the team reads a checklist out loud:
           battery in, bumpers on, tether unplugged, robot on the field. That checklist is an
-          <strong>algorithm</strong> — a finite list of clear steps, in order, that gets a job done.
+          <strong>algorithm</strong>: a finite list of clear steps, in order, that gets a job done.
           Write that same checklist in Java and it's a <strong>program</strong>.</p>
 
         <div class="callout callout--tip">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a7 7 0 0 0-4-12z"/></svg></div>
           <div class="c-title">Mental model</div>
           <div class="c-body"><p>You are writing a recipe for the most obedient, least imaginative chef alive.
-            It will follow every step perfectly — and it will never once notice that a step is missing.</p></div>
+            It will follow every step perfectly, and it will never once notice that a step is missing.</p></div>
         </div>
 
         <p>So you already write algorithms constantly. Programming is only the <em>translation</em> step.</p>
@@ -111,20 +113,20 @@
         <!-- ===================== LANGUAGE ===================== -->
         <h2 id="language"><span class="section-h"><span class="num">3</span> The language and the compiler</span></h2>
         <p>Computers only accept very precise languages. It's like ordering food in a language you barely
-          speak: one wrong word and you get nothing — not a helpful guess. The rules of that language are
+          speak: one wrong word and you get nothing, not even a helpful guess. The rules of that language are
           called its <strong>syntax</strong>.</p>
         <p>We write in <strong>Java</strong>, because that's what FRC robots are programmed in.</p>
 
-        <p>Here's the pipeline. You write <strong>source code</strong> — text a human can read. A
+        <p>You write <strong>source code</strong>, which is text a human can read. A
           <strong>compiler</strong> checks it for syntax mistakes and translates it into something the
           machine can actually execute. If the compiler finds a mistake, it refuses to translate and
           tells you where it choked.</p>
 
         <div class="callout callout--note">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
-          <div class="c-title">That refusal is a feature</div>
+          <div class="c-title">Errors are help</div>
           <div class="c-body"><p>An error message is the compiler catching your typo <em>before</em> the robot
-            does something expensive. It is help, not punishment. Lesson 6 of this unit is entirely about
+            does something expensive. Lesson 6 of this unit is entirely about
             reading what the compiler tells you.</p></div>
         </div>
 
@@ -132,16 +134,16 @@
         <h2 id="io"><span class="section-h"><span class="num">4</span> Input → process → output</span></h2>
         <p>Every program, without exception, is three steps: take something in, do something with it,
           put something out.</p>
-        <p>The intake on the robot is the perfect picture of it. A game piece goes in
+        <p>The robot's intake is a good picture of it. A game piece goes in
           (<strong>input</strong>), the rollers grab and index it (<strong>process</strong>), the shooter
           fires it out (<strong>output</strong>).</p>
         <p>A program that reads a joystick, decides a motor speed, and sets the motor is the exact same
           three steps. On this page our output is text on a screen. In Phase 2, the output is a spinning
-          motor — but the shape never changes.</p>
+          motor, but it's still the same three steps.</p>
 
         <!-- ===================== ORDER ===================== -->
         <h2 id="order"><span class="section-h"><span class="num">5</span> Order <em>is</em> the program</span></h2>
-        <p>Here is a complete, working Java program. Don't worry about the first two lines — taking those
+        <p>Here is a complete, working Java program. Don't worry about the first two lines; taking those
           apart is the <em>next</em> lesson's whole job. For now, look only at the middle.</p>
 
         <div class="code with-lines">
@@ -164,7 +166,7 @@
         </div>
 
         <div class="vocab">
-          <div class="vocab-term"><dt>public class Main { … }</dt><dd>A named container for the program. We take this apart in the next lesson — for now, copy it.</dd></div>
+          <div class="vocab-term"><dt>public class Main { … }</dt><dd>A named container for the program. We take this apart in the next lesson. For now, copy it.</dd></div>
           <div class="vocab-term"><dt>public static void main(...)</dt><dd>The starting line. The computer looks for this and begins here.</dd></div>
           <div class="vocab-term"><dt>System.out.println("…")</dt><dd>One instruction. It means <em>print this text on its own line</em>.</dd></div>
         </div>
@@ -208,15 +210,15 @@ Battery installed</code></pre>
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
           <div class="c-title">This is valid Java</div>
           <div class="c-body"><p>The compiler is perfectly happy with it. It cannot tell that putting the robot
-            on the field <em>before</em> installing the battery is nonsense — that's a fact about robots, not
-            about grammar. <strong>Only you know the intent.</strong> This is the single most important idea
-            on this page.</p></div>
+            on the field <em>before</em> installing the battery is nonsense, because that's a fact about robots and
+            the compiler only checks grammar. <strong>Only you know the intent.</strong> If you remember one
+            idea from this page, make it this one.</p></div>
         </div>
 
         <!-- ===================== RUN ===================== -->
         <h2 id="run"><span class="section-h"><span class="num">6</span> Run it yourself</span></h2>
-        <p>This isn't a picture of code — it's a <strong>real Java compiler</strong>. Press
-          <b style="color:#0a5d70">Run ▶</b> inside the panel and read the order it prints. It's wrong:
+        <p>The panel below runs a <strong>real Java compiler</strong>. Press
+          <b style="color:var(--accent-strong)">Run ▶</b> inside the panel and read the order it prints. It's wrong:
           the robot goes on the field before the battery is in.</p>
         <p><strong>Your job:</strong> cut and paste whole lines until the output reads battery →
           bumpers → tether → field.</p>
@@ -245,17 +247,17 @@ public class Main {
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
           <div class="c-title">First run is slow</div>
           <div class="c-body"><p>The very first run may take a few seconds while the compiler warms up. That's
-            normal — later runs are quick. If the panel ever won't load, use
+            normal, and later runs are quick. If the panel ever won't load, use
             <strong>“Open in new tab ↗”</strong> and paste the code there.</p></div>
         </div>
 
         <!-- ===================== CHALLENGES ===================== -->
         <h2 id="challenges"><span class="section-h"><span class="num">7</span> Practice challenges</span></h2>
-        <p>Reading is easy to fool yourself on. These make sure it actually landed.</p>
+        <p>It's easy to read something and think you've got it. These check whether you do.</p>
 
         <!-- Predict output -->
         <div class="challenge" data-kind="text"
-             data-win="Exactly. Top to bottom, no surprises — the output order is the code order."
+             data-win="Exactly. Top to bottom, no surprises: the output order is the code order."
              data-lose="Java does not reorder your lines or sort them. It runs line 1, then line 2, then line 3, exactly as written.">
           <div class="challenge-head"><span class="ch-kind">Predict the output</span><span class="ch-title">What gets printed?</span></div>
           <div class="challenge-body">
@@ -284,10 +286,10 @@ System.out.println("Shoot");</pre>
           <div class="challenge-body">
             <p class="challenge-prompt">Which of these is an <strong>algorithm</strong>?</p>
             <div class="options">
-              <label class="option" data-explain="Too vague to follow. An algorithm has to be steps someone could carry out without guessing."><input type="radio" name="q-algo" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">“Make the robot better”</span></label>
-              <label class="option" data-correct data-explain="Right — a finite list of clear, ordered, unambiguous steps. That is exactly what an algorithm is."><input type="radio" name="q-algo" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">“1. Drive to the line. 2. Turn 90°. 3. Shoot.”</span></label>
-              <label class="option" data-explain="Java is a programming language — the thing you write an algorithm in, not the algorithm itself."><input type="radio" name="q-algo" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">“Java”</span></label>
-              <label class="option" data-explain="A robot is hardware. The algorithm is the plan the code makes it follow."><input type="radio" name="q-algo" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">“A robot”</span></label>
+              <label class="option" data-explain="Too vague to follow. An algorithm has to be steps someone could carry out without guessing."><input type="radio" name="q-algo" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">“Make the robot drive better in every match”</span></label>
+              <label class="option" data-correct data-explain="Right. It's a finite list of clear, ordered, unambiguous steps, which is what an algorithm is."><input type="radio" name="q-algo" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">“1. Drive to the line. 2. Turn 90°. 3. Shoot.”</span></label>
+              <label class="option" data-explain="Java is a programming language. You write an algorithm in it, but Java itself isn't one."><input type="radio" name="q-algo" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">“Java”</span></label>
+              <label class="option" data-explain="A robot is hardware. The algorithm is the plan the code makes it follow."><input type="radio" name="q-algo" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">“A robot with a drivetrain and a shooter”</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -318,10 +320,10 @@ that checks it and translates it for the machine is called a <span class="blank"
             <p class="challenge-prompt">You told the robot to drive forward for 2 seconds. It drove into the wall.
               What almost certainly happened?</p>
             <div class="options">
-              <label class="option" data-explain="Code is never ignored or overruled by the robot's own judgement — it has none."><input type="radio" name="q-lit" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The robot decided to ignore the code</span></label>
-              <label class="option" data-correct data-explain="Yes. The robot did exactly what it was told; what it was told was wrong. That gap between what you said and what you meant is a bug."><input type="radio" name="q-lit" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The code said 2 seconds, but 2 seconds of driving is farther than the wall</span></label>
+              <label class="option" data-explain="The robot has no judgement of its own, so it can't ignore or overrule the code."><input type="radio" name="q-lit" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The robot decided to ignore part of the code</span></label>
               <label class="option" data-explain="The same code produces the same behaviour every time. That reliability is exactly why debugging is possible at all."><input type="radio" name="q-lit" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java is unreliable</span></label>
-              <label class="option" data-explain="The compiler only catches grammar mistakes. “Drive 2 seconds” is perfectly grammatical — and perfectly wrong."><input type="radio" name="q-lit" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The compiler should have caught it</span></label>
+              <label class="option" data-correct data-explain="Yes. The robot did exactly what it was told; what it was told was wrong. That gap between what you said and what you meant is a bug."><input type="radio" name="q-lit" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The code said 2 seconds, and that was too far</span></label>
+              <label class="option" data-explain="The compiler only catches grammar mistakes. “Drive 2 seconds” is perfectly grammatical and still wrong."><input type="radio" name="q-lit" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The compiler should have caught the wrong time</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -336,7 +338,7 @@ that checks it and translates it for the machine is called a <span class="blank"
           <div class="c-body">
             <ul>
               <li><strong>“The computer will figure out what I meant.”</strong> It will not. It has no idea what
-                you meant, only what you wrote — which is why being exact is the entire skill.</li>
+                you meant, only what you wrote. That's why being exact is the entire skill.</li>
               <li><strong>“Programming means memorising a lot of commands.”</strong> You'll look syntax up
                 forever. What you're actually building is the habit of breaking a job into ordered,
                 unambiguous steps.</li>
@@ -362,7 +364,7 @@ that checks it and translates it for the machine is called a <span class="blank"
           </div>
           <div class="exercise-body">
             <p>Every match, someone on 2551 runs a pre-match checklist out loud. Turn a real checklist into
-              a program — using only what you learned on this page.</p>
+              a program, using only what you learned on this page.</p>
             <ol class="task-list">
               <li><b>Print a header line:</b> <code>PRE-MATCH CHECKLIST</code>.</li>
               <li><b>Print these five steps</b>, each on its own line, <em>in an order that makes physical
@@ -384,8 +386,8 @@ public class Main {
               </script>
             </div>
             <p><strong>While you're here:</strong> deliberately break it once. Delete a semicolon, press Run,
-              and <em>look</em> at what the compiler says. You won't understand the message yet — the point is
-              to learn that a red error is information, not punishment.</p>
+              and <em>look</em> at what the compiler says. You won't understand the message yet. The point is
+              to see that a red error tells you something useful.</p>
             <details class="reveal">
               <summary><svg class="rv-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg> Stuck? Reveal one possible solution</summary>
               <div class="reveal-body">
@@ -404,7 +406,7 @@ public class Main {
     }
 }</code></pre>
                 </div>
-                <p>Any order that makes physical sense is a correct answer — but “robot on the field” before
+                <p>Any order that makes physical sense is a correct answer, but “robot on the field” before
                   “battery installed” is how you lose a match. The compiler would have accepted it happily.</p>
               </div>
             </details>
@@ -423,9 +425,9 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> A program is best described as…</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Ordered instructions, run top to bottom — that's the whole definition."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A list of instructions the computer follows in order</span></label>
-                <label class="option" data-explain="That's a goal, not a program. A program has to spell out the steps that achieve it."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A description of what you want to happen</span></label>
-                <label class="option" data-explain="Nothing in this course thinks. Every decision a program makes is one you wrote."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A machine that thinks for itself</span></label>
+                <label class="option" data-explain="That's a goal, not a program. A program has to spell out the steps that achieve it."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A description of what you want the robot to do</span></label>
+                <label class="option" data-correct data-explain="Correct. Ordered instructions, run top to bottom."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Instructions the computer follows in order</span></label>
+                <label class="option" data-explain="Nothing in this course thinks. Every decision a program makes is one you wrote."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A machine that thinks for itself and decides</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -433,9 +435,9 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> Why do we say a computer is “literal”?</div>
               <div class="options">
-                <label class="option" data-explain="Printing text is just today's output; in Phase 2 the output is a motor. Being literal is about interpretation, not output."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because it only prints text</span></label>
-                <label class="option" data-correct data-explain="Exactly — and that's why the wall-ramming robot wasn't broken. It obeyed."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because it does exactly what the code says, even when that's clearly not what you meant</span></label>
-                <label class="option" data-explain="It never fixes your logic. The compiler catches grammar mistakes only, and even then it just refuses and points."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because it fixes small mistakes for you</span></label>
+                <label class="option" data-explain="Printing text is just today's output; in Phase 2 the output is a motor. Being literal is about interpretation, not output."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because it only ever prints text</span></label>
+                <label class="option" data-explain="It never fixes your logic. The compiler catches grammar mistakes only, and even then it just refuses and points."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because it quietly fixes small mistakes for you</span></label>
+                <label class="option" data-correct data-explain="Exactly. That's why the robot that hit the wall wasn't broken. It obeyed."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It does what the code says, not what you meant</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -443,9 +445,9 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> What is a compiler's job?</div>
               <div class="options">
-                <label class="option" data-explain="Speed is a side effect at best. Its job is checking and translating."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To run your program faster</span></label>
-                <label class="option" data-correct data-explain="Right. And if the syntax is wrong it refuses to translate and tells you where — which is help, not punishment."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To check your code's syntax and translate it into something the machine can run</span></label>
-                <label class="option" data-explain="It cannot. driveForward(2) is perfectly grammatical even when 2 is the wrong number."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To find all the mistakes in your logic</span></label>
+                <label class="option" data-correct data-explain="Right. And if the syntax is wrong it refuses to translate and tells you where, so you can fix it."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To check your syntax and translate it for the machine</span></label>
+                <label class="option" data-explain="Speed is a side effect at best. Its job is checking and translating."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To make your program run faster on the robot</span></label>
+                <label class="option" data-explain="It cannot. driveForward(2) is perfectly grammatical even when 2 is the wrong number."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To find all the mistakes in your logic before it runs</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -453,9 +455,9 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> Two programs contain the exact same three <code>println</code> lines, in different orders. Are they the same program?</div>
               <div class="options">
-                <label class="option" data-explain="No: order is the program. Swap two steps in a recipe and you get a different result."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Yes — same lines, same program</span></label>
-                <label class="option" data-correct data-explain="Correct. Sequential execution means the order you write is the order that happens."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">No — they will print in different orders</span></label>
-                <label class="option" data-explain="Both are error-free. That's the uncomfortable part — being wrong and being broken are not the same thing."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Only if one of them has an error</span></label>
+                <label class="option" data-correct data-explain="Correct. Sequential execution means the order you write is the order that happens."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">No, they will print in different orders</span></label>
+                <label class="option" data-explain="No: order is the program. Swap two steps in a recipe and you get a different result."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Yes, same lines, same program</span></label>
+                <label class="option" data-explain="Both are error-free. Code can run without errors and still be wrong."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Only if one of them has an error in it</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -463,9 +465,9 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q5.</span> You wrote code and got a red error message. What's the right reaction?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Yes. Errors are the compiler helping. Lesson 6 of this unit is entirely about reading them."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Read it — it names the problem and usually the line</span></label>
-                <label class="option" data-explain="Almost never necessary. The message is pointing at a small, specific problem."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Delete everything and start over</span></label>
-                <label class="option" data-explain="Everyone on the team hits errors constantly. Reading them fast is the actual skill being taught."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Assume you're bad at this</span></label>
+                <label class="option" data-correct data-explain="Yes. Errors are the compiler helping. Lesson 6 of this unit is entirely about reading them."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Read it. It names the problem and usually the line</span></label>
+                <label class="option" data-explain="Almost never necessary. The message is pointing at a small, specific problem."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Delete everything and start over from a blank file</span></label>
+                <label class="option" data-explain="Everyone on the team hits errors constantly. Reading them fast is the actual skill being taught."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Assume you're bad at this and ask someone to fix it</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -476,7 +478,7 @@ public class Main {
 
         <!-- ===================== COMPLETE ===================== -->
         <div class="mark-complete">
-          <div class="mc-text"><b>That's the foundation.</b><span>Next: we take that <code>public class Main</code> apart line by line, and you write a program you fully understand.</span></div>
+          <div class="mc-text"><b>Lesson done.</b><span>Next: we take that <code>public class Main</code> apart line by line, and you write a program you fully understand.</span></div>
           <button class="complete-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Mark as complete</span></button>
         </div>
 

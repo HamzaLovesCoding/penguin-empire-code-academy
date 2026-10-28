@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -27,7 +29,7 @@
         <span class="badge badge--ocean">Lesson 4</span>
         <h1 class="lesson-title">Operators &amp; Expressions</h1>
         <p class="lesson-lede">Up to now your programs have printed values you typed in. Now they'll
-          <em>work things out</em> — and you'll meet the one arithmetic trap that stops a mechanism dead
+          <em>work things out</em>, and you'll meet the one arithmetic trap that stops a mechanism dead
           without producing a single error message.</p>
         <div class="lesson-meta">
           <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> 20 min</span>
@@ -41,7 +43,7 @@
         <div class="goal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div>
         <div>
           <h2>Your goal</h2>
-          <p>Work out a number in code instead of typing it in — and keep the answer inside a safe range
+          <p>Work out a number in code instead of typing it in, and keep the answer inside a safe range
             with <code>Math.min</code> and <code>Math.max</code>.</p>
         </div>
       </div>
@@ -59,7 +61,7 @@
           <li><a href="#precedence">Precedence and the <code>+</code> trap</a></li>
           <li><a href="#compound">Shorthand: <code>+=</code> and <code>++</code></a></li>
           <li><a href="#math">The Math toolbox</a></li>
-          <li><a href="#clamp">Clamping — the 80% rule as code</a></li>
+          <li><a href="#clamp">Clamping: the 80% rule as code</a></li>
           <li><a href="#run">Run it yourself</a></li>
           <li><a href="#challenges">Practice challenges</a></li>
           <li><a href="#mistakes">Common mistakes</a></li>
@@ -78,23 +80,22 @@
           <div class="c-title">The 80% rule is arithmetic</div>
           <div class="c-body">
             <p>The team once pushed a motor at roughly <strong>90% power</strong>. It fried so badly it
-              wouldn't run for more than about five seconds. They spent <strong>two full days</strong>
-              hunting the bug before realising the value was simply too high.</p>
+              wouldn't run for more than about five seconds.</p>
             <p>The rule that came out of it is now team law: keep output under about 0.8, or add another
               motor instead of pushing one harder.</p>
           </div>
         </div>
 
-        <p>Here's the uncomfortable part. That rule isn't enforced by the motor, or by the compiler, or by
-          good intentions. It's enforced by <strong>one line of arithmetic</strong>:</p>
+        <p>The motor won't enforce that rule for you, and neither will the compiler. What enforces it is
+          <strong>one line of arithmetic</strong>:</p>
 
         <div class="code">
           <div class="code-head"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-file">the whole lesson, in one line</span><span class="code-spacer"></span></div>
 <pre><code class="language-java">double commanded = Math.min(0.8, Math.max(-0.8, requested));</code></pre>
         </div>
 
-        <p>This lesson is that line. Everything on this page is the machinery for taking a number you
-          have, doing something to it, and getting a number you can trust.</p>
+        <p>By the end of this lesson you'll understand every part of that line: how to take a number you
+          have, do something to it, and get a number you can trust.</p>
 
         <!-- ===================== EXPRESSIONS ===================== -->
         <h2 id="expressions"><span class="section-h"><span class="num">2</span> What an expression is</span></h2>
@@ -106,7 +107,7 @@
           <strong>evaluation</strong>.</p>
         <p class="lead">The right-hand side of <code>=</code> is always an expression, and it is always
           worked out completely before anything is stored.</p>
-        <p>That's the same “gets” rule from the last lesson — there's just more happening on the right now.</p>
+        <p>That's the same “gets” rule from the last lesson, with more happening on the right now.</p>
 
         <!-- ===================== ARITHMETIC ===================== -->
         <h2 id="arithmetic"><span class="section-h"><span class="num">3</span> The five arithmetic operators</span></h2>
@@ -114,8 +115,8 @@
         <div class="vocab">
           <div class="vocab-term"><dt>+</dt><dd>Add. <code>10 + 4</code> is <code>14</code>.</dd></div>
           <div class="vocab-term"><dt>-</dt><dd>Subtract. <code>10 - 4</code> is <code>6</code>.</dd></div>
-          <div class="vocab-term"><dt>*</dt><dd>Multiply — a star, never <code>x</code>. <code>10 * 4</code> is <code>40</code>.</dd></div>
-          <div class="vocab-term"><dt>/</dt><dd>Divide. <code>10 / 4</code> is <code>2</code>. Read that again — section 4 explains it.</dd></div>
+          <div class="vocab-term"><dt>*</dt><dd>Multiply. It's a star, never <code>x</code>. <code>10 * 4</code> is <code>40</code>.</dd></div>
+          <div class="vocab-term"><dt>/</dt><dd>Divide. <code>10 / 4</code> is <code>2</code>. Yes, 2. Section 4 explains why.</dd></div>
           <div class="vocab-term"><dt>%</dt><dd>Remainder, said “modulo”. <code>10 % 4</code> is <code>2</code>.</dd></div>
         </div>
 
@@ -149,7 +150,7 @@ divide:   2
 remainder:12</code></pre>
         </div>
 
-        <p>Notice every sum is wrapped in <code>( )</code>. That's not decoration — section 7 shows what
+        <p>Notice every sum is wrapped in <code>( )</code>. They're there for a reason, and section 7 shows what
           happens without them.</p>
 
         <!-- ===================== INT DIVISION ===================== -->
@@ -163,11 +164,11 @@ remainder:12</code></pre>
           <div class="c-title">How this bites on a robot</div>
           <div class="c-body">
             <p>You write <code>double halfSpeed = 1 / 2;</code> meaning “half power.” Java computes
-              <code>1 / 2</code> <strong>as ints first</strong> — that's <code>0</code> — and only then
+              <code>1 / 2</code> <strong>as ints first</strong>, which gives <code>0</code>, and only then
               widens it into a <code>double</code>. Your variable holds <code>0.0</code>.</p>
-            <p>The motor does nothing. Nothing crashes. Nothing turns red. The mechanism just sits there
+            <p>The motor does nothing, nothing crashes, and nothing turns red. The mechanism just sits there
               while you stare at code that looks correct. This is one of the few Java bugs that produces
-              neither an error nor a warning — just a wrong number flowing quietly downstream.
+              neither an error nor a warning. You just get a wrong number passed along to everything after it.
               <strong>When a mechanism does nothing at all, check your division.</strong></p>
           </div>
         </div>
@@ -207,7 +208,7 @@ System.out.println((double) (7 / 2));   // divide first - damage already done</c
           <li><strong>Split a time.</strong> <code>150 / 60</code> gives 2 minutes;
             <code>150 % 60</code> gives the leftover 30 seconds.</li>
           <li><strong>Split encoder ticks</strong> into whole rotations plus leftovers.</li>
-          <li><strong>“Is this even?”</strong> — <code>n % 2</code> is <code>0</code> for every even
+          <li><strong>“Is this even?”</strong> <code>n % 2</code> is <code>0</code> for every even
             number. You'll use that in Unit J2.</li>
         </ul>
 
@@ -218,21 +219,21 @@ System.out.println((double) (7 / 2));   // divide first - damage already done</c
           <code>6.0</code>, not <code>6</code>. That's why printing a <code>double</code> shows
           <code>0.8</code> and <code>1.0</code> rather than <code>.8</code> and <code>1</code>.</p>
         <p>A <strong>cast</strong> forces a type change on purpose. <code>(int) 12.9</code> is
-          <code>12</code> — a cast <em>truncates</em>, it does not round. <code>(double) 7</code> is
+          <code>12</code>. A cast <em>truncates</em>; it does not round. <code>(double) 7</code> is
           <code>7.0</code>.</p>
-        <p>Casting is a promise to the compiler that you meant to lose something. Make it deliberately.</p>
+        <p>A cast tells the compiler you meant to lose something, so only cast when you do.</p>
 
         <!-- ===================== PRECEDENCE ===================== -->
         <h2 id="precedence"><span class="section-h"><span class="num">7</span> Precedence and the <code>+</code> trap</span></h2>
         <p><code>*</code>, <code>/</code> and <code>%</code> all happen before <code>+</code> and
           <code>-</code>, exactly like maths class. So <code>2 + 3 * 4</code> is <code>14</code>, not
           <code>20</code>.</p>
-        <p>The professional habit isn't memorising deeper levels of the precedence table — it's
-          <strong>adding parentheses whenever the answer isn't obvious at a glance</strong>. Two keystrokes
-          buy a teammate ten seconds at midnight.</p>
+        <p>You don't need to memorise the rest of the precedence table. Experienced programmers just
+          <strong>add parentheses whenever the answer isn't obvious at a glance</strong>. Two keystrokes
+          save a teammate ten seconds of squinting at midnight.</p>
 
-        <p>Now the one that actually catches people. <code>+</code> means “add” when both sides are
-          numbers, and “glue” when either side is text — and Java reads <strong>left to right</strong>:</p>
+        <p>This next one catches a lot of people. <code>+</code> means “add” when both sides are
+          numbers, and “glue” when either side is text, and Java reads <strong>left to right</strong>:</p>
 
         <div class="code with-lines">
           <div class="code-head">
@@ -260,14 +261,14 @@ Total: 5
         <div class="callout callout--tip">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a7 7 0 0 0-4-12z"/></svg></div>
           <div class="c-title">Rule of thumb</div>
-          <div class="c-body"><p>Wrap any sum you print in parentheses. Every time. It costs nothing and
-            removes a whole category of confusing output.</p></div>
+          <div class="c-body"><p>Wrap any sum you print in parentheses, every time. It costs nothing and
+            prevents a whole category of confusing output.</p></div>
         </div>
 
         <!-- ===================== COMPOUND ===================== -->
         <h2 id="compound"><span class="section-h"><span class="num">8</span> Shorthand: <code>+=</code> and <code>++</code></span></h2>
         <p><code>gamePieces = gamePieces + 1;</code> is so common it has a shorthand:
-          <code>gamePieces += 1;</code> — and for exactly one, <code>gamePieces++;</code>.</p>
+          <code>gamePieces += 1;</code>. For adding exactly one, there's <code>gamePieces++;</code>.</p>
         <p>The whole family is <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, plus
           <code>++</code> and <code>--</code>. Nothing new is happening; this is still “box gets the
           result of an expression.”</p>
@@ -309,10 +310,10 @@ after *= 2: 1.0</code></pre>
           writing the class name, a dot, and the name:</p>
 
         <div class="vocab">
-          <div class="vocab-term"><dt>Math.abs(-0.93)</dt><dd>Gives <code>0.93</code> — “how far is the stick pushed?”, ignoring direction.</dd></div>
+          <div class="vocab-term"><dt>Math.abs(-0.93)</dt><dd>Gives <code>0.93</code>. Use it for “how far is the stick pushed?” when direction doesn't matter.</dd></div>
           <div class="vocab-term"><dt>Math.max(-0.8, x)</dt><dd>The larger of the two. Use it as a <strong>floor</strong>: never below −0.8.</dd></div>
           <div class="vocab-term"><dt>Math.min(0.8, x)</dt><dd>The smaller of the two. Use it as a <strong>ceiling</strong>: never above 0.8.</dd></div>
-          <div class="vocab-term"><dt>Math.round(12.64)</dt><dd>Gives <code>13</code> — rounds properly, unlike <code>(int)</code>.</dd></div>
+          <div class="vocab-term"><dt>Math.round(12.64)</dt><dd>Gives <code>13</code>. It rounds properly, unlike <code>(int)</code>.</dd></div>
         </div>
 
         <div class="callout callout--note">
@@ -324,7 +325,7 @@ after *= 2: 1.0</code></pre>
         </div>
 
         <!-- ===================== CLAMP ===================== -->
-        <h2 id="clamp"><span class="section-h"><span class="num">10</span> Clamping — the 80% rule as code</span></h2>
+        <h2 id="clamp"><span class="section-h"><span class="num">10</span> Clamping: the 80% rule as code</span></h2>
         <p>Put a floor and a ceiling together and you get the line from the top of the page:</p>
 
         <div class="code with-lines">
@@ -363,12 +364,12 @@ bigger:    9</code></pre>
           <div class="c-title">You will write this line again</div>
           <div class="c-body"><p>In Phase 2 this exact expression goes around the output of a PID controller
             before it reaches <code>motor.set(...)</code>. The controller doesn't know about the team's 80%
-            rule. You do — so you clamp.</p></div>
+            rule. You do, so you clamp.</p></div>
         </div>
 
         <!-- ===================== RUN ===================== -->
         <h2 id="run"><span class="section-h"><span class="num">11</span> Run it yourself</span></h2>
-        <p>Press <b style="color:#0a5d70">Run ▶</b>. It prints <code>0.0</code> — a motor given this
+        <p>Press <b style="color:var(--accent-strong)">Run ▶</b>. It prints <code>0.0</code>. A motor given this
           number would not move at all.</p>
 
         <div class="sandbox" data-compiler data-title="Live Java Sandbox" data-lang="java">
@@ -390,15 +391,15 @@ public class Main {
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a7 7 0 0 0-4-12z"/></svg></div>
           <div class="c-title">Then break it deliberately</div>
           <div class="c-body"><p>Once all three fixes print <code>0.5</code>, change it to
-            <code>(double) (1 / 2)</code> and watch it snap back to <code>0.0</code> — proof that
-            <em>where</em> the cast goes decides everything.</p></div>
+            <code>(double) (1 / 2)</code> and watch it snap back to <code>0.0</code>. That shows
+            <em>where</em> you put the cast decides the answer.</p></div>
         </div>
 
         <!-- ===================== CHALLENGES ===================== -->
         <h2 id="challenges"><span class="section-h"><span class="num">12</span> Practice challenges</span></h2>
 
         <div class="challenge" data-kind="text"
-             data-win="Right. int / int gives an int, and Java chops the fraction off — it does not round to 4."
+             data-win="Right. int / int gives an int, and Java chops the fraction off. It does not round to 4."
              data-lose="It's 3. Both sides are whole numbers, so Java does whole-number division: 2 goes into 7 three times, and the .5 is thrown away.">
           <div class="challenge-head"><span class="ch-kind">Predict the output</span><span class="ch-title">Whole-number division</span></div>
           <div class="challenge-body">
@@ -434,7 +435,7 @@ public class Main {
         </div>
 
         <div class="challenge" data-kind="text"
-             data-win="Yes — 10 / 4 is 2, 10 % 4 is 2, and 2 + 2 is 4. Both are plain numbers, so + adds."
+             data-win="Yes. 10 / 4 is 2, 10 % 4 is 2, and 2 + 2 is 4. Both are plain numbers, so + adds."
              data-lose="It's 4. Both / and % run before +. 10 / 4 is 2 (fraction chopped) and 10 % 4 is 2 (the leftover). 2 + 2 = 4.">
           <div class="challenge-head"><span class="ch-kind">Predict the output</span><span class="ch-title">Precedence check</span></div>
           <div class="challenge-body">
@@ -472,10 +473,10 @@ System.out.println(a / b + a % b);</pre>
             <p class="challenge-prompt">A mechanism does absolutely nothing, and there's no error message.
               Which line is the most likely culprit?</p>
             <div class="options">
-              <label class="option" data-explain="Nothing wrong here — that's a decimal in a decimal box."><input type="radio" name="q-silent" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double speed = 0.7;</code></span></label>
-              <label class="option" data-correct data-explain="Correct. 3 / 4 is computed as whole numbers first, giving 0, which is then stored as 0.0. The motor is commanded to stop, and nothing complains."><input type="radio" name="q-silent" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double speed = 3 / 4;</code></span></label>
+              <label class="option" data-explain="Nothing wrong here. That's a decimal in a decimal box."><input type="radio" name="q-silent" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double speed = 0.7;</code></span></label>
               <label class="option" data-explain="This is 0.75. One decimal is enough to promote the whole expression."><input type="radio" name="q-silent" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double speed = 3.0 / 4;</code></span></label>
-              <label class="option" data-explain="Fine — the value is already what you meant."><input type="radio" name="q-silent" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double speed = 0.75;</code></span></label>
+              <label class="option" data-correct data-explain="Correct. 3 / 4 is computed as whole numbers first, giving 0, which is then stored as 0.0. The motor is commanded to stop, and nothing complains."><input type="radio" name="q-silent" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double speed = 3 / 4;</code></span></label>
+              <label class="option" data-explain="Fine. The value is already what you meant."><input type="radio" name="q-silent" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double speed = 0.75;</code></span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -488,9 +489,9 @@ System.out.println(a / b + a % b);</pre>
             <p class="challenge-prompt">What does <code>(int) 12.9</code> give you?</p>
             <div class="options">
               <label class="option" data-explain="That's what Math.round(12.9) gives. A cast is not a rounder."><input type="radio" name="q-cast" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>13</code></span></label>
-              <label class="option" data-correct data-explain="Right — casting to int truncates: it deletes everything after the decimal point, no matter how close to 13 the value was."><input type="radio" name="q-cast" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>12</code></span></label>
+              <label class="option" data-explain="The cast is you telling the compiler 'I know I'm losing the fraction, do it anyway,' so it does it without complaint."><input type="radio" name="q-cast" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error</span></label>
               <label class="option" data-explain="An int cannot hold a fraction at all, so something has to go."><input type="radio" name="q-cast" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>12.9</code></span></label>
-              <label class="option" data-explain="The cast is you telling the compiler 'I know I'm losing the fraction, do it anyway' — so it does it without complaint."><input type="radio" name="q-cast" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error</span></label>
+              <label class="option" data-correct data-explain="Right. Casting to int truncates: it deletes everything after the decimal point, no matter how close to 13 the value was."><input type="radio" name="q-cast" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>12</code></span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -508,7 +509,7 @@ System.out.println(a / b + a % b);</pre>
                 is a <code>double</code>. <code>int / int</code> truncates, silently, every time.</li>
               <li><strong>“Casting rounds.”</strong> <code>(int)</code> chops.
                 <code>Math.round(...)</code> rounds. <code>(int) 0.99</code> is <code>0</code>.</li>
-              <li><strong>“<code>+</code> always adds.”</strong> It glues the moment either side is text —
+              <li><strong>“<code>+</code> always adds.”</strong> It glues the moment either side is text,
                 and Java works left to right.</li>
               <li><strong>“<code>%</code> is a percent sign.”</strong> It's the <em>remainder</em>
                 operator. Percentages are just <code>/ 100</code>, done by hand.</li>
@@ -541,7 +542,7 @@ System.out.println(a / b + a % b);</pre>
               <li><b>Rotations.</b> From <code>int totalTicks = 47;</code> and
                 <code>TICKS_PER_ROTATION = 20</code>, print <code>Rotations: 2 (+7 ticks)</code>.</li>
               <li><b>Battery percentage.</b> From <code>11.4</code> volts out of <code>12.6</code>, print
-                it twice — once raw, once through <code>Math.round(...)</code> — so the difference is
+                it twice, once raw and once through <code>Math.round(...)</code>, so the difference is
                 visible.</li>
               <li><b>Bonus:</b> take <code>double requested = 0.95;</code> and print the clamped command.</li>
             </ol>
@@ -601,7 +602,7 @@ Battery: 90.47619047619048%
 Battery: 90%
 Commanded: 0.8</code></pre>
                 </div>
-                <p>Look at that raw percentage — <code>90.47619047619048</code>. That's not a bug, it's what
+                <p>Look at that raw percentage: <code>90.47619047619048</code>. That isn't a bug. It's what
                   a <code>double</code> actually holds. Nobody wants to read it on a dashboard, which is why
                   the second line exists. Deciding how much precision a human needs is part of the job.</p>
               </div>
@@ -619,11 +620,11 @@ Commanded: 0.8</code></pre>
           <div class="checkpoint-body">
 
             <div class="cp-q">
-              <div class="cp-prompt"><span class="qn">Q1.</span> <code>int result = 9 / 4;</code> — what is in <code>result</code>?</div>
+              <div class="cp-prompt"><span class="qn">Q1.</span> <code>int result = 9 / 4;</code> What is in <code>result</code>?</div>
               <div class="options">
                 <label class="option" data-explain="An int box has no room for .25. And because both sides are int, Java never computed the .25 in the first place."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">2.25</span></label>
-                <label class="option" data-correct data-explain="Right — whole-number division. The fraction is discarded, not rounded."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">2</span></label>
                 <label class="option" data-explain="Java truncates, it doesn't round up. 9 / 4 is 2."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">3</span></label>
+                <label class="option" data-correct data-explain="Right. Whole-number division. The fraction is discarded, not rounded."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">2</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -632,8 +633,8 @@ Commanded: 0.8</code></pre>
               <div class="cp-prompt"><span class="qn">Q2.</span> You want half of <code>1</code>, as a <code>double</code>. Which line works?</div>
               <div class="options">
                 <label class="option" data-explain="This gives 0.0. Both sides are int, so the division happens as whole numbers before the value ever reaches the double box."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double h = 1 / 2;</code></span></label>
-                <label class="option" data-correct data-explain="Yes. One decimal point promotes the whole expression to double, and you get 0.5."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double h = 1.0 / 2;</code></span></label>
                 <label class="option" data-explain="Too late. The int division runs inside the parentheses first and produces 0; casting 0 gives 0.0."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double h = (double) (1 / 2);</code></span></label>
+                <label class="option" data-correct data-explain="Yes. One decimal point promotes the whole expression to double, and you get 0.5."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double h = 1.0 / 2;</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -641,9 +642,9 @@ Commanded: 0.8</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> <code>System.out.println(1 + 2 + " motors");</code> prints…</div>
               <div class="options">
-                <label class="option" data-explain="Java doesn't insert spaces or keep the numbers separate — the + between two numbers is addition."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>1 2 motors</code></span></label>
-                <label class="option" data-correct data-explain="Correct. Java goes left to right: 1 + 2 are both numbers so they add to 3, and only then does the text get glued on."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>3 motors</code></span></label>
+                <label class="option" data-explain="Java doesn't insert spaces or keep the numbers separate. The + between two numbers is addition."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>1 2 motors</code></span></label>
                 <label class="option" data-explain="That would happen if the text came first. Here the two numbers meet each other before any text is involved."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>12 motors</code></span></label>
+                <label class="option" data-correct data-explain="Correct. Java goes left to right: 1 + 2 are both numbers so they add to 3, and only then does the text get glued on."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>3 motors</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -651,9 +652,9 @@ Commanded: 0.8</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> What is <code>Math.max(-0.8, -1.0)</code>?</div>
               <div class="options">
-                <label class="option" data-explain="max gives the larger value, and -0.8 is larger than -1.0 — it's further to the right on the number line."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">−1.0</span></label>
-                <label class="option" data-correct data-explain="Right, and that's exactly why max is the floor of a clamp: it drags anything too negative up to the limit."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">−0.8</span></label>
+                <label class="option" data-explain="max gives the larger value, and -0.8 is larger than -1.0 because it's further to the right on the number line."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">−1.0</span></label>
                 <label class="option" data-explain="Math.max picks one of the two values you gave it; it never flips a sign."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">0.8</span></label>
+                <label class="option" data-correct data-explain="Right, and that's exactly why max is the floor of a clamp: it drags anything too negative up to the limit."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">−0.8</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -661,9 +662,9 @@ Commanded: 0.8</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q5.</span> Why wrap <code>(totalTicks + matchSeconds)</code> in parentheses inside a <code>println</code>?</div>
               <div class="options">
-                <label class="option" data-explain="It doesn't. int x = a + b; is perfectly legal with no parentheses."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java requires parentheses around every sum</span></label>
-                <label class="option" data-correct data-explain="Exactly the 'Total: 23' trap. The parentheses force the addition to finish before the gluing starts."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because the text on the left would otherwise turn <code>+</code> into glue and print the digits side by side</span></label>
+                <label class="option" data-explain="It doesn't. int x = a + b; is perfectly legal with no parentheses."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java requires parentheses around every sum you print</span></label>
                 <label class="option" data-explain="Identical speed. Parentheses change the meaning, not the performance."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It makes the program run faster</span></label>
+                <label class="option" data-correct data-explain="Exactly the 'Total: 23' trap. The parentheses force the addition to finish before the gluing starts."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So the numbers are added before they join the text</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -674,7 +675,7 @@ Commanded: 0.8</code></pre>
 
         <!-- ===================== COMPLETE ===================== -->
         <div class="mark-complete">
-          <div class="mc-text"><b>Your programs can do maths now — safely.</b><span>Next: text. Building messages, comparing names, and why <code>==</code> quietly betrays you on Strings.</span></div>
+          <div class="mc-text"><b>Your programs can do maths now, safely.</b><span>Next: text. Building messages, comparing names, and why <code>==</code> quietly betrays you on Strings.</span></div>
           <button class="complete-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Mark as complete</span></button>
         </div>
 

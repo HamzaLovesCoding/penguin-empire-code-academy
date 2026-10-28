@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Variables &amp; Data Types · Penguin Empire 2551</title>
-  <meta name="description" content="Store robot data in named boxes. int, double, boolean, char and String — what each one holds, why = means 'gets', and how one final value stops the bug that cost Team 2551 two meetings." />
+  <meta name="description" content="Store robot data in named boxes. int, double, boolean, char and String: what each one holds, why = means 'gets', and how one final value stops the bug that cost Team 2551 two meetings." />
   <link rel="icon" href="/assets/img/logo-2551.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -26,7 +28,7 @@
         </nav>
         <span class="badge badge--ocean">Lesson 3</span>
         <h1 class="lesson-title">Variables &amp; Data Types</h1>
-        <p class="lesson-lede">A robot is nothing but numbers that change — speeds, voltages, positions,
+        <p class="lesson-lede">A robot is nothing but numbers that change: speeds, voltages, positions,
           counts. A <strong>variable</strong> is a named box you keep one of those numbers in. This lesson
           is where your programs stop being fixed text and start holding <em>data</em>.</p>
         <div class="lesson-meta">
@@ -56,7 +58,7 @@
           <li><a href="#assign">Declare, assign, reassign</a></li>
           <li><a href="#gets">Why <code>=</code> does not mean “equals”</a></li>
           <li><a href="#naming">Naming things</a></li>
-          <li><a href="#final">final — the box you nail shut</a></li>
+          <li><a href="#final">final: the box you nail shut</a></li>
           <li><a href="#run">Run it yourself</a></li>
           <li><a href="#rejects">What the compiler rejects</a></li>
           <li><a href="#challenges">Practice challenges</a></li>
@@ -76,7 +78,7 @@
           <div class="c-title">Nine out of ten</div>
           <div class="c-body">
             <p>One season the intake speed <code>0.65</code> was typed directly into ten different places in
-              the code. Somebody decided it should be <code>0.8</code>, went through, changed it — and
+              the code. Somebody decided it should be <code>0.8</code>, went through, changed it, and
               missed one.</p>
             <p>For two meetings the intake ran at full power everywhere <em>except</em> during autonomous,
               and nobody could work out why auto kept jamming. The fix took two seconds once they found it.</p>
@@ -89,8 +91,8 @@
 
         <!-- ===================== BOX ===================== -->
         <h2 id="box"><span class="section-h"><span class="num">2</span> A variable is a labelled box</span></h2>
-        <p>Think of the bins on the pit cart. Each one has a label written on tape — <code>ZIP TIES</code>,
-          <code>HEX KEYS</code> — and it has contents. The label never changes. The contents do.</p>
+        <p>Think of the bins on the pit cart. Each one has a label written on tape, like <code>ZIP TIES</code> or
+          <code>HEX KEYS</code>, and it has contents. The label stays the same while the contents change.</p>
         <p>In code the label is the <strong>name</strong>, and the contents are the <strong>value</strong>.</p>
         <p>Java also makes you say <em>what kind of thing</em> goes in the box, before you use it. The bin
           is shaped: the battery bin holds batteries, and you can't drop a wrench in it. In Java that shape
@@ -109,7 +111,7 @@
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
           <div class="c-title">You will see this exact shape again</div>
           <div class="c-body"><p>In Phase 2 you'll write
-            <code>SparkMax leftMotor = new SparkMax(2, MotorType.kBrushless);</code> — and it is the same
+            <code>SparkMax leftMotor = new SparkMax(2, MotorType.kBrushless);</code>, and it is the same
             four parts in the same order. Type, name, equals, value. Learn the shape once here and that
             line will look familiar instead of frightening.</p></div>
         </div>
@@ -118,9 +120,9 @@
         <h2 id="types"><span class="section-h"><span class="num">3</span> The five types you need</span></h2>
 
         <div class="vocab">
-          <div class="vocab-term"><dt>int</dt><dd>Whole numbers, no decimal point. <code>int teamNumber = 2551;</code> — CAN IDs, game-piece counts, port numbers.</dd></div>
-          <div class="vocab-term"><dt>double</dt><dd>Numbers with a decimal point. <code>double motorSpeed = 0.65;</code> — motor output, voltage, distance.</dd></div>
-          <div class="vocab-term"><dt>boolean</dt><dd>Exactly <code>true</code> or <code>false</code>, no quotes. <code>boolean hasGamePiece = true;</code> — is a limit switch pressed?</dd></div>
+          <div class="vocab-term"><dt>int</dt><dd>Whole numbers, no decimal point. <code>int teamNumber = 2551;</code> Use it for CAN IDs, game-piece counts, port numbers.</dd></div>
+          <div class="vocab-term"><dt>double</dt><dd>Numbers with a decimal point. <code>double motorSpeed = 0.65;</code> Use it for motor output, voltage, distance.</dd></div>
+          <div class="vocab-term"><dt>boolean</dt><dd>Exactly <code>true</code> or <code>false</code>, no quotes. <code>boolean hasGamePiece = true;</code> Use it for yes/no questions like "is a limit switch pressed?"</dd></div>
           <div class="vocab-term"><dt>char</dt><dd>A single character in <strong>single</strong> quotes. <code>char alliance = 'R';</code></dd></div>
           <div class="vocab-term"><dt>String</dt><dd>Text in <strong>double</strong> quotes. <code>String robotName = "Penguin One";</code></dd></div>
         </div>
@@ -132,7 +134,7 @@
             <ul>
               <li><strong><code>String</code> is capitalised; the other four are lowercase.</strong> That's
                 not a typo and the compiler won't forgive it. (The reason: <code>String</code> is a
-                <em>class</em> and the others are <em>primitives</em> — the full story is in Unit J5.)</li>
+                <em>class</em> and the others are <em>primitives</em>. The full story is in Unit J5.)</li>
               <li><strong><code>'R'</code> is a <code>char</code>. <code>"R"</code> is a
                 <code>String</code>.</strong> Single quotes versus double quotes make two different types
                 that don't swap freely.</li>
@@ -179,12 +181,12 @@ Penguin One</code></pre>
         <h2 id="assign"><span class="section-h"><span class="num">4</span> Declare, assign, reassign</span></h2>
         <p>Three different moves, and they're easy to confuse:</p>
         <div class="vocab">
-          <div class="vocab-term"><dt>Declare</dt><dd><code>int gamePieces;</code> — the bin exists, and it's empty.</dd></div>
-          <div class="vocab-term"><dt>Initialize</dt><dd><code>int gamePieces = 0;</code> — make the bin <em>and</em> put something in it. Do this almost always.</dd></div>
-          <div class="vocab-term"><dt>Reassign</dt><dd><code>gamePieces = 3;</code> — no type this time. The bin already exists; you're just changing what's inside.</dd></div>
+          <div class="vocab-term"><dt>Declare</dt><dd><code>int gamePieces;</code> The bin exists, and it's empty.</dd></div>
+          <div class="vocab-term"><dt>Initialize</dt><dd><code>int gamePieces = 0;</code> Make the bin <em>and</em> put something in it. Do this almost always.</dd></div>
+          <div class="vocab-term"><dt>Reassign</dt><dd><code>gamePieces = 3;</code> No type this time. The bin already exists; you're just changing what's inside.</dd></div>
         </div>
         <p>You write the label on the bin <strong>once</strong>. After that you only change the contents.
-          Writing <code>int gamePieces = 3;</code> a second time is an error — you can't build the same
+          Writing <code>int gamePieces = 3;</code> a second time is an error, because you can't build the same
           bin twice.</p>
 
         <div class="code with-lines">
@@ -217,12 +219,12 @@ Picked another: 2</code></pre>
 
         <!-- ===================== GETS ===================== -->
         <h2 id="gets"><span class="section-h"><span class="num">5</span> Why <code>=</code> does not mean “equals”</span></h2>
-        <p>This is the one that unlocks everything else. In Java, <code>=</code> means
+        <p>A lot of later code only makes sense once this clicks. In Java, <code>=</code> means
           <strong>“put the thing on the right into the box on the left.”</strong></p>
         <p>Read it out loud as <strong>“gets”</strong>. So <code>speed = 0.7;</code> is
           <em>“speed gets 0.7.”</em></p>
         <p>That's why <code>gamePieces = gamePieces + 1;</code> makes perfect sense. As an equation it's
-          nonsense — nothing equals itself plus one. As an instruction it's obvious: work out the right
+          nonsense, since nothing equals itself plus one. As an instruction it's obvious: work out the right
           side first (whatever <code>gamePieces</code> was, plus one), then put that result back in the box.</p>
 
         <div class="callout callout--tip">
@@ -238,40 +240,40 @@ Picked another: 2</code></pre>
         <p>Rules the <strong>compiler</strong> enforces: start with a letter, no spaces, case-sensitive
           (<code>speed</code> and <code>Speed</code> are two different boxes), and you can't use a Java
           keyword like <code>class</code> or <code>int</code>.</p>
-        <p>Rules the <strong>team</strong> enforces: use <code>camelCase</code> — first word lowercase,
-          later words capitalised, like <code>leftMotorSpeed</code> — and make the name say what's in it.</p>
+        <p>Rules the <strong>team</strong> enforces: use <code>camelCase</code> (first word lowercase,
+          later words capitalised, like <code>leftMotorSpeed</code>), and make the name say what's in it.</p>
         <p><code>double x = 0.65;</code> is perfectly legal and completely useless.
           <code>double intakeSpeed = 0.65;</code> is the same code that a teammate can read at 1 a.m. at
-          competition. Short names cost you nothing today and twenty minutes later.</p>
+          competition. A short name saves you a few seconds today and can cost you twenty minutes later.</p>
 
         <!-- ===================== FINAL ===================== -->
-        <h2 id="final"><span class="section-h"><span class="num">7</span> <code>final</code> — the box you nail shut</span></h2>
+        <h2 id="final"><span class="section-h"><span class="num">7</span> <code>final</code>: the box you nail shut</span></h2>
         <p>Put <code>final</code> in front of a declaration and the compiler will refuse to let anyone
-          reassign it — including you, six weeks later, at 1 a.m.</p>
+          reassign it, including you, six weeks later, at 1 a.m.</p>
         <div class="code">
           <div class="code-head"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-file">Main.java</span><span class="code-lang">Java</span><span class="code-spacer"></span></div>
 <pre><code class="language-java">final double INTAKE_SPEED = 0.65;</code></pre>
         </div>
-        <p>The convention for a <code>final</code> value is <code>SCREAMING_SNAKE_CASE</code>. And this is
-          exactly the nine-out-of-ten fix: one nailed-shut box, referenced everywhere, changed in one place.</p>
+        <p>The convention for a <code>final</code> value is <code>SCREAMING_SNAKE_CASE</code>. This is
+          the fix for the nine-out-of-ten bug: one nailed-shut box, referenced everywhere, changed in one place.</p>
 
         <div class="callout callout--note">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
           <div class="c-title">This grows up into Constants.java</div>
-          <div class="c-body"><p>In Phase 2 this idea becomes a whole file called <strong>Constants.java</strong>
-            — port numbers, speeds, PID setpoints, all <code>final</code>, all in one place, so nobody ever
+          <div class="c-body"><p>In Phase 2 this idea becomes a whole file called <strong>Constants.java</strong>.
+            Port numbers, speeds, and PID setpoints are all <code>final</code> and all in one place, so nobody ever
             hunts down ten copies of <code>0.65</code> again. Remember the word <em>Constants</em>; you'll
             meet it in Unit 7.</p></div>
         </div>
 
         <p>One more thing you've been using without a name: that <code>+</code> inside
           <code>println</code>. When one side of a <code>+</code> is text, Java turns the other side into
-          text and glues them together. That's <strong>string concatenation</strong> — it's how you print
+          text and glues them together. That's <strong>string concatenation</strong>, and it's how you print
           a label next to a value. (What <code>+</code> does with two <em>numbers</em> is the next lesson.)</p>
 
         <!-- ===================== RUN ===================== -->
         <h2 id="run"><span class="section-h"><span class="num">8</span> Run it yourself</span></h2>
-        <p>Press <b style="color:#0a5d70">Run ▶</b>, then start changing things. Flip <code>isEnabled</code>
+        <p>Press <b style="color:var(--accent-strong)">Run ▶</b>, then start changing things. Flip <code>isEnabled</code>
           to <code>true</code>. Drop the voltage to <code>11.4</code>. Rename the robot.</p>
 
         <div class="sandbox" data-compiler data-title="Live Java Sandbox" data-lang="java">
@@ -298,9 +300,9 @@ public class Main {
         <div class="callout callout--tip">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a7 7 0 0 0-4-12z"/></svg></div>
           <div class="c-title">Now break it on purpose</div>
-          <div class="c-body"><p>Change the voltage line to <code>double batteryVoltage = "12.6";</code> —
-            text in a number box — and press Run. Read the error, then undo it. Getting comfortable with
-            error messages now is the whole point of the next few lessons.</p></div>
+          <div class="c-body"><p>Change the voltage line to <code>double batteryVoltage = "12.6";</code>
+            (text in a number box) and press Run. Read the error, then undo it. The next few lessons are about
+            getting comfortable with error messages like this one.</p></div>
         </div>
 
         <!-- ===================== REJECTS ===================== -->
@@ -339,7 +341,7 @@ int class = 3;
         <!-- Challenge 1 -->
         <div class="challenge" data-kind="text"
              data-win="Right. b = a copied the value 2 into b. Changing a afterwards doesn't reach back into b."
-             data-lose="It's 2. int b = a; copies what was in a at that moment — it does not link the two boxes together.">
+             data-lose="It's 2. int b = a; copies what was in a at that moment. The two boxes aren't linked.">
           <div class="challenge-head"><span class="ch-kind">Predict the output</span><span class="ch-title">Copies, not links</span></div>
           <div class="challenge-body">
             <p class="challenge-prompt">Trace it line by line. What single number is printed?</p>
@@ -355,7 +357,7 @@ System.out.println(b);</pre>
             <details class="reveal">
               <summary><svg class="rv-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg> Show explanation</summary>
               <div class="reveal-body"><p><code>int b = a;</code> reads the value currently inside <code>a</code>
-                — which is 2 — and puts a <em>copy</em> of it into <code>b</code>. From that instant the two
+                (which is 2) and puts a <em>copy</em> of it into <code>b</code>. From that instant the two
                 bins are unrelated. Setting <code>a = 9</code> refills <code>a</code>'s bin only.
                 <code>b</code> still holds its copy: <strong>2</strong>.</p></div>
             </details>
@@ -364,8 +366,8 @@ System.out.println(b);</pre>
 
         <!-- Challenge 2 -->
         <div class="challenge" data-kind="text"
-             data-win="Yes — &quot;pieces&quot; in quotes is literal text, pieces without quotes is the variable's value. Glued together with no space: pieces3."
-             data-lose="Careful with the quotes. &quot;pieces&quot; prints the word; pieces prints the value 3. The result is pieces3 — no space, because you didn't put one inside the quotes.">
+             data-win="Yes. &quot;pieces&quot; in quotes is literal text, pieces without quotes is the variable's value. Glued together with no space: pieces3."
+             data-lose="Careful with the quotes. &quot;pieces&quot; prints the word; pieces prints the value 3. The result is pieces3 with no space, because you didn't put one inside the quotes.">
           <div class="challenge-head"><span class="ch-kind">Predict the output</span><span class="ch-title">Watch the quotes</span></div>
           <div class="challenge-body">
             <p class="challenge-prompt">What exactly gets printed?</p>
@@ -381,7 +383,7 @@ System.out.println("pieces" + pieces);</pre>
 
         <!-- Challenge 3 -->
         <div class="challenge" data-kind="fib"
-             data-win="All four correct — whole number, decimal, true/false, and text with a capital S."
+             data-win="All four correct: whole number, decimal, true/false, and text with a capital S."
              data-lose="Check each one: whole number → int, decimal → double, true/false → boolean, text in double quotes → String (capital S).">
           <div class="challenge-head"><span class="ch-kind">Fill in the blanks</span><span class="ch-title">Pick the right type</span></div>
           <div class="challenge-body">
@@ -404,10 +406,10 @@ System.out.println("pieces" + pieces);</pre>
           <div class="challenge-body">
             <p class="challenge-prompt">Which line does <strong>not</strong> compile?</p>
             <div class="options">
-              <label class="option" data-explain="This is fine — Java happily widens the whole number 1 into the double 1.0."><input type="radio" name="q-compile" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double speed = 1;</code></span></label>
               <label class="option" data-correct data-explain="Correct. A double won't fit in an int bin without losing the decimal, so Java refuses: possible lossy conversion from double to int."><input type="radio" name="q-compile" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>int ticks = 4.0;</code></span></label>
-              <label class="option" data-explain="Perfectly legal — false is exactly what a boolean holds."><input type="radio" name="q-compile" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>boolean ready = false;</code></span></label>
-              <label class="option" data-explain="Legal. Digits inside double quotes are text, not a number — and that's allowed."><input type="radio" name="q-compile" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>String name = "2551";</code></span></label>
+              <label class="option" data-explain="This is fine. Java happily widens the whole number 1 into the double 1.0."><input type="radio" name="q-compile" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>double speed = 1;</code></span></label>
+              <label class="option" data-explain="Perfectly legal. false is exactly what a boolean holds."><input type="radio" name="q-compile" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>boolean ready = false;</code></span></label>
+              <label class="option" data-explain="Legal. Digits inside double quotes are text, and that's allowed."><input type="radio" name="q-compile" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>String name = "2551";</code></span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -421,9 +423,9 @@ System.out.println("pieces" + pieces);</pre>
             <p class="challenge-prompt">Why did the team switch from typing <code>0.65</code> everywhere to a
               <code>final</code> variable?</p>
             <div class="options">
-              <label class="option" data-explain="Identical machine code either way. This is entirely about the humans reading it."><input type="radio" name="q-final" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It makes the robot faster</span></label>
-              <label class="option" data-correct data-explain="Exactly the nine-out-of-ten bug. One named value, one edit, no hunting."><input type="radio" name="q-final" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">One place to change it, so you can't miss the tenth copy</span></label>
-              <label class="option" data-explain="Memory isn't the issue; correctness and readability are."><input type="radio" name="q-final" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>final</code> variables use less memory</span></label>
+              <label class="option" data-explain="Identical machine code either way. This is entirely about the humans reading it."><input type="radio" name="q-final" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It makes the robot faster on the field</span></label>
+              <label class="option" data-correct data-explain="Exactly the nine-out-of-ten bug. One named value, one edit, no hunting."><input type="radio" name="q-final" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">One place to change it, so no copy gets missed</span></label>
+              <label class="option" data-explain="Memory isn't the issue; correctness and readability are."><input type="radio" name="q-final" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>final</code> variables take up less memory on the robot</span></label>
               <label class="option" data-explain="Java is perfectly happy with repeated literals. Your teammates at 1 a.m. are not."><input type="radio" name="q-final" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java requires it</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
@@ -439,7 +441,7 @@ System.out.println("pieces" + pieces);</pre>
           <div class="c-body">
             <ul>
               <li><strong>“<code>=</code> means equals.”</strong> It means <em>gets</em>. The right side is
-                worked out, then stored in the box on the left — which is why
+                worked out, then stored in the box on the left. That's why
                 <code>count = count + 1;</code> is normal, not nonsense.</li>
               <li><strong>“<code>int b = a;</code> links b to a.”</strong> It copies the value once.
                 Changing <code>a</code> afterwards never touches <code>b</code>.</li>
@@ -466,7 +468,7 @@ System.out.println("pieces" + pieces);</pre>
           </div>
           <div class="exercise-body">
             <p>Every robot prints a status block to the Driver Station on startup. Build one out of
-              variables — so that changing the robot means editing values at the top, not hunting through
+              variables, so that changing the robot means editing values at the top instead of hunting through
               print statements.</p>
             <ol class="task-list">
               <li><b>Declare five variables:</b> <code>teamNumber</code> (int), <code>robotName</code>
@@ -545,9 +547,9 @@ Max CAN ID: 12</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> What does <code>double intakeSpeed = 0.65;</code> do?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Right — type, name, equals, value, semicolon. All four parts."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Creates a box named <code>intakeSpeed</code> that holds decimal numbers, and puts 0.65 in it</span></label>
-                <label class="option" data-explain="That's a comparison, which uses == and comes in Unit J2. A single = stores."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Checks whether <code>intakeSpeed</code> equals 0.65</span></label>
-                <label class="option" data-explain="Nothing prints unless you call System.out.println. Declaring is silent."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Prints 0.65</span></label>
+                <label class="option" data-correct data-explain="Right. Type, name, equals sign and value, ended with a semicolon."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Creates a decimal box named <code>intakeSpeed</code> holding 0.65</span></label>
+                <label class="option" data-explain="That's a comparison, which uses == and comes in Unit J2. A single = stores."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Checks whether <code>intakeSpeed</code> already holds the value 0.65</span></label>
+                <label class="option" data-explain="Nothing prints unless you call System.out.println. Declaring is silent."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Prints 0.65 to the console</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -555,9 +557,9 @@ Max CAN ID: 12</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> Which of these needs a <code>double</code>, not an <code>int</code>?</div>
               <div class="options">
-                <label class="option" data-explain="Device IDs are whole numbers — int is right."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A CAN device ID</span></label>
-                <label class="option" data-correct data-explain="Yes. 0.65 has a decimal point, so an int would throw the fraction away and the motor would get 0."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A motor output between -1.0 and 1.0</span></label>
+                <label class="option" data-explain="Device IDs are whole numbers, so int is right."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A CAN device ID</span></label>
                 <label class="option" data-explain="You never score 2.5 game pieces. int."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The number of game pieces scored</span></label>
+                <label class="option" data-correct data-explain="Yes. 0.65 has a decimal point, so an int would throw the fraction away and the motor would get 0."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A motor output between -1.0 and 1.0</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -566,18 +568,18 @@ Max CAN ID: 12</code></pre>
               <div class="cp-prompt"><span class="qn">Q3.</span> Which line correctly stores a single alliance letter?</div>
               <div class="options">
                 <label class="option" data-explain="Mismatch: single quotes make a char, and a char doesn't fit a String box. The compiler says incompatible types."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>String alliance = 'R';</code></span></label>
-                <label class="option" data-correct data-explain="Correct — single quotes, single character, char."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>char alliance = 'R';</code></span></label>
+                <label class="option" data-correct data-explain="Correct. Single quotes, single character, char."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>char alliance = 'R';</code></span></label>
                 <label class="option" data-explain="Backwards. Double quotes make a String, which won't fit in a char."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>char alliance = "R";</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>
 
             <div class="cp-q">
-              <div class="cp-prompt"><span class="qn">Q4.</span> After <code>double speed = 0.5;</code> then <code>speed = 0.9;</code> — what's in <code>speed</code>?</div>
+              <div class="cp-prompt"><span class="qn">Q4.</span> After <code>double speed = 0.5;</code> then <code>speed = 0.9;</code>, what's in <code>speed</code>?</div>
               <div class="options">
                 <label class="option" data-explain="The second line overwrote it. A bin only holds one thing at a time."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">0.5</span></label>
                 <label class="option" data-correct data-explain="Right. Reassigning replaces the contents; the old value is gone."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">0.9</span></label>
-                <label class="option" data-explain="Variables have no memory of past values. If you need the old one, store it in a second variable first."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Both — it remembers the history</span></label>
+                <label class="option" data-explain="Variables have no memory of past values. If you need the old one, store it in a second variable first."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Both, because it remembers the history</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -585,9 +587,9 @@ Max CAN ID: 12</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q5.</span> Why write <code>final</code> on a value like an intake speed?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Yes — it turns 'please don't edit this' into a rule the compiler enforces. This grows into Constants.java in Phase 2."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So the compiler stops anyone — including you — from changing it later</span></label>
-                <label class="option" data-explain="You can read a final variable as many times as you like. You just can't reassign it."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So it can only be used once</span></label>
-                <label class="option" data-explain="Not the point. final is about protecting a value that many lines depend on."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So it runs faster</span></label>
+                <label class="option" data-correct data-explain="Yes. It turns 'please don't edit this' into a rule the compiler enforces. This grows into Constants.java in Phase 2."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So the compiler stops anyone changing it</span></label>
+                <label class="option" data-explain="You can read a final variable as many times as you like. You just can't reassign it."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So it can only be read once, then it is used up</span></label>
+                <label class="option" data-explain="Not the point. final is about protecting a value that many lines depend on."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So it runs faster in the robot loop</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -598,7 +600,7 @@ Max CAN ID: 12</code></pre>
 
         <!-- ===================== COMPLETE ===================== -->
         <div class="mark-complete">
-          <div class="mc-text"><b>Your programs can hold data now.</b><span>Next: doing arithmetic with those values — and the one operator that surprises everybody.</span></div>
+          <div class="mc-text"><b>Your programs can hold data now.</b><span>Next: doing arithmetic with those values, plus the one operator that surprises everybody.</span></div>
           <button class="complete-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Mark as complete</span></button>
         </div>
 

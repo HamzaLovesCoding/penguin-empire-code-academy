@@ -104,8 +104,8 @@
         ${isSim ? `<div class="sim-banner">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg>
           <span><b>Simulated for teaching.</b> <code>SparkMax</code>, <code>PIDController</code> and friends here are
-          plain-Java stand-ins so this runs in a browser. On a real robot they come from <b>WPILib</b> —
-          same names, same method shapes.</span>
+          plain-Java stand-ins so this runs in a browser. On a real robot they come from <b>WPILib</b>,
+          with the same names and method shapes.</span>
         </div>` : ""}
         <iframe class="sandbox-frame" title="${title}" loading="lazy"
           src="https://onecompiler.com/embed/${lang}?theme=dark&hideTitle=true&hideStdin=true&hideNew=true&hideNewFileOption=true&hideLanguageSelection=true&listenToEvents=true"></iframe>
@@ -138,7 +138,7 @@
           } else {
             const bar = box.querySelector(".sandbox-bar .grow");
             if (bar) bar.innerHTML = `<b style="color:#ff8d85">The simulator didn't load</b>
-              <span class="muted">— this code needs it. Reload the page, or use “Open in new tab”.</span>`;
+              <span class="muted">and this code needs it. Reload the page, or use “Open in new tab”.</span>`;
           }
         });
       }
@@ -182,7 +182,7 @@
           if (!ok) allRight = false;
         });
         setFeedback(ch.querySelector(".feedback"), allRight,
-          allRight ? (ch.dataset.win || "Perfect — that compiles!") : (ch.dataset.lose || "Not quite. Check the highlighted blanks and the hint."));
+          allRight ? (ch.dataset.win || "Perfect. That compiles!") : (ch.dataset.lose || "Not quite. Check the highlighted blanks and the hint."));
       });
       ch.querySelector(".reset-btn")?.addEventListener("click", () => {
         blanks.forEach((b) => { b.textContent = ""; b.classList.remove("correct", "wrong"); });
@@ -204,7 +204,7 @@
         const ok = ans.some((a) => (ci ? a.toLowerCase() : a) === val) && val.length > 0;
         input.classList.toggle("correct", ok); input.classList.toggle("wrong", !ok);
         setFeedback(ch.querySelector(".feedback"), ok,
-          ok ? (ch.dataset.win || "Correct!") : (ch.dataset.lose || "Try again — re-read the code carefully."));
+          ok ? (ch.dataset.win || "Correct!") : (ch.dataset.lose || "Try again, and re-read the code carefully."));
       };
       input.addEventListener("keydown", (e) => { if (e.key === "Enter") check(); input.classList.remove("correct", "wrong"); });
       ch.querySelector(".check-btn")?.addEventListener("click", check);
@@ -228,7 +228,7 @@
           else if (o === chosen) o.classList.add("wrong");
           else o.classList.add("dim");
         });
-        const expl = chosen.dataset.explain || ch.dataset[ok ? "win" : "lose"] || (ok ? "Correct!" : "Not quite — the right answer is highlighted.");
+        const expl = chosen.dataset.explain || ch.dataset[ok ? "win" : "lose"] || (ok ? "Correct!" : "Not quite. The right answer is highlighted.");
         setFeedback(ch.querySelector(".feedback"), ok, expl);
       });
     });
@@ -317,7 +317,7 @@
           it.classList.toggle("correct", right); it.classList.toggle("wrong", !right);
           if (!right) ok = false;
         });
-        setFeedback(ch.querySelector(".feedback"), ok, ok ? "Right order!" : "Not yet — drag them so the lifecycle runs top to bottom.");
+        setFeedback(ch.querySelector(".feedback"), ok, ok ? "Right order!" : "Not yet. Drag them so the lifecycle runs top to bottom.");
       });
     });
   }

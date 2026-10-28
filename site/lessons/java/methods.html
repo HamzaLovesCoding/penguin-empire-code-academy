@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -114,7 +116,7 @@ Subsystems online
 === PENGUIN EMPIRE 2551 ===</code></pre>
         </div>
 
-        <p>The banner text is written once and printed twice. That is the whole idea.</p>
+        <p>The banner text is written once and printed twice.</p>
 
         <div class="callout callout--pitfall">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
@@ -220,8 +222,8 @@ public static void main(String[] args) {
             <p class="challenge-prompt">What does <code>void</code> tell you about a method?</p>
             <div class="options">
               <label class="option" data-explain="A void method usually does plenty. It just does not hand a value back to the caller."><input type="radio" name="q-void" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It does nothing</span></label>
-              <label class="option" data-correct data-explain="Correct. It runs its statements and hands no value back."><input type="radio" name="q-void" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It returns no value</span></label>
               <label class="option" data-explain="Parameters are controlled by the parentheses, not by the return type."><input type="radio" name="q-void" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It takes no parameters</span></label>
+              <label class="option" data-correct data-explain="Correct. It runs its statements and hands no value back."><input type="radio" name="q-void" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It returns no value</span></label>
               <label class="option" data-explain="Any method can be called as many times as you like."><input type="radio" name="q-void" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It can only be called once</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
@@ -339,9 +341,9 @@ Robot ready.</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> Where is a method written?</div>
               <div class="options">
+                <label class="option" data-explain="Everything in Java lives inside a class."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Outside the class, at the bottom of the file</span></label>
+                <label class="option" data-explain="Java does not allow one method to be declared inside another like this."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Inside <code>main</code>, after the last line</span></label>
                 <label class="option" data-correct data-explain="Correct. Methods sit side by side inside the class."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Inside the class, next to <code>main</code></span></label>
-                <label class="option" data-explain="Java does not allow one method to be declared inside another like this."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Inside <code>main</code></span></label>
-                <label class="option" data-explain="Everything in Java lives inside a class."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Outside the class</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -349,9 +351,9 @@ Robot ready.</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Why does a method next to <code>main</code> need <code>static</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. main is static, so the methods it calls directly must be static as well."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because <code>main</code> is static and can only call static methods directly</span></label>
-                <label class="option" data-explain="static has no effect on speed."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It makes the method faster</span></label>
-                <label class="option" data-explain="Java has plenty of non-static methods. You will write them in Unit J5."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Every method in Java must be static</span></label>
+                <label class="option" data-explain="Java has plenty of non-static methods. You will write them in Unit J5."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Every method in Java has to be static unless it is private</span></label>
+                <label class="option" data-explain="static has no effect on speed."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It makes the method faster to call from <code>main</code></span></label>
+                <label class="option" data-correct data-explain="Correct. main is static, so the methods it calls directly must be static as well."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A static <code>main</code> can only call static methods directly</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -359,7 +361,7 @@ Robot ready.</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> What is the strongest reason to pull repeated lines into a method?</div>
               <div class="options">
-                <label class="option" data-explain="File length is not the point, and a method adds a couple of lines of its own."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It makes the file shorter</span></label>
+                <label class="option" data-explain="File length is not the point, and a method adds a couple of lines of its own."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It makes the file shorter and easier to scroll</span></label>
                 <label class="option" data-correct data-explain="Correct. One definition means one place to fix, which is the same reason a final value beat ten copies of a number."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A change has to be made in only one place</span></label>
                 <label class="option" data-explain="Calling a method has a tiny cost, not a saving. The benefit is for the people reading and editing the code."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The program runs faster</span></label>
               </div>

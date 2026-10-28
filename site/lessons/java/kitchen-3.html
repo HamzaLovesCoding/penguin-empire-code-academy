@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -347,9 +349,9 @@ System.out.println(dr + dc == 1);</pre>
             <p class="challenge-prompt">Why is the inventory an <code>ArrayList</code> rather than an
               array?</p>
             <div class="options">
+              <label class="option" data-explain="An array of Item works perfectly well, which is what the kitchen floor is."><input type="radio" name="q-inv" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Arrays cannot hold objects, only numbers and text</span></label>
+              <label class="option" data-explain="An array is generally the faster of the two. Flexibility is the reason here."><input type="radio" name="q-inv" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Lists are faster than arrays for small collections</span></label>
               <label class="option" data-correct data-explain="Correct. Alice picks things up and eats them, so the count changes while the program runs."><input type="radio" name="q-inv" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The number of items changes as the program runs</span></label>
-              <label class="option" data-explain="An array is generally the faster of the two. Flexibility is the reason here."><input type="radio" name="q-inv" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Lists are faster than arrays</span></label>
-              <label class="option" data-explain="An array of Item works perfectly well, which is exactly what the kitchen floor is."><input type="radio" name="q-inv" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Arrays cannot hold objects</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -388,9 +390,9 @@ System.out.println(dr + dc == 1);</pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> Why does <code>Math.abs</code> appear in <code>isNextTo</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Without it the difference could be negative depending on which side Alice is on."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So the distance is positive whichever side the item is on</span></label>
-                <label class="option" data-explain="Math.abs removes a sign. It does not round anything."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To round the distance</span></label>
-                <label class="option" data-explain="Both values are already int. No conversion is happening."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To convert the values to <code>int</code></span></label>
+                <label class="option" data-explain="Both values are already int. No conversion is happening."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To convert the values to <code>int</code> before comparing</span></label>
+                <label class="option" data-explain="Math.abs removes a sign. It does not round anything."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">To round the distance to a whole number of cells</span></label>
+                <label class="option" data-correct data-explain="Correct. Without it the difference could be negative depending on which side Alice is on."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So the distance comes out positive either way</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -398,9 +400,9 @@ System.out.println(dr + dc == 1);</pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> Why is the inventory declared <code>ArrayList&lt;Item&gt;</code> rather than <code>ArrayList&lt;Food&gt;</code>?</div>
               <div class="options">
+                <label class="option" data-explain="The declared type does not change how fast the list works."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because a list of the parent type runs faster</span></label>
+                <label class="option" data-explain="A list of Food would compile fine. It would just be more restrictive than needed."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because <code>ArrayList&lt;Food&gt;</code> is not valid Java</span></label>
                 <label class="option" data-correct data-explain="Correct. Food extends Item, so an Item list holds food and anything else Alice picks up."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">So Alice can carry anything, not only food</span></label>
-                <label class="option" data-explain="A list of Food would compile fine. It would just be more restrictive than needed."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because <code>ArrayList&lt;Food&gt;</code> is not valid</span></label>
-                <label class="option" data-explain="The declared type does not change how fast the list works."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because it is faster</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -409,7 +411,7 @@ System.out.println(dr + dc == 1);</pre>
               <div class="cp-prompt"><span class="qn">Q3.</span> What does <code>eat</code> do when the food is dirty?</div>
               <div class="options">
                 <label class="option" data-correct data-explain="Correct. It prints a message and returns early, leaving the food in the inventory."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Prints a message and returns without eating</span></label>
-                <label class="option" data-explain="Nothing is thrown. The method simply declines and returns."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Throws an exception</span></label>
+                <label class="option" data-explain="Nothing is thrown. The method simply declines and returns."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Throws an exception that stops the program</span></label>
                 <label class="option" data-explain="The guard runs before the removal, so the food stays where it is."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Removes it from the inventory anyway</span></label>
               </div>
               <div class="feedback"></div>

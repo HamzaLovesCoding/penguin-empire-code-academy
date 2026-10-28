@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -236,9 +238,9 @@ switch (level) {
             <p class="challenge-prompt">A case matches and its <code>break</code> is missing. What happens?</p>
             <div class="options">
               <label class="option" data-explain="The compiler accepts a missing break. It is legal Java and sometimes intentional."><input type="radio" name="q-brk" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error</span></label>
-              <label class="option" data-correct data-explain="Correct. Execution continues into the following cases until it hits a break or the end of the switch."><input type="radio" name="q-brk" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The next cases run as well</span></label>
-              <label class="option" data-explain="That is what break does. Without it the switch keeps going."><input type="radio" name="q-brk" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The switch ends after the matching case</span></label>
               <label class="option" data-explain="The default branch only runs when no case matched at all."><input type="radio" name="q-brk" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The default branch runs instead</span></label>
+              <label class="option" data-explain="That is what break does. Without it the switch keeps going."><input type="radio" name="q-brk" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The switch ends after the matching case</span></label>
+              <label class="option" data-correct data-explain="Correct. Execution continues into the following cases until it hits a break or the end of the switch."><input type="radio" name="q-brk" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The next cases run as well</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -378,9 +380,9 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> What does <code>break</code> do inside a switch?</div>
               <div class="options">
+                <label class="option" data-explain="A switch never loops. break here has nothing to repeat."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Repeats the case one more time</span></label>
+                <label class="option" data-explain="It does not end the program. Execution continues after the closing brace of the switch."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Stops the whole program right away</span></label>
                 <label class="option" data-correct data-explain="Correct. It jumps out so the following cases are not executed."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Leaves the switch immediately</span></label>
-                <label class="option" data-explain="It does not end the program. Execution continues after the closing brace of the switch."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Stops the whole program</span></label>
-                <label class="option" data-explain="A switch never loops. break here has nothing to repeat."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Repeats the case</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -388,8 +390,8 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> When does <code>default</code> run?</div>
               <div class="options">
-                <label class="option" data-explain="It is skipped whenever some case matched and reached a break."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Every time, after the matching case</span></label>
                 <label class="option" data-correct data-explain="Correct. It is the catch all for values no case listed."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Only when no case matched</span></label>
+                <label class="option" data-explain="It is skipped whenever some case matched and reached a break."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Every time, after the matching case</span></label>
                 <label class="option" data-explain="default is optional. Leaving it out means an unmatched value simply does nothing."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is required in every switch</span></label>
               </div>
               <div class="feedback"></div>
@@ -398,9 +400,9 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Why can a switch not replace <code>if (voltage &gt; 12.0)</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Cases match one exact value each, so ranges need if and else if."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A switch only tests equality, not greater or less than</span></label>
-                <label class="option" data-explain="Types are not the problem. Even with an int, a switch still cannot express greater than."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A switch cannot use numbers at all</span></label>
-                <label class="option" data-explain="Speed has nothing to do with it. The two forms express different questions."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A switch is slower</span></label>
+                <label class="option" data-correct data-explain="Correct. Cases match one exact value each, so ranges need if and else if."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A switch only checks exact matches</span></label>
+                <label class="option" data-explain="Types are not the problem. Even with an int, a switch still cannot express greater than."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A switch cannot use numbers at all, only text</span></label>
+                <label class="option" data-explain="Speed has nothing to do with it. The two forms express different questions."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A switch is slower for decimal values</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -408,9 +410,9 @@ public class Main {
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> What is the advantage of the arrow form?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. Each branch stands alone, so a forgotten break cannot cause fall-through."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">No <code>break</code> is needed and fall-through cannot happen</span></label>
-                <label class="option" data-explain="Both forms accept the same types."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It works on types the older form cannot</span></label>
-                <label class="option" data-explain="It compiles to the same kind of decision. The benefit is safety and readability."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It runs faster</span></label>
+                <label class="option" data-explain="Both forms accept the same types."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It works on types the older form cannot handle</span></label>
+                <label class="option" data-correct data-explain="Correct. Each branch stands alone, so a forgotten break cannot cause fall-through."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">No <code>break</code> needed, and no fall-through</span></label>
+                <label class="option" data-explain="It compiles to the same kind of decision. The benefit is safety and readability."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It runs faster on long lists of cases</span></label>
               </div>
               <div class="feedback"></div>
             </div>

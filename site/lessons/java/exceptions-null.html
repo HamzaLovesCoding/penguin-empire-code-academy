@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -308,8 +310,8 @@ System.out.println(names[0]);</pre>
             <p class="challenge-prompt">Your loop reads one slot past the end of an array. What is the right
               response?</p>
             <div class="options">
-              <label class="option" data-explain="That hides a bug you can remove completely. The loop is wrong, not the array."><input type="radio" name="q-cf" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Wrap it in try and catch</span></label>
               <label class="option" data-correct data-explain="Correct. This exception means the loop condition is wrong. Fix the condition and the exception cannot happen."><input type="radio" name="q-cf" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Fix the loop condition</span></label>
+              <label class="option" data-explain="That hides a bug you can remove completely. The loop is wrong, not the array."><input type="radio" name="q-cf" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Wrap it in try and catch</span></label>
               <label class="option" data-explain="An empty catch turns a loud crash into a silent wrong answer, which is worse."><input type="radio" name="q-cf" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Catch it and do nothing</span></label>
               <label class="option" data-explain="Padding the array hides the real problem and wastes space. The loop is still wrong."><input type="radio" name="q-cf" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Make the array bigger</span></label>
             </div>
@@ -424,9 +426,9 @@ report finished</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> What does <code>null</code> mean?</div>
               <div class="options">
+                <label class="option" data-explain="Zero is a real number. null is the absence of an object entirely."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The number zero, stored as a placeholder</span></label>
                 <label class="option" data-correct data-explain="Correct. There is no object, which is why calling a method on it fails."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The variable holds no object</span></label>
-                <label class="option" data-explain="Zero is a real number. null is the absence of an object entirely."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The number zero</span></label>
-                <label class="option" data-explain="An empty string is still a real String object with a length of 0. null is not."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An empty piece of text</span></label>
+                <label class="option" data-explain="An empty string is still a real String object with a length of 0. null is not."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An empty piece of text with no characters</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -436,7 +438,7 @@ report finished</code></pre>
               <div class="options">
                 <label class="option" data-correct data-explain="Correct. A method needs an object to act on, and there is none."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">There is no object for the method to run on</span></label>
                 <label class="option" data-explain="length is a real method on String. The problem is that there is no String."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>length()</code> does not exist</span></label>
-                <label class="option" data-explain="This compiles without complaint. It fails while running."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is a compiler error</span></label>
+                <label class="option" data-explain="This compiles without complaint. It fails while running."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is a compiler error caught before the program runs</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -444,9 +446,9 @@ report finished</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Why must the null check come first in <code>label != null &amp;&amp; label.length() &gt; 0</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. && stops as soon as the left side is false, so the method call is never reached."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because <code>&amp;&amp;</code> skips the right side when the left is false</span></label>
-                <label class="option" data-explain="Java evaluates the left side first regardless of length or style."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because shorter checks always go first</span></label>
-                <label class="option" data-explain="The order genuinely changes the behaviour. Reversed, this crashes."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The order does not matter</span></label>
+                <label class="option" data-explain="The order genuinely changes the behaviour. Reversed, this crashes."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The order does not matter, since <code>&amp;&amp;</code> checks both sides</span></label>
+                <label class="option" data-explain="Java evaluates the left side first regardless of length or style."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Because Java style says shorter checks go first</span></label>
+                <label class="option" data-correct data-explain="Correct. && stops as soon as the left side is false, so the method call is never reached."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>&amp;&amp;</code> skips the right side if the left is false</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -464,9 +466,9 @@ report finished</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q5.</span> When is catching an exception the wrong choice?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. If the exception is caused by your own mistake, remove the mistake instead of hiding it."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">When the exception is a bug you could fix</span></label>
                 <label class="option" data-explain="This is a good reason to catch. The failure is expected and there is something sensible to do."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">When a sensor might not be connected</span></label>
-                <label class="option" data-explain="Catching is a normal tool. It is only wrong when it hides a fixable mistake."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Always</span></label>
+                <label class="option" data-correct data-explain="Correct. If the exception is caused by your own mistake, remove the mistake instead of hiding it."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">When the exception is a bug you could fix</span></label>
+                <label class="option" data-explain="Catching is a normal tool. It is only wrong when it hides a fixable mistake."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Always, because a catch block hides every error</span></label>
               </div>
               <div class="feedback"></div>
             </div>

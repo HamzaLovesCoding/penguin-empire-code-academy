@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -199,7 +201,7 @@ System.out.println(safe);</code></pre>
           <code>Math.max</code>. Here you are only asking whether it is already inside.</p>
 
         <h2 id="run"><span class="section-h"><span class="num">6</span> Run it yourself</span></h2>
-        <p>Press <b style="color:#0a5d70">Run ▶</b>, then change the values at the top and run again.</p>
+        <p>Press <b style="color:var(--accent-strong)">Run ▶</b>, then change the values at the top and run again.</p>
 
         <div class="sandbox" data-compiler data-title="Live Java Sandbox" data-lang="java">
           <script type="text/x-java" class="sb-src">
@@ -281,9 +283,9 @@ System.out.println(!ready || enabled);</pre>
               variables hold the same text?</p>
             <div class="options">
               <label class="option" data-explain="This compares whether both variables point at the same stored text. It can return false even when the characters match."><input type="radio" name="q-eq" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>if (a == b)</code></span></label>
-              <label class="option" data-correct data-explain="Correct. equals compares the characters, which is what you want for text."><input type="radio" name="q-eq" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>if (a.equals(b))</code></span></label>
-              <label class="option" data-explain="A single equals sign stores a value. This is an assignment, not a comparison, and it will not compile here."><input type="radio" name="q-eq" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>if (a = b)</code></span></label>
               <label class="option" data-explain="There is no compare method on String that returns a boolean. The compiler reports cannot find symbol."><input type="radio" name="q-eq" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>if (a.compare(b))</code></span></label>
+              <label class="option" data-explain="A single equals sign stores a value. This is an assignment, not a comparison, and it will not compile here."><input type="radio" name="q-eq" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>if (a = b)</code></span></label>
+              <label class="option" data-correct data-explain="Correct. equals compares the characters, which is what you want for text."><input type="radio" name="q-eq" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>if (a.equals(b))</code></span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -399,8 +401,8 @@ is shooter  : true</code></pre>
               <div class="cp-prompt"><span class="qn">Q2.</span> <code>true &amp;&amp; false</code> gives…</div>
               <div class="options">
                 <label class="option" data-explain="AND requires both sides to be true. One false makes the whole thing false."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>true</code></span></label>
-                <label class="option" data-correct data-explain="Correct. AND is true only when both sides are true."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>false</code></span></label>
                 <label class="option" data-explain="A comparison always produces a definite true or false."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">An error</span></label>
+                <label class="option" data-correct data-explain="Correct. AND is true only when both sides are true."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>false</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -409,8 +411,8 @@ is shooter  : true</code></pre>
               <div class="cp-prompt"><span class="qn">Q3.</span> How do you check whether two Strings hold the same text?</div>
               <div class="options">
                 <label class="option" data-explain="This compares whether they are the same stored object, which can be false even when the characters match."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>a == b</code></span></label>
-                <label class="option" data-correct data-explain="Correct. equals compares the characters."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>a.equals(b)</code></span></label>
                 <label class="option" data-explain="A single equals sign assigns. It does not ask a question."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>a = b</code></span></label>
+                <label class="option" data-correct data-explain="Correct. equals compares the characters."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>a.equals(b)</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -428,9 +430,9 @@ is shooter  : true</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q5.</span> What does <code>!jammed</code> mean when <code>jammed</code> is <code>false</code>?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. NOT flips the value, so it reads as not jammed."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>true</code></span></label>
-                <label class="option" data-explain="NOT never leaves a value unchanged. It always flips it."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>false</code></span></label>
                 <label class="option" data-explain="NOT applies to booleans and produces a boolean. It does not change the variable itself."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It sets <code>jammed</code> to <code>true</code></span></label>
+                <label class="option" data-explain="NOT never leaves a value unchanged. It always flips it."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>false</code></span></label>
+                <label class="option" data-correct data-explain="Correct. NOT flips the value, so it reads as not jammed."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>true</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>

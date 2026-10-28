@@ -49,10 +49,12 @@
   --ice-500: #6fcdd9;
 
   /* --- Semantic surfaces (light reading theme) --- */
-  --bg:            var(--ice-50);     /* page background, faint ice tint */
+  /* The portal is white panels floating on a cool ice-gray canvas; the gap
+     between them does the separating that borders used to. */
+  --bg:            #e9eff1;           /* app canvas behind the panels */
   --bg-tint:       var(--ice-100);
-  --surface:       var(--white);      /* elevated cards */
-  --surface-2:     var(--slate-50);   /* nested panels */
+  --surface:       var(--white);      /* panels + cards */
+  --surface-2:     #f4f7f8;           /* nested panels, inputs, hover wells */
   --surface-sunken:var(--slate-100);
 
   /* --- Text --- */
@@ -62,10 +64,15 @@
   --text-invert: #f3f7f8;
   --link:        var(--ocean-700);
   --link-hover:  var(--ocean-800);
+  /* Ocean used as text on the page surface. The raw ramp can't flip for dark
+     mode because the ocean gradients and filled badges are built from it. */
+  --accent:        var(--ocean-700);
+  --accent-strong: var(--ocean-800);
+  --accent-deep:   var(--ocean-900);
 
   /* --- Borders / lines --- */
-  --line:        #dbe3e6;
-  --line-strong: #c5cfd3;
+  --line:        #e1e8eb;
+  --line-strong: #c9d3d7;
   --ring:        color-mix(in srgb, var(--ocean) 55%, transparent);
 
   /* --- Feedback colors --- */
@@ -96,14 +103,25 @@
   --s-6: 24px; --s-7: 32px; --s-8: 40px; --s-9: 56px; --s-10: 72px; --s-12: 96px;
 
   /* --- Radii --- */
-  --r-xs: 6px; --r-sm: 9px; --r-md: 13px; --r-lg: 18px; --r-xl: 26px; --r-pill: 999px;
+  --r-xs: 6px; --r-sm: 10px; --r-md: 14px; --r-lg: 20px; --r-xl: 26px; --r-2xl: 30px; --r-pill: 999px;
 
   /* --- Layered, ocean-tinted shadows --- */
   --shadow-sm: 0 1px 2px rgba(12,63,77,.06), 0 1px 1px rgba(12,63,77,.04);
   --shadow-md: 0 4px 10px -2px rgba(12,63,77,.10), 0 2px 4px -2px rgba(12,63,77,.07);
+  --shadow-panel: 0 1px 0 rgba(255,255,255,.7) inset, 0 1px 2px rgba(12,63,77,.04), 0 8px 24px -14px rgba(12,63,77,.16);
   --shadow-lg: 0 14px 34px -8px rgba(12,63,77,.18), 0 6px 12px -6px rgba(12,63,77,.10);
   --shadow-xl: 0 30px 60px -16px rgba(10,93,112,.30), 0 10px 24px -12px rgba(12,63,77,.18);
-  --shadow-ocean: 0 10px 30px -8px rgba(0,174,214,.45);
+  --shadow-ocean: 0 10px 24px -10px rgba(6,118,143,.65);
+
+  /* Hero-card fill: the deep ocean gradient used for the one card on a screen
+     that should pull the eye (top stat, goal banner, progress card). */
+  --grad-ocean: radial-gradient(130% 120% at 100% 0%, rgba(146,220,229,.30), transparent 55%),
+                linear-gradient(150deg, var(--ocean-600) 0%, var(--ocean-800) 62%, var(--ocean-900) 100%);
+  --grad-ink:   radial-gradient(120% 120% at 100% 0%, rgba(0,174,214,.30), transparent 55%),
+                linear-gradient(160deg, #1d2a30 0%, var(--ink-900) 100%);
+  /* "Not yet" fill, borrowed from planning dashboards: diagonal hatching reads
+     as empty-but-expected rather than missing. */
+  --hatch: repeating-linear-gradient(-45deg, var(--slate-300) 0 3px, transparent 3px 8px);
 
   /* --- Motion (spring-ish) --- */
   --ease-spring: cubic-bezier(.22,1,.36,1);
@@ -115,10 +133,68 @@
   interpolate-size: allow-keywords;
 
   /* --- Layout --- */
-  --header-h: 64px;
-  --sidebar-w: 312px;
+  /* --header-h is what sticky chrome covers at the top of the viewport, so
+     anchor jumps land below it: the floating top bar plus its gap. */
+  --header-h: 84px;
+  --sidebar-w: 296px;
+  --gap: 14px;
   --content-max: 860px;
   --wide-max: 1240px;
+}
+
+/* ------------------------------------------------------------ Dark mode --- */
+/* site.js's head snippet resolves the theme (saved choice, else the OS
+   setting) before first paint, so only one copy of these tokens is needed.
+   Surfaces that are dark by design (code, ocean and ink cards, the home hero)
+   use raw ramp values and stay as they are. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --ink:   #eef3f5;   /* headings + strong text */
+  --white: #171d20;   /* "panel white" in this codebase, never white text */
+
+  --slate-50:  #1a2124;
+  --slate-100: #222a2e;
+  --slate-200: #2b3438;
+  --slate-300: #3f4b52;
+  --slate-400: #7a868c;
+  --slate-500: #8a949a;
+
+  --ice-50:  #12262c;
+  --ice-100: #153039;
+  --ice-200: #1b3d48;
+
+  --bg:             #0f1416;
+  --bg-tint:        var(--ice-100);
+  --surface:        #171d20;
+  --surface-2:      #1e2528;
+  --surface-sunken: #12171a;
+
+  --text:       #e3eaed;
+  --text-soft:  #b4bfc4;
+  --text-muted: #8c979d;
+  --link:       var(--ocean-400);
+  --link-hover: var(--ocean-300);
+
+  --accent:        var(--ocean-400);
+  --accent-strong: var(--ocean-300);
+  --accent-deep:   #b3eef8;
+
+  --line:        #263036;
+  --line-strong: #34414a;
+
+  --good:    #3cc68a;
+  --good-bg: #12291f;
+  --bad:     #f0675e;
+  --bad-bg:  #2d1715;
+  --warn:    #e3a64a;
+  --warn-bg: #2b2112;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.35);
+  --shadow-md: 0 4px 10px -2px rgba(0,0,0,.45), 0 2px 4px -2px rgba(0,0,0,.35);
+  --shadow-panel: 0 1px 0 rgba(255,255,255,.03) inset, 0 8px 24px -14px rgba(0,0,0,.6);
+  --shadow-lg: 0 14px 34px -8px rgba(0,0,0,.55), 0 6px 12px -6px rgba(0,0,0,.4);
+  --shadow-xl: 0 30px 60px -16px rgba(0,0,0,.6), 0 10px 24px -12px rgba(0,0,0,.45);
 }
 
 /* ---------------------------------------------------------------- Reset --- */
@@ -162,7 +238,7 @@ code, kbd, samp { font-family: var(--font-mono); font-size: .92em; }
 /* inline code */
 :not(pre) > code {
   background: var(--ice-100);
-  color: var(--ocean-800);
+  color: var(--accent-strong);
   padding: .12em .42em;
   border-radius: 6px;
   border: 1px solid color-mix(in srgb, var(--ocean) 18%, transparent);
@@ -185,10 +261,10 @@ mark { background: linear-gradient(120deg, transparent 0, var(--ice-200) 0); col
 
 /* -------------------------------------------------------------- Buttons --- */
 .btn {
-  --btn-bg: var(--ocean-600); --btn-fg: #fff;
-  display: inline-flex; align-items: center; gap: .55em;
-  font-family: var(--font-display); font-size: .96rem; letter-spacing: .01em;
-  padding: .72em 1.25em; border-radius: var(--r-pill);
+  --btn-bg: var(--ocean-700); --btn-fg: #fff;
+  display: inline-flex; align-items: center; justify-content: center; gap: .55em;
+  font-family: var(--font-body); font-weight: 600; font-size: .98rem; letter-spacing: .005em;
+  padding: .72em 1.35em; border-radius: var(--r-pill);
   background: var(--btn-bg); color: var(--btn-fg);
   border: 1px solid transparent; cursor: pointer;
   box-shadow: var(--shadow-md);
@@ -199,13 +275,14 @@ mark { background: linear-gradient(120deg, transparent 0, var(--ice-200) 0); col
 }
 .btn:hover { background: var(--ocean-700); color: #fff; transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 .btn:active { transform: translateY(0); }
-.btn--primary { --btn-bg: linear-gradient(180deg, var(--ocean-400), var(--ocean-600)); box-shadow: var(--shadow-ocean); }
-.btn--primary:hover { background: linear-gradient(180deg, var(--ocean-500), var(--ocean-700)); }
+.btn--primary { --btn-bg: linear-gradient(180deg, var(--ocean-600), var(--ocean-800)); box-shadow: var(--shadow-ocean), inset 0 1px 0 rgba(255,255,255,.18); }
+.btn--primary:hover { background: linear-gradient(180deg, var(--ocean-700), var(--ocean-900)); }
 .btn--ghost {
-  --btn-bg: transparent; --btn-fg: var(--ocean-800);
-  border-color: var(--line-strong); box-shadow: none;
+  --btn-bg: transparent; --btn-fg: var(--accent-strong);
+  border: 1.5px solid var(--ocean-700); box-shadow: none;
 }
-.btn--ghost:hover { background: var(--white); color: var(--ocean-800); border-color: var(--ocean-400); }
+.btn--ghost:hover { background: var(--ice-50); color: var(--accent-deep); border-color: var(--ocean-800); }
+.btn svg { width: 1.1em; height: 1.1em; flex: none; }
 .btn--dark { --btn-bg: var(--ink-800); }
 .btn--dark:hover { background: var(--ink-900); }
 .btn--sm { padding: .5em .9em; font-size: .85rem; }
@@ -216,7 +293,7 @@ mark { background: linear-gradient(120deg, transparent 0, var(--ice-200) 0); col
   display: inline-flex; align-items: center; gap: .4em;
   font-family: var(--font-display); font-size: .72rem; letter-spacing: .04em;
   text-transform: uppercase; padding: .34em .7em; border-radius: var(--r-pill);
-  background: var(--ice-100); color: var(--ocean-800);
+  background: var(--ice-100); color: var(--accent-strong);
   border: 1px solid color-mix(in srgb, var(--ocean) 22%, transparent);
 }
 .badge--ocean { background: var(--ocean-600); color: #fff; border-color: transparent; }
@@ -241,7 +318,11 @@ mark { background: linear-gradient(120deg, transparent 0, var(--ice-200) 0); col
 /* skip link */
 .skip-link {
   position: fixed; top: 8px; left: 8px; z-index: 200;
-  background: var(--ink); color: #fff; padding: .6em 1em; border-radius: var(--r-sm);
+  background: var(--ink-900); color: #fff; padding: .6em 1em; border-radius: var(--r-sm);
   transform: translateY(-160%); transition: transform var(--t-med) var(--ease-out);
 }
 .skip-link:focus { transform: translateY(0); color: #fff; }
+
+/* ------------------------------------------------------ Dark-mode fixes --- */
+[data-theme="dark"] .btn--ghost { border-color: var(--ocean-500); }
+[data-theme="dark"] .btn--ghost:hover { border-color: var(--ocean-400); }

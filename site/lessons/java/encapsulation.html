@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -320,8 +322,8 @@ System.out.println(shooter.getTargetRPM());</pre>
             <p class="challenge-prompt">What can <code>setTargetRPM(double targetRPM)</code> do that a plain
               public field never could?</p>
             <div class="options">
-              <label class="option" data-correct data-explain="Correct. A setter runs code before the assignment, so it can clamp or reject a value. A field just stores whatever it is given."><input type="radio" name="q-setter" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Check or clamp the value before storing it</span></label>
               <label class="option" data-explain="Access modifiers have nothing to do with execution speed."><input type="radio" name="q-setter" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Store the value faster</span></label>
+              <label class="option" data-correct data-explain="Correct. A setter runs code before the assignment, so it can clamp or reject a value. A field just stores whatever it is given."><input type="radio" name="q-setter" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Check or clamp the value before storing it</span></label>
               <label class="option" data-explain="A public field can be reassigned as many times as you like."><input type="radio" name="q-setter" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Allow the value to change more than once</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
@@ -453,7 +455,7 @@ Left Drive on CAN 3</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> What does marking a field <code>private</code> do?</div>
               <div class="options">
-                <label class="option" data-explain="A private field can change as often as any other field. private only controls who is allowed to reach it."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Stops it from ever changing</span></label>
+                <label class="option" data-explain="A private field can change as often as any other field. private only controls who is allowed to reach it."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Stops the value from ever changing after it is set</span></label>
                 <label class="option" data-correct data-explain="Correct. Only code written inside the same class can reach a private field directly."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Stops other classes from reaching it directly</span></label>
                 <label class="option" data-explain="private has nothing to do with default values. Those still follow the ordinary field rules."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Gives it a different default value</span></label>
               </div>
@@ -463,8 +465,8 @@ Left Drive on CAN 3</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> A class has a private field and a public getter. Which class can call the getter?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. public means any other class is free to call it."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Any class, including Main</span></label>
                 <label class="option" data-explain="private on the field only hides the field itself. The getter is what makes the value reachable again, from anywhere."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Only the class that declares the field</span></label>
+                <label class="option" data-correct data-explain="Correct. public means any other class is free to call it."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Any class, including Main</span></label>
                 <label class="option" data-explain="A getter is an ordinary method, callable as many times as the program needs."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">No class, since the field behind it is private</span></label>
               </div>
               <div class="feedback"></div>
@@ -483,8 +485,8 @@ Left Drive on CAN 3</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> <code>Main</code> tries <code>shooter.targetRPM = -500;</code> where <code>targetRPM</code> is private. What happens?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. The field is only reachable from inside Flywheel, so this is a compiler error, not a runtime one."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It fails to compile</span></label>
                 <label class="option" data-explain="private is checked before the program ever runs, not while it runs."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It compiles and crashes when it runs</span></label>
+                <label class="option" data-correct data-explain="Correct. The field is only reachable from inside Flywheel, so this is a compiler error, not a runtime one."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It fails to compile</span></label>
                 <label class="option" data-explain="private specifically blocks this assignment from outside the class. It has no silent fallback."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It compiles and silently does nothing</span></label>
               </div>
               <div class="feedback"></div>

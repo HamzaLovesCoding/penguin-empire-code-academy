@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -26,7 +28,7 @@
         </nav>
         <span class="badge badge--ocean">Lesson 6</span>
         <h1 class="lesson-title">Reading Errors &amp; Debugging</h1>
-        <p class="lesson-lede">Debugging isn't staring harder at the screen. It's cutting the search space
+        <p class="lesson-lede">Debugging means cutting the search space
           in half, then in half again, until only one thing is left. This lesson gives you the three tools
           for doing that.</p>
         <div class="lesson-meta">
@@ -41,7 +43,7 @@
         <div class="goal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div>
         <div>
           <h2>Your goal</h2>
-          <p>Look at a red wall of text, say what kind of problem it is, name the line it happened on —
+          <p>Look at a red wall of text, say what kind of problem it is, name the line it happened on,
             and find a wrong answer that produced no error at all.</p>
         </div>
       </div>
@@ -74,30 +76,30 @@
 
         <div class="callout callout--why" id="warstory">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
-          <div class="c-title">Stop arguing. Isolate.</div>
+          <div class="c-title">Isolate the problem</div>
           <div class="c-body">
             <p>When a mechanism doesn't move, three sub-teams each have an opinion. Software says it's
               wiring. Electrical says it's code. Build says it's definitely not build. That argument can
               burn an entire meeting.</p>
-            <p>The team's answer is a procedure, not an opinion: open the vendor's hardware client and
+            <p>The team settles it with a procedure: open the vendor's hardware client and
               <strong>apply a test voltage directly to the motor</strong>, with no robot code involved
               at all.</p>
             <ul>
               <li>Motor spins → wiring and hardware are fine. It's code.</li>
               <li>Motor doesn't spin → it was never going to be code.</li>
             </ul>
-            <p>One action, and half the possibilities are gone.</p>
+            <p>One test rules out half the possibilities.</p>
           </div>
         </div>
 
-        <p>That is what debugging actually is. Not staring harder at the screen —
+        <p>That's what debugging is:
           <strong>halving the search space until only one thing is left.</strong></p>
         <p>The same team once spent two full days hunting a bug that turned out to be a single number set
           too high. Two days is what it costs when you search by staring instead of by halving.</p>
 
         <!-- ===================== KINDS ===================== -->
         <h2 id="kinds"><span class="section-h"><span class="num">2</span> Three kinds of wrong</span></h2>
-        <p>They are not equally expensive. This table is the spine of the whole lesson.</p>
+        <p>They are not equally expensive, and the rest of this lesson builds on this table.</p>
 
         <div class="vocab">
           <div class="vocab-term"><dt>Compiler error</dt><dd>Found <strong>before it ever runs</strong>. Tells you the file, the line, and usually the exact character. Costs <strong>minutes</strong>.</dd></div>
@@ -113,8 +115,8 @@
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a7 7 0 0 0-4-12z"/></svg></div>
           <div class="c-title">Red squiggle vs yellow squiggle</div>
           <div class="c-body"><p><strong>Red</strong> = an error; the code will not build.
-            <strong>Yellow</strong> = a warning, usually something declared and never used — annoying, not
-            a blocker. Learn to tell them apart at a glance; you'll see both constantly in Phase 2.</p></div>
+            <strong>Yellow</strong> = a warning, usually something declared and never used. It's annoying but it won't
+            stop the build. Learn to tell them apart at a glance; you'll see both constantly in Phase 2.</p></div>
         </div>
 
         <!-- ===================== ANATOMY ===================== -->
@@ -148,7 +150,7 @@
         <!-- ===================== FOUR ===================== -->
         <h2 id="four"><span class="section-h"><span class="num">4</span> The four you'll actually see</span></h2>
 
-        <p><strong>(a) <code>';' expected</code> — the missing semicolon.</strong> Add the <code>;</code>.
+        <p><strong>(a) <code>';' expected</code>: the missing semicolon.</strong> Add the <code>;</code>.
           Note the caret sits at the end of the previous line's content.</p>
         <div class="code">
           <div class="code-head"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-file">error</span><span class="code-spacer"></span></div>
@@ -157,7 +159,7 @@
                      ^</code></pre>
         </div>
 
-        <p><strong>(b) <code>cannot find symbol</code> — a name Java has never heard of.</strong> This is
+        <p><strong>(b) <code>cannot find symbol</code>: a name Java has never heard of.</strong> This is
           the typo error, and Java tells you exactly which name it looked for.</p>
         <div class="code">
           <div class="code-head"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-file">error</span><span class="code-spacer"></span></div>
@@ -171,7 +173,7 @@
           message appears when you misspell a method, forget to declare a variable at all, or write
           <code>string</code> instead of <code>String</code>.</p>
 
-        <p><strong>(c) <code>incompatible types</code> — the wrong shape of thing.</strong> The message
+        <p><strong>(c) <code>incompatible types</code>: the wrong shape of thing.</strong> The message
           names <em>both</em> types and which direction the problem runs.</p>
         <div class="code">
           <div class="code-head"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-file">error</span><span class="code-spacer"></span></div>
@@ -182,7 +184,7 @@
         <p>“Lossy” means something would have to be thrown away, and Java refuses to do that behind your
           back.</p>
 
-        <p><strong>(d) <code>reached end of file while parsing</code> — a missing <code>}</code>.</strong>
+        <p><strong>(d) <code>reached end of file while parsing</code>: a missing <code>}</code>.</strong>
           This one lies about location: it always points at the <em>last</em> line, because that's where
           the compiler finally ran out of file still waiting for a closing brace. Count your braces.</p>
 
@@ -208,27 +210,27 @@ Exception in thread "main" java.lang.ArithmeticException: / by zero
 
         <p>Read it in three moves:</p>
         <ol class="task-list">
-          <li><b>What type?</b> <code>ArithmeticException</code> — a maths problem.</li>
-          <li><b>What message?</b> <code>/ by zero</code> — you divided by zero.</li>
-          <li><b>Where?</b> <code>Main.java:6</code> — file, then <strong>line 6</strong>.</li>
+          <li><b>What type?</b> <code>ArithmeticException</code>, a maths problem.</li>
+          <li><b>What message?</b> <code>/ by zero</code>, so you divided by zero.</li>
+          <li><b>Where?</b> <code>Main.java:6</code>, which is the file, then <strong>line 6</strong>.</li>
         </ol>
 
         <p>Notice the first line: <code>Reading sensors...</code> <strong>did</strong> print. Everything
-          before the crash ran normally, and the crash line tells you how far it got. That's information.</p>
+          before the crash ran normally, so the output before the crash shows you how far it got.</p>
 
         <div class="callout callout--note">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
           <div class="c-title">Find your own file name in the trace</div>
           <div class="c-body"><p>A real stack trace can be a dozen <code>at ...</code> lines deep, most of
             them inside Java's own code. <strong>The line you care about is the one with your file name in
-            it</strong> — <code>Main.java</code>. Unit J3 explains why the list exists at all.</p></div>
+            it</strong>, here <code>Main.java</code>. Unit J3 explains why the list exists at all.</p></div>
         </div>
 
         <p>The three you'll hit first:</p>
         <div class="vocab">
           <div class="vocab-term"><dt>100 / 0 with two ints</dt><dd><code>ArithmeticException: / by zero</code></dd></div>
           <div class="vocab-term"><dt>"Penguin".charAt(7)</dt><dd><code>StringIndexOutOfBoundsException: Index 7 out of bounds for length 7</code></dd></div>
-          <div class="vocab-term"><dt>.length() on a null String</dt><dd><code>NullPointerException</code> — the box is empty, so there's no thing there to ask. Unit J4 gives this its own lesson.</dd></div>
+          <div class="vocab-term"><dt>.length() on a null String</dt><dd><code>NullPointerException</code>. The box is empty, so there's no thing there to ask. Unit J4 gives this its own lesson.</dd></div>
         </div>
         <p>The exception <strong>type</strong> is a category; the <strong>message</strong> is the specifics.
           After ten of these you'll read <code>Index 7 out of bounds for length 7</code> and know the answer
@@ -258,14 +260,14 @@ System.out.println("Arm is at " + degrees + " degrees");</code></pre>
         </div>
 
         <p>The right answer is <strong>1620.0</strong>. 90 ÷ 20 is 4.5 rotations, and 4.5 × 360 is 1620.
-          The program said 1440 because <code>90 / 20</code> is integer division — the silent zero from the
-          operators lesson, wearing a different hat.</p>
+          The program said 1440 because <code>90 / 20</code> is integer division, the same silent-zero problem from the
+          operators lesson.</p>
         <p>Nothing on your screen is red. On a real robot, this arm stops 180° short and everyone blames
           the encoder.</p>
 
         <!-- ===================== PRINT ===================== -->
         <h2 id="print"><span class="section-h"><span class="num">8</span> Print debugging</span></h2>
-        <p>You can't see inside a running program. So you make it talk. Put a <code>println</code> after
+        <p>You can't see inside a running program, so you make it tell you what it's doing. Put a <code>println</code> after
           every step that produces a value, and <strong>label every one</strong>.</p>
 
         <ol class="task-list">
@@ -285,7 +287,7 @@ DEBUG degrees         = 1440.0</code></pre>
         </div>
 
         <p>Two correct inputs and a wrong output means the bug is <strong>on the line between them</strong>.
-          You didn't find it by being clever — you found it by halving the search, the same move as applying
+          You found it by halving the search, the same move as applying
           a test voltage.</p>
 
         <p>The fix is one line:</p>
@@ -300,7 +302,7 @@ DEBUG degrees         = 1440.0</code></pre>
         <ol class="task-list">
           <li><b>Read the message.</b> Out loud if necessary. Most of them say exactly what is wrong.</li>
           <li><b>Go to the line it names.</b> If that line looks perfect, check the line above.</li>
-          <li><b>Fix one thing. Re-run.</b> Never change three things at once — then you can't tell which
+          <li><b>Fix one thing. Re-run.</b> Never change three things at once, or you can't tell which
             one helped.</li>
           <li><b>If there's no message, make one.</b> Add labelled prints and find the first value that
             isn't what you expected.</li>
@@ -313,21 +315,20 @@ DEBUG degrees         = 1440.0</code></pre>
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
           <div class="c-title">“One change, one run” is a Phase 2 rule too</div>
           <div class="c-body"><p>When you tune a PID controller in Unit 6, the formal rule is
-            <strong>change one variable at a time</strong> — for exactly this reason. Change two and the
+            <strong>change one variable at a time</strong>, for exactly this reason. Change two and the
             result tells you nothing.</p></div>
         </div>
 
         <div class="callout callout--tip">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a7 7 0 0 0-4-12z"/></svg></div>
-          <div class="c-title">Errors are not judgement</div>
-          <div class="c-body"><p>Everybody on this team gets errors every single meeting. The difference
-            between a new programmer and an experienced one isn't how many errors they cause — it's how many
-            <em>seconds</em> it takes them to read one.</p></div>
+          <div class="c-title">Everyone gets errors</div>
+          <div class="c-body"><p>Everybody on this team gets errors every single meeting. Experienced programmers
+          cause plenty of errors too. They just take a few <em>seconds</em> to read one.</p></div>
         </div>
 
         <!-- ===================== RUN ===================== -->
         <h2 id="run"><span class="section-h"><span class="num">10</span> Run it yourself</span></h2>
-        <p>Run it once — it works. Now break it, <strong>one change at a time</strong>, and read the message
+        <p>Run it once. It works. Now break it, <strong>one change at a time</strong>, and read the message
           before you undo it.</p>
 
         <div class="sandbox" data-compiler data-title="Live Java Sandbox" data-lang="java">
@@ -352,8 +353,8 @@ public class Main {
         <div class="callout callout--pitfall">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
           <div class="c-title">Undo before the next one</div>
-          <div class="c-body"><p>Two breaks at once and you can't tell which message came from which —
-            which is the same mistake as changing two PID gains at once.</p></div>
+          <div class="c-body"><p>Two breaks at once and you can't tell which message came from which.
+            It's the same mistake as changing two PID gains at once.</p></div>
         </div>
 
         <details class="reveal">
@@ -370,7 +371,7 @@ public class Main {
 
 4.  Main.java:N: error: reached end of file while parsing</code></pre>
             </div>
-            <p>Number 4 points at the last line of the file, not at the brace you deleted — that's the liar
+            <p>Number 4 points at the last line of the file, not at the brace you deleted. That's the misleading error
               from section 4.</p>
           </div>
         </details>
@@ -379,8 +380,8 @@ public class Main {
         <h2 id="challenges"><span class="section-h"><span class="num">11</span> Practice challenges</span></h2>
 
         <div class="challenge" data-kind="fib"
-             data-win="That's the whole skill. File, line, and the exact symbol it went looking for."
-             data-lose="The number after the file name is the line — 6. And 'symbol: variable speeed' names exactly what it couldn't find. Three e's.">
+             data-win="Got it. File, line, and the exact symbol it went looking for."
+             data-lose="The number after the file name is the line: 6. And 'symbol: variable speeed' names exactly what it couldn't find. Three e's.">
           <div class="challenge-head"><span class="ch-kind">Fill in the blanks</span><span class="ch-title">Read the message</span></div>
           <div class="challenge-body">
             <p class="challenge-prompt">Here is a real compiler error:</p>
@@ -406,10 +407,10 @@ Java could not find is <span class="blank" data-answer="speeed"></span>.</pre>
           <div class="challenge-body">
             <p class="challenge-prompt">Which of these is the <strong>most expensive</strong> kind of bug?</p>
             <div class="options">
-              <label class="option" data-explain="The cheapest kind. It's caught before anything runs, and it names the line."><input type="radio" name="q-cost" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error</span></label>
-              <label class="option" data-explain="Costly, but it hands you a type, a message and a line number. You have a starting point."><input type="radio" name="q-cost" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A runtime exception</span></label>
-              <label class="option" data-correct data-explain="Right. No message, no line, no clue. This is the one that costs two days, because you have to notice it before you can even start looking."><input type="radio" name="q-cost" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A logic error — it compiles, runs, and gives the wrong answer</span></label>
-              <label class="option" data-explain="Usually just an unused variable. Worth tidying, almost never the reason a mechanism doesn't move."><input type="radio" name="q-cost" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A yellow warning squiggle</span></label>
+              <label class="option" data-explain="The cheapest kind. It's caught before anything runs, and it names the line."><input type="radio" name="q-cost" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A compiler error that stops the whole build</span></label>
+              <label class="option" data-correct data-explain="Right. No message, no line, no clue. This is the one that costs two days, because you have to notice it before you can even start looking."><input type="radio" name="q-cost" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A logic error that quietly gives the wrong answer</span></label>
+              <label class="option" data-explain="Costly, but it hands you a type, a message and a line number. You have a starting point."><input type="radio" name="q-cost" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A runtime exception that crashes the program mid-match</span></label>
+              <label class="option" data-explain="Usually just an unused variable. Worth tidying, almost never the reason a mechanism doesn't move."><input type="radio" name="q-cost" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A yellow warning squiggle under a variable</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -417,8 +418,8 @@ Java could not find is <span class="blank" data-answer="speeed"></span>.</pre>
         </div>
 
         <div class="challenge" data-kind="text"
-             data-win="Yes — line 6 is where the division actually happens. Lines 4 and 5 are innocent; they just set up the values."
-             data-lose="It's line 6. Setting b = 0 on line 5 is perfectly legal — nothing goes wrong until something divides by it on line 6.">
+             data-win="Yes. Line 6 is where the division actually happens. Lines 4 and 5 are innocent; they just set up the values."
+             data-lose="It's line 6. Setting b = 0 on line 5 is perfectly legal; nothing goes wrong until something divides by it on line 6.">
           <div class="challenge-head"><span class="ch-kind">Predict the output</span><span class="ch-title">Which line dies?</span></div>
           <div class="challenge-body">
             <p class="challenge-prompt">This program crashes. Which line number appears in the stack trace?</p>
@@ -440,7 +441,7 @@ Java could not find is <span class="blank" data-answer="speeed"></span>.</pre>
               <div class="reveal-body"><p>The trace reads
                 <code>java.lang.ArithmeticException: / by zero</code> then
                 <code>at Main.main(Main.java:6)</code>. Also note that <code>start</code> <em>does</em>
-                print first — everything up to the crash ran normally.</p></div>
+                print first, because everything up to the crash ran normally.</p></div>
             </details>
           </div>
         </div>
@@ -453,7 +454,7 @@ Java could not find is <span class="blank" data-answer="speeed"></span>.</pre>
             <div class="options">
               <label class="option" data-explain="You'd be retyping a line that isn't wrong, and you'd still have the error."><input type="radio" name="q-above" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Delete line 12 and retype it</span></label>
               <label class="option" data-correct data-explain="Correct. The compiler reads until it's confused, so a missing semicolon at the end of line 11 is usually reported at line 12. When the named line is fine, look up."><input type="radio" name="q-above" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Check line 11</span></label>
-              <label class="option" data-explain="The message is deterministic — you'll get exactly the same one."><input type="radio" name="q-above" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Restart the compiler</span></label>
+              <label class="option" data-explain="The message is deterministic, so you'll get exactly the same one."><input type="radio" name="q-above" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Restart the compiler</span></label>
               <label class="option" data-explain="Now you have two problems. Guessing at fixes is how a one-line bug becomes a three-line bug."><input type="radio" name="q-above" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Add a semicolon to line 12 to be safe</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
@@ -467,10 +468,10 @@ Java could not find is <span class="blank" data-answer="speeed"></span>.</pre>
             <p class="challenge-prompt">Your program produces the wrong number and no error. What's the
               <strong>first</strong> thing to do?</p>
             <div class="options">
-              <label class="option" data-explain="You'd very likely rewrite the same misunderstanding, and now you have no working reference to compare against."><input type="radio" name="q-nomsg" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Rewrite it from scratch</span></label>
-              <label class="option" data-correct data-explain="Yes. That's print debugging, and it turns an invisible problem into a visible one. The first surprising value tells you which line to look at."><input type="radio" name="q-nomsg" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Add labelled <code>println</code> lines after each value and find the first one that's wrong</span></label>
-              <label class="option" data-explain="Then you can't tell which change helped, and you may have added a second bug. One change, one run."><input type="radio" name="q-nomsg" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Change several things and see if it fixes itself</span></label>
-              <label class="option" data-explain="It didn't. It did exactly what the code said — that's the whole premise of lesson 1."><input type="radio" name="q-nomsg" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Assume the computer made a mistake</span></label>
+              <label class="option" data-explain="You'd very likely rewrite the same misunderstanding, and now you have no working reference to compare against."><input type="radio" name="q-nomsg" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Delete the method and rewrite it from scratch</span></label>
+              <label class="option" data-explain="Then you can't tell which change helped, and you may have added a second bug. One change, one run."><input type="radio" name="q-nomsg" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Change several things at once and see if it fixes itself</span></label>
+              <label class="option" data-correct data-explain="Yes. That's print debugging, and it turns an invisible problem into a visible one. The first surprising value tells you which line to look at."><input type="radio" name="q-nomsg" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Add labelled <code>println</code> lines and find the first wrong value</span></label>
+              <label class="option" data-explain="It didn't. It did exactly what the code told it to, as lesson 1 explained."><input type="radio" name="q-nomsg" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Assume the computer made a mistake and run it again</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -519,7 +520,7 @@ Largest valid index: <span class="blank" data-answer="6"></span></pre>
               <li><strong>“I should read the whole stack trace.”</strong> Read the first line and the first
                 <code>at</code> line containing <em>your</em> file. The rest is Java's plumbing.</li>
               <li><strong>“Print debugging is what you do when you don't know the real tools.”</strong>
-                It's a real tool — and on a robot forty feet away with no debugger attached, frequently the
+                It's a real tool, and on a robot forty feet away with no debugger attached, it's often the
                 only one.</li>
               <li><strong>“I'll just change a few things and see.”</strong> Change one thing, run, look.
                 Otherwise you learn nothing from the result.</li>
@@ -537,13 +538,13 @@ Largest valid index: <span class="blank" data-answer="6"></span></pre>
             </div>
           </div>
           <div class="exercise-body">
-            <p>Someone left a status report in the repo that doesn't build — and once it builds, it lies.
+            <p>Someone left a status report in the repo that doesn't build. Once it builds, it prints a wrong number.
               Get it working, then get it <em>correct</em>.</p>
             <ol class="task-list">
               <li><b>Make it compile.</b> There are three compiler errors. Fix the <strong>first</strong>
                 one, re-run, and only then look at what's left. Note each message you see.</li>
               <li><b>Make it correct.</b> Once it runs, one printed number is wrong. Find it with labelled
-                <code>DEBUG</code> prints — don't fix anything until you can point at the line.</li>
+                <code>DEBUG</code> prints, and don't fix anything until you can point at the line.</li>
               <li><b>Fix that one line.</b></li>
               <li><b>Bonus:</b> remove your DEBUG prints and leave the report clean.</li>
             </ol>
@@ -571,7 +572,7 @@ public class Main {
             <details class="reveal">
               <summary><svg class="rv-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg> The error sequence, run by run</summary>
               <div class="reveal-body">
-                <p><strong>Run 1</strong> — one error only:</p>
+                <p><strong>Run 1</strong> shows one error only:</p>
                 <div class="code">
                   <div class="code-head"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-file">run 1</span><span class="code-spacer"></span></div>
 <pre><code class="language-text">Main.java:3: error: ';' expected
@@ -579,7 +580,7 @@ public class Main {
                                 ^
 1 error</code></pre>
                 </div>
-                <p><strong>Run 2</strong>, after adding the semicolon — now <em>two</em> errors appear that
+                <p><strong>Run 2</strong>, after adding the semicolon, <em>two</em> errors appear that
                   were hidden behind the first one:</p>
                 <div class="code">
                   <div class="code-head"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-file">run 2</span><span class="code-spacer"></span></div>
@@ -601,8 +602,8 @@ Main.java:10: error: incompatible types: possible lossy conversion from double t
                     ^
 1 error</code></pre>
                 </div>
-                <p><strong>Run 4</strong>, after <code>int ticks = 4;</code> — it compiles, and prints
-                  <code>rotations: 4.0</code>. That's the lie. 90 ÷ 20 is 4.5.</p>
+                <p><strong>Run 4</strong>, after <code>int ticks = 4;</code>, it compiles and prints
+                  <code>rotations: 4.0</code>. That's wrong: 90 ÷ 20 is 4.5.</p>
                 <p class="lead">The compiler could not even <em>see</em> errors 2 and 3 until error 1 was
                   fixed. That's why you fix the top one and re-run.</p>
                 <div class="code">
@@ -633,8 +634,8 @@ Main.java:10: error: incompatible types: possible lossy conversion from double t
   ticks:     4</code></pre>
                 </div>
                 <p>Three errors cost you about ninety seconds, because each one named its own line. The
-                  fourth problem — the one with no error message — is the one you had to go looking for.
-                  Now you know which kind to be afraid of.</p>
+                  fourth problem had no error message, so you had to go looking for it. That's the kind
+                  to worry about.</p>
               </div>
             </details>
           </div>
@@ -652,9 +653,9 @@ Main.java:10: error: incompatible types: possible lossy conversion from double t
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> <code>cannot find symbol</code> usually means…</div>
               <div class="options">
-                <label class="option" data-explain="The compiler found the file fine — it's reading line 12 of it. It's a name inside the file it can't resolve."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The file is missing</span></label>
-                <label class="option" data-correct data-explain="Exactly, and the message even prints 'symbol: variable ...' telling you which name."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You used a name Java has never seen declared — often a typo or a capitalisation slip</span></label>
-                <label class="option" data-explain="Length is never the problem. Java compiles files thousands of lines long without complaint."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Your program is too long</span></label>
+                <label class="option" data-explain="The compiler found the file fine; it's reading line 12 of it. It's a name inside the file it can't resolve."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The file you are compiling is missing or misnamed</span></label>
+                <label class="option" data-correct data-explain="Exactly, and the message even prints 'symbol: variable ...' telling you which name."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">A name Java has never seen declared, often a typo</span></label>
+                <label class="option" data-explain="Length is never the problem. Java compiles files thousands of lines long without complaint."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Your program is too long for the compiler to finish</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -662,9 +663,9 @@ Main.java:10: error: incompatible types: possible lossy conversion from double t
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> What's the difference between a compiler error and a runtime exception?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Right. One stops it from ever starting; the other stops it partway through, which is why you also get output up to the crash."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Compiler errors happen before the program runs; exceptions happen while it's running</span></label>
-                <label class="option" data-explain="Different timing and different information. A compiler error has no stack trace; an exception has no caret."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">They're the same thing with different names</span></label>
-                <label class="option" data-explain="Not necessarily — and the least serious-looking bug, the one with no message at all, is usually the most expensive."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Exceptions are more serious</span></label>
+                <label class="option" data-explain="Different timing and different information. A compiler error has no stack trace; an exception has no caret."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">They are the same problem, just reported with different names</span></label>
+                <label class="option" data-correct data-explain="Right. One stops it from ever starting; the other stops it partway through, which is why you also get output up to the crash."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Compiler errors come before running; exceptions come during</span></label>
+                <label class="option" data-explain="Not necessarily. The least serious-looking bug, the one with no message at all, is usually the most expensive."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Exceptions are always more serious than compiler errors</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -673,7 +674,7 @@ Main.java:10: error: incompatible types: possible lossy conversion from double t
               <div class="cp-prompt"><span class="qn">Q3.</span> A trace ends with <code>at Main.main(Main.java:6)</code>. Which line does it point at?</div>
               <div class="options">
                 <label class="option" data-explain="Line 1 is where the class is declared; nothing can go wrong there at runtime."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Line 1</span></label>
-                <label class="option" data-correct data-explain="Correct — the number after the colon is the line."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Line 6</span></label>
+                <label class="option" data-correct data-explain="Correct. The number after the colon is the line."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Line 6</span></label>
                 <label class="option" data-explain="The trace always names a file and a line. That's what it's for."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">There's no way to tell</span></label>
               </div>
               <div class="feedback"></div>
@@ -682,9 +683,9 @@ Main.java:10: error: incompatible types: possible lossy conversion from double t
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> Your debug prints show a correct input on one line and a wrong value on the next. Where's the bug?</div>
               <div class="options">
-                <label class="option" data-explain="Everything earlier already printed correctly, so it isn't earlier. That's exactly what the prints ruled out."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Somewhere earlier in the program</span></label>
+                <label class="option" data-explain="Everything earlier already printed correctly, so it isn't earlier. That's exactly what the prints ruled out."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Somewhere earlier in the program, before the prints</span></label>
                 <label class="option" data-correct data-explain="Yes. Known-good above, known-bad below: the bug is between them. That's the halving move."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">On the line that produced the wrong value</span></label>
-                <label class="option" data-explain="Later lines are consuming an already-wrong value. Fixing them would just hide the problem."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Later, once it finishes</span></label>
+                <label class="option" data-explain="Later lines are consuming an already-wrong value. Fixing them would just hide the problem."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Later, in whatever code uses the wrong value</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -692,9 +693,9 @@ Main.java:10: error: incompatible types: possible lossy conversion from double t
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q5.</span> You get fifteen compiler errors after adding one line. What do you do?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Right — one missing brace or semicolon confuses everything after it. Very often fourteen of the fifteen vanish."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Fix the first error and recompile</span></label>
-                <label class="option" data-explain="The later ones are usually consequences of the first. You'd be fixing imaginary problems."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Fix them from the bottom up</span></label>
                 <label class="option" data-explain="You'd lose working code to avoid reading one message. Read the top one first."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Undo everything and start the file again</span></label>
+                <label class="option" data-explain="The later ones are usually consequences of the first. You'd be fixing imaginary problems."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Fix them from the bottom up</span></label>
+                <label class="option" data-correct data-explain="Right. One missing brace or semicolon confuses everything after it. Very often fourteen of the fifteen vanish."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Fix the first error and recompile</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -705,7 +706,7 @@ Main.java:10: error: incompatible types: possible lossy conversion from double t
 
         <!-- ===================== COMPLETE ===================== -->
         <div class="mark-complete">
-          <div class="mc-text"><b>That's Unit J1 complete.</b><span>You can write, run, and now <em>fix</em> a Java program. Next unit: making decisions and repeating work — <code>if</code>, loops, and the comparison symbol the strings lesson warned you about.</span></div>
+          <div class="mc-text"><b>That's Unit J1 complete.</b><span>You can write, run, and now <em>fix</em> a Java program. Next unit: making decisions and repeating work with <code>if</code>, loops, and the comparison symbol the strings lesson warned you about.</span></div>
           <button class="complete-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Mark as complete</span></button>
         </div>
 

@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -193,8 +195,8 @@ setSpeed(0.7, -0.7);</pre>
             <p class="challenge-prompt">Which pair is <strong>not</strong> a valid overload?</p>
             <div class="options">
               <label class="option" data-explain="Different numbers of parameters. This is a valid overload."><input type="radio" name="q-ov" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>stop()</code> and <code>stop(String name)</code></span></label>
-              <label class="option" data-explain="Different parameter types. This is a valid overload."><input type="radio" name="q-ov" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>run(int id)</code> and <code>run(String name)</code></span></label>
               <label class="option" data-correct data-explain="Correct. The parameter lists are identical, so these are the same signature. Only the return type differs, which does not count."><input type="radio" name="q-ov" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>int read(String n)</code> and <code>double read(String n)</code></span></label>
+              <label class="option" data-explain="Different parameter types. This is a valid overload."><input type="radio" name="q-ov" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>run(int id)</code> and <code>run(String name)</code></span></label>
               <label class="option" data-explain="One takes two doubles, the other takes three. Different counts, so this is valid."><input type="radio" name="q-ov" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>drive(double, double)</code> and <code>drive(double, double, double)</code></span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
@@ -229,9 +231,9 @@ static void <span class="blank" data-answer="stop"></span>(<span class="blank" d
             <p class="challenge-prompt">Why can <code>System.out.println</code> print an <code>int</code>,
               a <code>double</code>, a <code>String</code> and a <code>boolean</code>?</p>
             <div class="options">
+              <label class="option" data-explain="Java is strict about types. It would not accept a mismatch silently."><input type="radio" name="q-pl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java ignores types when it prints anything</span></label>
               <label class="option" data-correct data-explain="Correct. There is a separate overload for each type, plus one with no parameters."><input type="radio" name="q-pl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is overloaded, with one version per type</span></label>
-              <label class="option" data-explain="Java is strict about types. It would not accept a mismatch silently."><input type="radio" name="q-pl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java ignores types when printing</span></label>
-              <label class="option" data-explain="A method with no parameters could not accept a value at all."><input type="radio" name="q-pl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It takes no parameters</span></label>
+              <label class="option" data-explain="A method with no parameters could not accept a value at all."><input type="radio" name="q-pl" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It takes no parameters, so anything fits</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -345,8 +347,8 @@ Arm OK (CAN 3) at 8.97</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q2.</span> How does Java decide which overload to run?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Correct. It matches the count and types of the arguments in the call."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">From the arguments in the call</span></label>
                 <label class="option" data-explain="Java chooses the method before it considers what happens to the result."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">From the variable you store the result in</span></label>
+                <label class="option" data-correct data-explain="Correct. It matches the count and types of the arguments in the call."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">From the arguments in the call</span></label>
                 <label class="option" data-explain="Order in the file has no effect on which overload is selected."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It runs whichever is written first</span></label>
               </div>
               <div class="feedback"></div>
@@ -365,9 +367,9 @@ Arm OK (CAN 3) at 8.97</code></pre>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> When should two methods share a name?</div>
               <div class="options">
+                <label class="option" data-explain="Overloading is a readability tool, and used well it is worth it."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Never, because Java would not know which one to call</span></label>
+                <label class="option" data-explain="Reusing a name for unrelated jobs makes calls harder to read, not easier."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Whenever you run out of good names for methods</span></label>
                 <label class="option" data-correct data-explain="Correct. Same name should mean same idea, with the parameters covering different levels of detail."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">When they do the same job with different inputs</span></label>
-                <label class="option" data-explain="Reusing a name for unrelated jobs makes calls harder to read, not easier."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Whenever you run out of good names</span></label>
-                <label class="option" data-explain="Overloading is a readability tool, and used well it is worth it."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Never</span></label>
               </div>
               <div class="feedback"></div>
             </div>

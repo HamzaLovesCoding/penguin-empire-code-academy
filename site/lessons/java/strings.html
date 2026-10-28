@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -27,8 +29,8 @@
         <span class="badge badge--ocean">Lesson 5</span>
         <h1 class="lesson-title">Working with Text (Strings)</h1>
         <p class="lesson-lede">On game day the console is your only window into a robot forty feet away
-          that you're not allowed to touch — and it can only show you text <em>you</em> decided to print.
-          Text isn't decoration. It's instrumentation.</p>
+          that you're not allowed to touch, and it can only show you text <em>you</em> decided to print.
+          What you print is how you find out what the robot is doing.</p>
         <div class="lesson-meta">
           <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> 25 min</span>
           <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h2v-4H3zM9 20h2V10H9zM15 20h2V4h-2z"/></svg> Beginner</span>
@@ -77,14 +79,14 @@
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
           <div class="c-title">Watch the console</div>
           <div class="c-body">
-            <p>During a match, the programmer's job is <strong>not</strong> to coach the driver — that's
-              the drive coach. Your job is to sit behind the Driver Station and <strong>watch the
+            <p>During a match, the programmer's job is <strong>not</strong> to coach the driver; that's
+              the drive coach's job. Your job is to sit behind the Driver Station and <strong>watch the
               console</strong>: the scrolling text window where everything the robot prints shows up.</p>
             <p>When something goes wrong, that window is your entire view into a robot you cannot reach.</p>
           </div>
         </div>
 
-        <p>And the console can only ever show you text you decided to print. Write
+        <p>The console can only ever show you text you decided to print. Write
           <code>System.out.println(position);</code> and you get:</p>
 
         <div class="code">
@@ -98,8 +100,8 @@
 
         <!-- ===================== SKILLS ===================== -->
         <h2 id="skills"><span class="section-h"><span class="num">2</span> Text that can do things</span></h2>
-        <p>You've been using <code>String</code> as a box that holds text. Here's the twist: a
-          <code>String</code> isn't just a value, it's a value that comes with a set of <strong>skills</strong>.
+        <p>You've been using <code>String</code> as a box that holds text. A
+          <code>String</code> also comes with a set of <strong>skills</strong>.
           You ask it to use one with a dot.</p>
 
         <div class="code">
@@ -110,19 +112,19 @@ System.out.println(subsystem.length());   // 15
 //              the value   skill   parentheses mean "do it"</code></pre>
         </div>
 
-        <p>Think of the pit crew. You don't reach into someone's toolbox and rummage — you say “Sam, torque
+        <p>Think of the pit crew. You don't reach into someone's toolbox and rummage. You say “Sam, torque
           wrench,” and Sam does it. <code>subsystem.length()</code> is you asking the string <em>“how long
           are you?”</em> and it answering.</p>
         <p>Asking a value to do something is called <strong>calling a method</strong>. You've been doing it
-          since lesson 2 — <code>System.out.println(...)</code> is a method call. Unit J3 teaches you to
+          since lesson 2: <code>System.out.println(...)</code> is a method call. Unit J3 teaches you to
           <em>write</em> your own; Unit J5 explains how a value comes to have skills at all. Right now you
           only need the shape: <strong>dot, name, parentheses</strong>.</p>
 
         <div class="callout callout--tip">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a7 7 0 0 0-4-12z"/></svg></div>
           <div class="c-title">Parentheses are not optional</div>
-          <div class="c-body"><p><code>subsystem.length</code> isn't a mistake Java can guess its way out
-            of — it refuses to compile. Even when a method needs no information, you still write the empty
+          <div class="c-body"><p>Java won't guess what you meant by <code>subsystem.length</code>.
+            It refuses to compile. Even when a method needs no information, you still write the empty
             <code>()</code>. The parentheses are what say “do it.”</p></div>
         </div>
 
@@ -141,7 +143,7 @@ System.out.println(subsystem.length());   // 15
         </div>
 
         <p>So <code>charAt(0)</code> gives <code>'P'</code>, and the <strong>last</strong> character is at
-          <code>length() - 1</code>. Memorise that expression — you'll write it for the rest of your life.</p>
+          <code>length() - 1</code>. Memorise that expression. You'll write it constantly.</p>
         <p>This matters right now: <code>charAt(7)</code> on a 7-character string doesn't print an empty
           line. It <strong>crashes the program</strong>. You'll trigger that on purpose in a minute.</p>
 
@@ -149,20 +151,20 @@ System.out.println(subsystem.length());   // 15
         <h2 id="reading"><span class="section-h"><span class="num">4</span> Reading and slicing</span></h2>
 
         <div class="vocab">
-          <div class="vocab-term"><dt>.length()</dt><dd><code>15</code> — how many characters.</dd></div>
-          <div class="vocab-term"><dt>.charAt(0)</dt><dd><code>'I'</code> — the character at one position.</dd></div>
-          <div class="vocab-term"><dt>.substring(0, 6)</dt><dd><code>"Intake"</code> — a slice from 0, <strong>up to but not including</strong> 6.</dd></div>
-          <div class="vocab-term"><dt>.substring(6)</dt><dd><code>"Subsystem"</code> — a slice from 6 to the end.</dd></div>
-          <div class="vocab-term"><dt>.indexOf("Sub")</dt><dd><code>6</code> — where it starts, counting from 0.</dd></div>
-          <div class="vocab-term"><dt>.contains("take")</dt><dd><code>true</code> — is it in there at all. This one gives back a <code>boolean</code>.</dd></div>
+          <div class="vocab-term"><dt>.length()</dt><dd><code>15</code>, how many characters.</dd></div>
+          <div class="vocab-term"><dt>.charAt(0)</dt><dd><code>'I'</code>, the character at one position.</dd></div>
+          <div class="vocab-term"><dt>.substring(0, 6)</dt><dd><code>"Intake"</code>, a slice from 0, <strong>up to but not including</strong> 6.</dd></div>
+          <div class="vocab-term"><dt>.substring(6)</dt><dd><code>"Subsystem"</code>, a slice from 6 to the end.</dd></div>
+          <div class="vocab-term"><dt>.indexOf("Sub")</dt><dd><code>6</code>, where it starts, counting from 0.</dd></div>
+          <div class="vocab-term"><dt>.contains("take")</dt><dd><code>true</code>, if it's in there at all. This one gives back a <code>boolean</code>.</dd></div>
         </div>
 
         <div class="callout callout--pitfall">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
           <div class="c-title">Everyone gets substring wrong once</div>
           <div class="c-body"><p><strong>The first number is included; the second is not.</strong>
-            <code>substring(0, 6)</code> gives you exactly 6 characters — positions 0, 1, 2, 3, 4, 5.
-            Handy consequence: the number of characters you get is always <code>end - start</code>.</p></div>
+            <code>substring(0, 6)</code> gives you exactly 6 characters: positions 0, 1, 2, 3, 4, 5.
+            That means the number of characters you get is always <code>end - start</code>.</p></div>
         </div>
 
         <div class="code with-lines">
@@ -197,12 +199,12 @@ true</code></pre>
         <!-- ===================== CLEANING ===================== -->
         <h2 id="cleaning"><span class="section-h"><span class="num">5</span> Cleaning up</span></h2>
         <div class="vocab">
-          <div class="vocab-term"><dt>.trim()</dt><dd><code>"  Intake  "</code> becomes <code>"Intake"</code> — strips spaces off both ends.</dd></div>
+          <div class="vocab-term"><dt>.trim()</dt><dd><code>"  Intake  "</code> becomes <code>"Intake"</code>. It strips spaces off both ends.</dd></div>
           <div class="vocab-term"><dt>.toUpperCase()</dt><dd><code>"Intake"</code> becomes <code>"INTAKE"</code>.</dd></div>
           <div class="vocab-term"><dt>.toLowerCase()</dt><dd><code>"Intake"</code> becomes <code>"intake"</code>.</dd></div>
         </div>
         <p><code>trim()</code> matters more than it looks. Text that comes from a file, a dashboard field,
-          or a person's typing very often has invisible spaces on the end — and those spaces make two labels
+          or a person's typing very often has invisible spaces on the end, and those spaces make two labels
           that <em>look</em> identical fail to match.</p>
 
         <div class="code with-lines">
@@ -228,7 +230,7 @@ System.out.println("[" + typed.trim() + "]");</code></pre>
 
         <!-- ===================== IMMUTABLE ===================== -->
         <h2 id="immutable"><span class="section-h"><span class="num">6</span> Strings never change</span></h2>
-        <p>This is the beat that catches everyone.</p>
+        <p>This catches almost everyone the first time.</p>
 
         <div class="code with-lines">
           <div class="code-head">
@@ -253,7 +255,7 @@ INTAKE
 Intake</code></pre>
         </div>
 
-        <p>Strings in Java are <strong>immutable</strong> — a String's contents can never be edited after
+        <p>Strings in Java are <strong>immutable</strong>: a String's contents can never be edited after
           it's created. <code>toUpperCase()</code> doesn't modify <code>name</code>; it hands you back a
           brand-new String and leaves the original alone. If you don't catch the new one, it evaporates.</p>
         <p>Think of the laminator in the pit. You feed in a sheet and get a laminated sheet back. The
@@ -282,7 +284,7 @@ Intake</code></pre>
 
         <!-- ===================== COMPARING ===================== -->
         <h2 id="comparing"><span class="section-h"><span class="num">8</span> Comparing text</span></h2>
-        <p>Two pieces of text are the same when they contain the same characters in the same order —
+        <p>Two pieces of text are the same when they contain the same characters in the same order,
           including case.</p>
 
         <div class="code with-lines">
@@ -300,12 +302,12 @@ System.out.println(a.equalsIgnoreCase(b));   // true
 System.out.println(a.equals("Intake"));      // true</code></pre>
         </div>
 
-        <p><code>.equals(...)</code> gives back a <code>boolean</code> — <code>true</code> or
-          <code>false</code>, the type you met in the variables lesson.</p>
+        <p><code>.equals(...)</code> gives back a <code>boolean</code> (<code>true</code> or
+          <code>false</code>), the type you met in the variables lesson.</p>
 
         <div class="callout callout--note">
           <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
-          <div class="c-title">There's a second way, and it's a trap</div>
+          <div class="c-title">Don't use == for text yet</div>
           <div class="c-body"><p>Java also has a comparison symbol made of two equals signs. For numbers it
             does exactly what you'd expect. For <em>text</em> it does something subtly different that
             catches people out for years. The booleans lesson, two lessons from now, takes it apart
@@ -315,12 +317,12 @@ System.out.println(a.equals("Intake"));      // true</code></pre>
 
         <!-- ===================== ESCAPES ===================== -->
         <h2 id="escapes"><span class="section-h"><span class="num">9</span> Escape sequences</span></h2>
-        <p>A <code>"</code> ends a String — so how do you print one? You <strong>escape</strong> it with a
+        <p>A <code>"</code> ends a String, so how do you print one? You <strong>escape</strong> it with a
           backslash.</p>
 
         <div class="vocab">
           <div class="vocab-term"><dt>\n</dt><dd>A new line, mid-string.</dd></div>
-          <div class="vocab-term"><dt>\t</dt><dd>A tab — lines up columns.</dd></div>
+          <div class="vocab-term"><dt>\t</dt><dd>A tab, for lining up columns.</dd></div>
           <div class="vocab-term"><dt>\"</dt><dd>A literal double quote.</dd></div>
           <div class="vocab-term"><dt>\\</dt><dd>A literal backslash.</dd></div>
         </div>
@@ -352,7 +354,7 @@ Backslash: \</code></pre>
 
         <!-- ===================== PRINTF ===================== -->
         <h2 id="printf"><span class="section-h"><span class="num">10</span> printf: numbers that don't embarrass you</span></h2>
-        <p>Remember the battery percentage from the last lesson — <code>90.47619047619048%</code>? That's
+        <p>Remember the battery percentage from the last lesson, <code>90.47619047619048%</code>? That's
           what a <code>double</code> really holds, and nobody wants to read it at 90 seconds into a match.</p>
         <p><code>System.out.printf(...)</code> prints a <strong>template</strong> with slots:</p>
 
@@ -389,7 +391,7 @@ Intake at 0.70 (CAN 2)</code></pre>
 
         <!-- ===================== RUN ===================== -->
         <h2 id="run"><span class="section-h"><span class="num">11</span> Run it yourself</span></h2>
-        <p>Press <b style="color:#0a5d70">Run ▶</b>, then walk <code>charAt</code> from 0 upward: try
+        <p>Press <b style="color:var(--accent-strong)">Run ▶</b>, then walk <code>charAt</code> from 0 upward: try
           <code>charAt(1)</code>, then <code>charAt(6)</code>, then <code>charAt(7)</code>.</p>
 
         <div class="sandbox" data-compiler data-title="Live Java Sandbox" data-lang="java">
@@ -430,8 +432,8 @@ public class Main {
         <h2 id="challenges"><span class="section-h"><span class="num">12</span> Practice challenges</span></h2>
 
         <div class="challenge" data-kind="text"
-             data-win="Right. Start at 0, stop before 3 — that's positions 0, 1 and 2: Pen."
-             data-lose="It's Pen. The second number is where to stop, and it is not included. You get positions 0, 1, 2 — three characters.">
+             data-win="Right. Start at 0, stop before 3. That's positions 0, 1 and 2: Pen."
+             data-lose="It's Pen. The second number is where to stop, and it is not included. You get positions 0, 1, 2, which is three characters.">
           <div class="challenge-head"><span class="ch-kind">Predict the output</span><span class="ch-title">Where does the slice stop?</span></div>
           <div class="challenge-body">
             <p class="challenge-prompt">Careful with the second number. Type the exact text printed.</p>
@@ -445,7 +447,7 @@ System.out.println(s.substring(0, 3));</pre>
             <details class="reveal">
               <summary><svg class="rv-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg> Show explanation</summary>
               <div class="reveal-body"><p><code>substring(start, end)</code> takes everything from
-                <code>start</code> up to but not including <code>end</code>. A handy consequence: the number
+                <code>start</code> up to but not including <code>end</code>. That means the number
                 of characters you get is always <code>end - start</code>. Here that's
                 <code>3 - 0 = 3</code>.</p></div>
             </details>
@@ -453,7 +455,7 @@ System.out.println(s.substring(0, 3));</pre>
         </div>
 
         <div class="challenge" data-kind="text"
-             data-win="Exactly. Line 2 built an uppercase copy and threw it away. Strings can't be modified — only replaced."
+             data-win="Exactly. Line 2 built an uppercase copy and threw it away. Strings can't be modified, only replaced."
              data-lose="It prints Intake. toUpperCase() doesn't change name; it returns a new String. With no = to catch it, that new String is discarded.">
           <div class="challenge-head"><span class="ch-kind">Predict the output</span><span class="ch-title">The line that does nothing</span></div>
           <div class="challenge-body">
@@ -470,7 +472,7 @@ System.out.println(name);</pre>
         </div>
 
         <div class="challenge" data-kind="text"
-             data-win="Yes — trimmed first, then lowercased. Each dot works on whatever the call before it produced."
+             data-win="Yes. Trimmed first, then lowercased. Each dot works on whatever the call before it produced."
              data-lose="It's intake, with no spaces and no capital. Read chains strictly left to right: trim the spaces off, then lowercase the result.">
           <div class="challenge-head"><span class="ch-kind">Predict the output</span><span class="ch-title">Follow the chain</span></div>
           <div class="challenge-body">
@@ -486,7 +488,7 @@ System.out.println(s.trim().toLowerCase());</pre>
         </div>
 
         <div class="challenge" data-kind="fib"
-             data-win="All three. Clean it, shout it, compare it — that's most of what you ever do to text."
+             data-win="All three. Clean it, shout it, compare it. That covers most of what you'll do to text."
              data-lose="Strip the spaces with trim, raise the case with toUpperCase, and compare text with equals.">
           <div class="challenge-head"><span class="ch-kind">Fill in the blanks</span><span class="ch-title">Name that method</span></div>
           <div class="challenge-body">
@@ -506,13 +508,13 @@ System.out.println(label.trim().<span class="blank" data-answer="equals"></span>
         <div class="challenge" data-kind="mcq">
           <div class="challenge-head"><span class="ch-kind">Multiple choice</span><span class="ch-title">The last character</span></div>
           <div class="challenge-body">
-            <p class="challenge-prompt"><code>String s = "Penguin";</code> — which call gives you the
+            <p class="challenge-prompt"><code>String s = "Penguin";</code> Which call gives you the
               <strong>last</strong> character?</p>
             <div class="options">
-              <label class="option" data-explain="length() is 7, and position 7 doesn't exist — this crashes with StringIndexOutOfBoundsException."><input type="radio" name="q-last" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>s.charAt(s.length())</code></span></label>
-              <label class="option" data-correct data-explain="Correct, and this is the pattern you'll use forever. 7 characters live at positions 0-6, so the last one is at length() - 1."><input type="radio" name="q-last" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>s.charAt(s.length() - 1)</code></span></label>
-              <label class="option" data-explain="Java has no wrap-around indexing; a negative position is out of bounds and crashes."><input type="radio" name="q-last" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>s.charAt(-1)</code></span></label>
+              <label class="option" data-explain="length() is 7, and position 7 doesn't exist, so this crashes with StringIndexOutOfBoundsException."><input type="radio" name="q-last" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>s.charAt(s.length())</code></span></label>
               <label class="option" data-explain="There is no last() method on String. The compiler will say cannot find symbol."><input type="radio" name="q-last" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>s.last()</code></span></label>
+              <label class="option" data-explain="Java has no wrap-around indexing; a negative position is out of bounds and crashes."><input type="radio" name="q-last" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>s.charAt(-1)</code></span></label>
+              <label class="option" data-correct data-explain="Correct, and this is the pattern you'll use forever. 7 characters live at positions 0-6, so the last one is at length() - 1."><input type="radio" name="q-last" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>s.charAt(s.length() - 1)</code></span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
             <div class="feedback"></div>
@@ -525,8 +527,8 @@ System.out.println(label.trim().<span class="blank" data-answer="equals"></span>
             <p class="challenge-prompt">Two labels look identical on screen but a comparison keeps coming
               out <code>false</code>. What's the most likely reason?</p>
             <div class="options">
-              <label class="option" data-explain="The same comparison gives the same answer every time. Something really is different about the two strings."><input type="radio" name="q-same" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java is unreliable with text</span></label>
-              <label class="option" data-correct data-explain="Yes — the two classic causes. trim() handles the spaces; equalsIgnoreCase(...) handles the case. Printing them inside square brackets makes stray spaces visible."><input type="radio" name="q-same" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">One of them has invisible whitespace or different capitalisation</span></label>
+              <label class="option" data-correct data-explain="Yes. The two classic causes. trim() handles the spaces; equalsIgnoreCase(...) handles the case. Printing them inside square brackets makes stray spaces visible."><input type="radio" name="q-same" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Hidden spaces or different capitalisation</span></label>
+              <label class="option" data-explain="The same comparison gives the same answer every time. Something really is different about the two strings."><input type="radio" name="q-same" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Java is unreliable when comparing text</span></label>
               <label class="option" data-explain="Length has nothing to do with it."><input type="radio" name="q-same" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>.equals()</code> only works on short strings</span></label>
               <label class="option" data-explain="Text comparison works fine on text; converting would only lose information."><input type="radio" name="q-same" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You need to convert them to numbers first</span></label>
             </div>
@@ -552,14 +554,14 @@ System.out.println(label.trim().<span class="blank" data-answer="equals"></span>
                 excluded, so you get exactly <code>6 - 0 = 6</code>.</li>
               <li><strong>“<code>length</code> and <code>length()</code> are the same.”</strong> For a
                 String it's the method <code>length()</code>, with parentheses. Arrays use
-                <code>length</code> with no parentheses — a genuinely annoying inconsistency you'll meet
+                <code>length</code> with no parentheses. It's an annoying inconsistency, and you'll meet it
                 in Unit J4.</li>
               <li><strong>“Two strings that look the same must match.”</strong> A trailing space or one
                 capital letter is enough. Print them inside brackets to see what's really there.</li>
               <li><strong>“I should memorise every String method.”</strong> Know that
                 <code>length</code>, <code>charAt</code>, <code>substring</code>, <code>trim</code>,
                 <code>contains</code>, <code>indexOf</code> and <code>equals</code> exist. Look up the rest
-                forever.</li>
+                when you need them.</li>
             </ul>
           </div>
         </div>
@@ -640,8 +642,8 @@ ARM (CAN 3)
   first char A
   is arm?    true</code></pre>
                 </div>
-                <p>Compare that to <code>0.42</code> on its own. Same information — but one of them you can
-                  read from four feet away while the match is running. That's the entire point.</p>
+                <p>Compare that to <code>0.42</code> on its own. It's the same information, but you can read this version
+                  from four feet away while the match is running.</p>
               </div>
             </details>
           </div>
@@ -659,19 +661,19 @@ ARM (CAN 3)
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> <code>"Penguin".length()</code> gives 7. What is the position of the last character?</div>
               <div class="options">
-                <label class="option" data-explain="Position 7 does not exist — asking for it crashes the program with StringIndexOutOfBoundsException."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">7</span></label>
                 <label class="option" data-correct data-explain="Right. Positions run 0 to length() - 1, so 0 through 6."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">6</span></label>
+                <label class="option" data-explain="Position 7 does not exist, and asking for it crashes the program with StringIndexOutOfBoundsException."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">7</span></label>
                 <label class="option" data-explain="The rule never changes: the last position is always length() - 1."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It depends on the string</span></label>
               </div>
               <div class="feedback"></div>
             </div>
 
             <div class="cp-q">
-              <div class="cp-prompt"><span class="qn">Q2.</span> After <code>String s = "Arm"; s.toLowerCase();</code> — what does <code>s</code> hold?</div>
+              <div class="cp-prompt"><span class="qn">Q2.</span> After <code>String s = "Arm"; s.toLowerCase();</code>, what does <code>s</code> hold?</div>
               <div class="options">
-                <label class="option" data-explain="That's the value the method returned, but nothing caught it. s was never modified — Strings can't be."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>"arm"</code></span></label>
+                <label class="option" data-explain="That's the value the method returned, but nothing caught it. s was never modified, because Strings can't be."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>"arm"</code></span></label>
                 <label class="option" data-correct data-explain="Correct. The lowercase version was created and immediately discarded because there was no = to store it."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>"Arm"</code></span></label>
-                <label class="option" data-explain="Calling a method never empties a variable. s still holds exactly what it always held."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing — <code>s</code> is now empty</span></label>
+                <label class="option" data-explain="Calling a method never empties a variable. s still holds exactly what it always held."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Nothing; <code>s</code> is now empty</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -679,9 +681,9 @@ ARM (CAN 3)
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> Which is the right way to ask whether two pieces of text are the same?</div>
               <div class="options">
-                <label class="option" data-correct data-explain="Yes — that's the safe, correct answer for text, today and forever."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>a.equals(b)</code></span></label>
                 <label class="option" data-explain="There's no same method; the compiler will say cannot find symbol."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>a.same(b)</code></span></label>
-                <label class="option" data-explain="contains asks whether b appears somewhere inside a — a different question. Intake contains take, but they're not the same string."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>a.contains(b)</code></span></label>
+                <label class="option" data-correct data-explain="Yes. That's the safe, correct answer for text, today and forever."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>a.equals(b)</code></span></label>
+                <label class="option" data-explain="contains asks a different question: whether b appears somewhere inside a. Intake contains take, but they're not the same string."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>a.contains(b)</code></span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -689,9 +691,9 @@ ARM (CAN 3)
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> What does <code>System.out.println("A\tB");</code> print?</div>
               <div class="options">
-                <label class="option" data-explain="The backslash isn't printed — it's an instruction to the compiler about the character that follows."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The literal text <code>A\tB</code></span></label>
-                <label class="option" data-correct data-explain="Correct. \t is one tab character, which is how you line up console columns."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>A</code> and <code>B</code> separated by a tab</span></label>
+                <label class="option" data-explain="The backslash isn't printed. It's an instruction to the compiler about the character that follows."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The literal text <code>A\tB</code></span></label>
                 <label class="option" data-explain="That's \n. A tab moves across; a newline moves down."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Two separate lines</span></label>
+                <label class="option" data-correct data-explain="Correct. \t is one tab character, which is how you line up console columns."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text"><code>A</code> and <code>B</code> separated by a tab</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -699,9 +701,9 @@ ARM (CAN 3)
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q5.</span> Why prefer <code>printf("%.2f%n", value)</code> over <code>println(value)</code> for a decimal?</div>
               <div class="options">
-                <label class="option" data-explain="Speed is irrelevant here — this is about the human reading the console."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It's faster</span></label>
-                <label class="option" data-correct data-explain="Right. A raw double can print as 90.47619047619048, which nobody can read during a match. %.2f gives you 90.48."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It controls how many decimal places appear</span></label>
-                <label class="option" data-explain="println prints decimals perfectly well — just with every digit the machine is holding."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It's the only way to print a decimal</span></label>
+                <label class="option" data-explain="Speed doesn't matter here. This is about the human reading the console."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It's faster than println when printing decimals</span></label>
+                <label class="option" data-explain="println prints decimals perfectly well, just with every digit the machine is holding."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It's the only way to print a decimal</span></label>
+                <label class="option" data-correct data-explain="Right. A raw double can print as 90.47619047619048, which nobody can read during a match. %.2f gives you 90.48."><input type="radio" name="cp5" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It controls how many decimal places print</span></label>
               </div>
               <div class="feedback"></div>
             </div>
@@ -712,7 +714,7 @@ ARM (CAN 3)
 
         <!-- ===================== COMPLETE ===================== -->
         <div class="mark-complete">
-          <div class="mc-text"><b>You can build a console a human can read.</b><span>Next, the last lesson of Unit J1: what to do when the red text appears — reading errors and debugging.</span></div>
+          <div class="mc-text"><b>You can build a console a human can read.</b><span>Next, the last lesson of Unit J1: what to do when the red text appears. You'll learn to read errors and debug.</span></div>
           <button class="complete-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Mark as complete</span></button>
         </div>
 

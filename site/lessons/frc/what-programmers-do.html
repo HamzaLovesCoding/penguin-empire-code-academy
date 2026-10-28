@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Theme before first paint: saved choice, else the OS setting. -->
+  <script>(function(){var t;try{t=localStorage.getItem("pe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
   <link rel="stylesheet" href="/assets/css/brand.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/lesson.css" />
@@ -74,11 +76,11 @@
             <p>A team member built voice control for the team's ChairBot. It ran a small offline speech model,
               so it needed no internet and no paid service, and it sent recognized commands to the robot over the
               network. It worked.</p>
-            <p>It never made it onto a competition robot. One drive motor pulled to the right and needed constant
-              correction, and the only way to stop a command once it started was to keep holding something down.
-              A prototype that works most of the time, on a machine that weighs more than you do, is not a feature.
-              It is a hazard.</p>
-            <p>The team shelved it. That decision, not the speech model, is the thing worth copying.</p>
+            <p>It may never go on the real robot. One drive motor pulled to the right and needed constant
+              correction, and the only safety feature was having to hold something down while giving a command.
+              A prototype that works most of the time, on a machine that weighs more than you do, is a hazard.</p>
+            <p>The team raised those safety concerns before it went anywhere near the real robot. That caution, not
+              the speech model, is the thing worth copying.</p>
           </div>
         </div>
 
@@ -105,8 +107,7 @@
 
         <!-- ===================== STREAMS ===================== -->
         <h2 id="streams"><span class="section-h"><span class="num">3</span> Three workstreams, in order</span></h2>
-        <p>Software work on an FRC robot splits into three streams. They have a strict dependency order, and the
-          order is the single most useful thing on this page.</p>
+        <p>Software work on an FRC robot splits into three streams. They have a strict dependency order, and the order is the most useful thing on this page.</p>
 
         <div class="diagram">
 <span class="hl">MECHANICS</span>   →   <span class="hl">VISION</span>   →   <span class="hl">AUTONOMOUS</span>
@@ -177,7 +178,7 @@ code    the RIO    look at the   number and
         <div class="vocab">
           <div class="vocab-term"><dt>Build season</dt><dd>Weeks of nightly iteration. Mechanisms appear one at a time and you program each one as it becomes real. Most of your code is written here.</dd></div>
           <div class="vocab-term"><dt>Competition</dt><dd>You go to the field with the drive team, bring the driver station laptop, and watch the console for errors during matches. Unit 12 covers this day in detail.</dd></div>
-          <div class="vocab-term"><dt>Offseason</dt><dd>Learning and side projects. The ChairBot voice control was an offseason build. So was this website.</dd></div>
+          <div class="vocab-term"><dt>Offseason</dt><dd>Learning and side projects, like the ChairBot voice control experiment. This website is one too.</dd></div>
         </div>
 
         <!-- ===================== CHALLENGES ===================== -->
@@ -213,8 +214,8 @@ code    the RIO    look at the   number and
             <p class="challenge-prompt">Which of these is <em>not</em> an FRC programmer's job?</p>
             <div class="options">
               <label class="option" data-explain="This one is yours. Programmers flash the roboRIO with the season's image before any code will run on it."><input type="radio" name="q-job" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Imaging the roboRIO at the start of the season</span></label>
-              <label class="option" data-explain="Also yours. You set CAN IDs in the vendor client so your code can address one specific motor."><input type="radio" name="q-job" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Assigning CAN IDs to motor controllers</span></label>
               <label class="option" data-correct data-explain="Correct. Coaching is the drive coach's job. Your job at the field is watching the console for errors, which you will see again in Unit 12."><input type="radio" name="q-job" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Coaching the driver during a match</span></label>
+              <label class="option" data-explain="Also yours. You set CAN IDs in the vendor client so your code can address one specific motor."><input type="radio" name="q-job" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Assigning CAN IDs to motor controllers</span></label>
               <label class="option" data-explain="Yours, and it is the main one on game day. Errors show up there long before anyone notices them on the field."><input type="radio" name="q-job" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Watching the Driver Station console for errors</span></label>
             </div>
             <div class="challenge-actions"><button class="btn btn--sm check-btn" type="button">Check</button></div>
@@ -224,7 +225,7 @@ code    the RIO    look at the   number and
 
         <!-- short answer -->
         <div class="challenge" data-kind="text"
-             data-win="Shelve it. This is a real call the team made about a working voice control prototype, for exactly this reason."
+             data-win="Shelve it. The team's own voice control prototype raised exactly these safety concerns."
              data-lose="Shelve it. Reliability and a way to stop are not extras on a 120 pound machine. Works nine times out of ten means fails one time in ten, in front of a crowd.">
           <div class="challenge-head"><span class="ch-kind">Judgement call</span><span class="ch-title">Ship it or shelve it?</span></div>
           <div class="challenge-body">
@@ -319,8 +320,8 @@ code    the RIO    look at the   number and
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q1.</span> Why is autonomous built last?</div>
               <div class="options">
-                <label class="option" data-explain="Not really. Path generation tools do most of that math for you. The reason is dependency, not difficulty."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It involves the hardest math</span></label>
-                <label class="option" data-correct data-explain="Right. Auto is a sequence of the mechanism and vision commands you already wrote, so there is nothing to sequence until those exist."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is a sequence of commands you have to write first</span></label>
+                <label class="option" data-explain="Not really. Path generation tools do most of that math for you. The reason is dependency, not difficulty."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It involves the hardest maths in the course</span></label>
+                <label class="option" data-correct data-explain="Right. Auto is a sequence of the mechanism and vision commands you already wrote, so there is nothing to sequence until those exist."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is built from commands you write first</span></label>
                 <label class="option" data-explain="Auto is worth real match points. It is built last for dependency reasons, not because it matters less."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It only matters at competition</span></label>
                 <label class="option" data-explain="The game does change every year, which is a real reason to re-check the rules. It is not the reason auto comes last."><input type="radio" name="cp1" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">The rules change every year</span></label>
               </div>
@@ -330,17 +331,17 @@ code    the RIO    look at the   number and
               <div class="cp-prompt"><span class="qn">Q2.</span> Which best describes a programmer's relationship to hardware?</div>
               <div class="options">
                 <label class="option" data-explain="Not true on this team. You image the roboRIO, push motor controller firmware, and set CAN IDs."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">None. You only write code</span></label>
-                <label class="option" data-correct data-explain="Yes. That is the whole reason Units 1 and 2 come before any Java in this phase."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You push firmware and images, set device IDs, and have to understand how signals travel</span></label>
-                <label class="option" data-explain="Building mechanisms is the mechanical sub-team's job. You make their mechanisms know things."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You build the mechanisms</span></label>
-                <label class="option" data-explain="You touch hardware all season. Competition only adds the radio setup and watching the console."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You only touch hardware at competition</span></label>
+                <label class="option" data-explain="You touch hardware all season. Competition only adds the radio setup and watching the console."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You only touch hardware once you get to competition</span></label>
+                <label class="option" data-explain="Building mechanisms is the mechanical sub-team's job. You make their mechanisms know things."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You build the mechanisms the code will control</span></label>
+                <label class="option" data-correct data-explain="Yes. That is why Units 1 and 2 come before any Java in this phase."><input type="radio" name="cp2" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You flash firmware, set IDs, and learn the wiring</span></label>
               </div>
               <div class="feedback"></div>
             </div>
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q3.</span> A prototype works 90% of the time and cannot be stopped mid action. What does a good programmer do?</div>
               <div class="options">
-                <label class="option" data-explain="On a machine this heavy, the 10% is the entire problem."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Ship it. 90% is good enough</span></label>
-                <label class="option" data-correct data-explain="Correct, and this is a real call the team made about a working voice control prototype."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Shelve it until it is reliable and stoppable</span></label>
+                <label class="option" data-correct data-explain="Correct. The team's own voice control prototype raised the same concerns."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Shelve it until it is reliable and stoppable</span></label>
+                <label class="option" data-explain="On a machine this heavy, the 10% is the problem."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Ship it. 90% is good enough</span></label>
                 <label class="option" data-explain="A verbal warning is not a safety feature. The driver cannot react faster than a motor."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Ship it, but tell the driver to be careful</span></label>
                 <label class="option" data-explain="The language was never the issue. Reliability and a stop condition were."><input type="radio" name="cp3" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Rewrite it in a different language</span></label>
               </div>
@@ -349,10 +350,10 @@ code    the RIO    look at the   number and
             <div class="cp-q">
               <div class="cp-prompt"><span class="qn">Q4.</span> What is the write, deploy, watch, adjust loop for?</div>
               <div class="options">
-                <label class="option" data-explain="Compile time is not the bottleneck. Reality is."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Making the code compile faster</span></label>
-                <label class="option" data-explain="Inspectors check the robot against the rules, not your workflow."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Satisfying the inspectors</span></label>
-                <label class="option" data-correct data-explain="Exactly. You will not even know which direction positive spins a motor until you run it slowly and look."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You cannot tell what a mechanism will do by reading code. You have to run it and watch</span></label>
-                <label class="option" data-explain="It is a working habit, not a rule in any manual."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is a rule in the game manual</span></label>
+                <label class="option" data-explain="Compile time is not the bottleneck. Reality is."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Making the code compile faster each time</span></label>
+                <label class="option" data-explain="Inspectors check the robot against the rules, not your workflow."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">Satisfying the inspectors at competition</span></label>
+                <label class="option" data-explain="It is a working habit, not a rule in any manual."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">It is a required process in the game manual</span></label>
+                <label class="option" data-correct data-explain="Exactly. You will not even know which direction positive spins a motor until you run it slowly and look."><input type="radio" name="cp4" /><span class="opt-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="opt-text">You only learn what a mechanism does by running it</span></label>
               </div>
               <div class="feedback"></div>
             </div>
